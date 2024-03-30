@@ -39,7 +39,7 @@ CREATE TABLE Customer (
     customerId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
     customerName NVARCHAR(100),
     phoneNumber VARCHAR(15),
-    rewardPoint DECIMAL(10, 2),
+    rewardPoint DECIMAL(10, 2) DEFAULT 0,
     createdAt DATETIME,
     updatedAt DATETIME,
     isDeleted BIT DEFAULT 0
