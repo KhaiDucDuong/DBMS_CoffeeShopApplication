@@ -1,7 +1,7 @@
 use CoffeeShop
 GO
 /*Trigger 5*/
-DROP TRIGGER tr_Employee_AfterInsert
+--DROP TRIGGER tr_Employee_AfterInsert
 GO
 CREATE TRIGGER tr_Employee_AfterInsert
 ON Employee
@@ -21,7 +21,7 @@ END
 
 GO
 /*Trigger 6*/
-DROP TRIGGER tr_Employee_AfterUpdateIsWorking
+--DROP TRIGGER tr_Employee_AfterUpdateIsWorking
 GO
 CREATE TRIGGER tr_Employee_AfterUpdateIsWorking
 ON Employee
