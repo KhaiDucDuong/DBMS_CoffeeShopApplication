@@ -60,14 +60,18 @@ ON OrderBillDetails
 AFTER INSERT
 AS
 BEGIN
-	--Get data to calculate the new initial bill and final bill
-	DECLARE @billId UNIQUEIDENTIFIER, @productId UNIQUEIDENTIFIER, @productPrice DECIMAL(10, 2), @productQuantity INT;
-	SELECT @billId = billId, @productId = productId, @productQuantity = quantity FROM inserted
-	SELECT @productPrice = productPrice FROM Product WHERE productId = @productId
+	--Get billId and calculate the new price we need to add to the OrderBill
+	DECLARE @billId UNIQUEIDENTIFIER, @addedPrice DECIMAL(10, 2);
+	SELECT @billId = billId, @addedPrice = SUM(quantity * productPrice) FROM inserted inner join Product on inserted.productId = Product.productId GROUP BY billId
 
+	--Update the initialBill in the OrderBill
 	UPDATE OrderBill
-	SET initialBill = initialBill + (@productPrice * @productQuantity),
-		finalBill = initialBill - rewardPointsUsed
+	SET initialBill = initialBill + @addedPrice
+	WHERE billId = @billId
+
+	--Update the finalBill in the OrderBill
+	UPDATE OrderBill
+	SET finalBill = initialBill - rewardPointsUsed
 	WHERE billId = @billId
 END;
 
