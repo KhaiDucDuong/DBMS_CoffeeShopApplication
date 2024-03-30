@@ -52,7 +52,7 @@ BEGIN
 END;
 
 GO
-/* Trigger 7 Cập nhật số tiền tổng của OrderBill khi thêm/sửa/xóa một sản phẩm trong OrderBillDetails */
+/* Trigger 7 Cập nhật số tiền tổng của OrderBill khi thêm một sản phẩm trong OrderBillDetails */
 --DROP TRIGGER tr_OrderBill_AfterInsert
 --GO
 CREATE TRIGGER tr_OrderBill_AfterInsert
@@ -70,6 +70,10 @@ BEGIN
 		finalBill = initialBill - rewardPointsUsed
 	WHERE billId = @billId
 END;
+
+/* Trigger 8 Cập nhật số tiền tổng của OrderBill khi sửa một sản phẩm trong OrderBillDetails */
+
+/* Trigger 9 Cập nhật số tiền tổng của OrderBill khi xóa một sản phẩm trong OrderBillDetails */
 
 /*Trigger cập nhật số điểm thưởng của khách hàng khi thêm một Order Bill - trường hợp trừ điểm thưởng vì đã sử dụng khấu phần hóa đơn*/
 
