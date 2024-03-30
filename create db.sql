@@ -39,7 +39,7 @@ CREATE TABLE Customer (
     customerId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
     customerName NVARCHAR(100),
     phoneNumber VARCHAR(15),
-    rewardPoint DECIMAL(10, 2) DEFAULT 0 CHECK (rewardPoint >= 0),
+    rewardPoint DECIMAL(10, 2) DEFAULT 0,
     createdAt DATETIME,
     updatedAt DATETIME,
     isDeleted BIT DEFAULT 0,
@@ -78,8 +78,8 @@ GO
 CREATE TABLE OrderBill (
     billId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
 	rewardPointsUsed DECIMAL(10, 2) CHECK (rewardPointsUsed >= 0.00),
-    initialBill DECIMAL(10, 2) CHECK (initialBill >= 0.00),
-    finalBill DECIMAL(10, 2) CHECK (finalBill >= 0.00),
+    initialBill DECIMAL(10, 2) CHECK (initialBill >= 0.00) DEFAULT 0.00,
+    finalBill DECIMAL(10, 2) CHECK (finalBill >= 0.00) DEFAULT 0.00,
     createdAt DATETIME,
     isDeleted BIT,
     employeeId UNIQUEIDENTIFIER REFERENCES Employee(employeeId),
@@ -91,7 +91,7 @@ CREATE TABLE RestockBill (
     restockBillId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
     date DATE,
 	supplierName NVARCHAR(50),
-    totalBill DECIMAL(10, 2) CHECK (totalBill >= 0.00)
+    totalBill DECIMAL(10, 2) CHECK (totalBill >= 0.00) DEFAULT 0.00
 );
 
 GO
