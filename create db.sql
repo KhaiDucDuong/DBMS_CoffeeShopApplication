@@ -81,7 +81,7 @@ CREATE TABLE OrderBill (
     initialBill DECIMAL(10, 2) CHECK (initialBill >= 0.00) DEFAULT 0.00,
     finalBill DECIMAL(10, 2) CHECK (finalBill >= 0.00) DEFAULT 0.00,
     createdAt DATETIME,
-    isDeleted BIT,
+    isDeleted BIT DEFAULT 0,
     employeeId UNIQUEIDENTIFIER REFERENCES Employee(employeeId),
     customerId UNIQUEIDENTIFIER REFERENCES Customer(customerId)
 );
