@@ -28,7 +28,7 @@ CREATE TABLE Product (
     productId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
     productName NVARCHAR(100),
     productSize NVARCHAR(50),
-    productPrice DECIMAL(10, 2),
+    productPrice DECIMAL(10, 2) CHECK (productPrice >= 0.00),
     createdAt DATETIME,
     updatedAt DATETIME,
     isDeleted BIT DEFAULT 0
@@ -39,10 +39,10 @@ CREATE TABLE Customer (
     customerId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
     customerName NVARCHAR(100),
     phoneNumber VARCHAR(15),
-    rewardPoint DECIMAL(10, 2) DEFAULT 0,
+    rewardPoint DECIMAL(10, 2) DEFAULT 0 CHECK (rewardPoint >= 0),
     createdAt DATETIME,
     updatedAt DATETIME,
-    isDeleted BIT DEFAULT 0
+    isDeleted BIT DEFAULT 0,
 );
 
 GO
@@ -77,8 +77,9 @@ CREATE TABLE Account (
 GO
 CREATE TABLE OrderBill (
     billId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
-	rewardPointsUsed DECIMAL(10, 2),
-    totalBill DECIMAL(10, 2),
+	rewardPointsUsed DECIMAL(10, 2) CHECK (rewardPointsUsed >= 0.00),
+    initialBill DECIMAL(10, 2) CHECK (initialBill >= 0.00),
+    finalBill DECIMAL(10, 2) CHECK (finalBill >= 0.00),
     createdAt DATETIME,
     isDeleted BIT,
     employeeId UNIQUEIDENTIFIER REFERENCES Employee(employeeId),
@@ -90,14 +91,14 @@ CREATE TABLE RestockBill (
     restockBillId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
     date DATE,
 	supplierName NVARCHAR(50),
-    totalBill DECIMAL(10, 2)
+    totalBill DECIMAL(10, 2) CHECK (totalBill >= 0.00)
 );
 
 GO
 CREATE TABLE OrderBillDetails (
     billId UNIQUEIDENTIFIER REFERENCES OrderBill(billId),
     productId UNIQUEIDENTIFIER REFERENCES Product(productId),
-    quantity INT,
+    quantity INT CHECK (quantity >= 1),
     PRIMARY KEY (billId, productId)
 );
 
@@ -122,6 +123,6 @@ CREATE TABLE RestockBillDetails (
     ingredientId UNIQUEIDENTIFIER REFERENCES Ingredient(ingredientId),
 	restockBillId UNIQUEIDENTIFIER REFERENCES RestockBill(restockBillId),
 	PRIMARY KEY (ingredientId, restockBillId),
-    quantity INT,
+    quantity INT CHECK (quantity >= 1),
     price DECIMAL(10, 2),
 );
