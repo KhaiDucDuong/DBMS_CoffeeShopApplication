@@ -12,6 +12,7 @@ join OrderBillDetails obd on ob.billId = obd.billId
 join Product p on obd.productId = p.productId
 GROUP BY ob.billId, ob.rewardPointsUsed, ob.initialBill, ob.finalBill, ob.createdAt, ob.employeeId, ob.customerId
 
+--select * from GetOrderBillDetailsView where createdAt between CAST(CONVERT(VARCHAR,GETDATE(),102) AS DATETIME) and CAST(CONVERT(VARCHAR,GETDATE() + 1,102) AS DATETIME)
 
 /* Câu 5 - Xem các bill bán hàng trong ngày hôm nay */
 GO
