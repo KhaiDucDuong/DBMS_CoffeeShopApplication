@@ -1,5 +1,71 @@
 ﻿use CoffeeShop
 GO
+
+--Trigger update giờ làm việc của nhân viên dựa trên vai trò
+CREATE TRIGGER upt_position 
+ON Employee
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF EXISTS (SELECT 1 FROM INSERTED)
+    BEGIN
+        -- Update existing records
+        UPDATE Employee
+        SET hourRate = 
+            CASE 
+                WHEN INSERTED.position = 'employee' THEN 25
+                WHEN INSERTED.position = 'manager' THEN 50
+            END
+        FROM Employee
+        INNER JOIN INSERTED ON Employee.PrimaryKey = INSERTED.PrimaryKey;
+
+        PRINT 'Updated records';
+    END
+    ELSE
+    BEGIN
+        -- Handle insert operations
+        INSERT INTO Employee (PrimaryKey, hourRate)
+        SELECT PrimaryKey, 
+               CASE 
+                   WHEN position = 'A' THEN 25
+                   WHEN position = 'B' THEN 50
+               END
+        FROM INSERTED;
+
+        PRINT 'Inserted records';
+    END
+END;
+GO
+
+--Trigger Update ngày lễ dựa
+CREATE TRIGGER trg_UpdateHolidayWeekend
+ON RegisterSchedule
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Update isHoliday and isWeekend based on the inserted or updated date
+    UPDATE RS
+    SET isHoliday = 
+        CASE 
+            WHEN DATENAME(dw, inserted.date) IN ('Saturday', 'Sunday') THEN 'true'
+            ELSE 'false'
+        END,
+        isWeekend = 
+        CASE 
+            WHEN DATENAME(dw, inserted.date) IN ('Saturday', 'Sunday') THEN 'true'
+            ELSE 'false'
+        END
+    FROM RegisterSchedule RS
+    INNER JOIN inserted ON RS.PrimaryKey = inserted.PrimaryKey;
+
+    PRINT 'Updated isHoliday and isWeekend columns';
+END;
+GO
+
 /*Trigger 3 Cập nhật điểm của khách hàng khi xuất bill*/
 CREATE TRIGGER tr_Customer_UpdateRewardPoint
 ON OrderBill
