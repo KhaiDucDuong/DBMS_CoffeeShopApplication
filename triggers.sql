@@ -1,5 +1,46 @@
 ﻿use CoffeeShop
 GO
+/*Trigger 3 Cập nhật điểm của khách hàng khi xuất bill*/
+CREATE TRIGGER tr_Customer_UpdateRewardPoint
+ON OrderBill
+AFTER INSERT
+AS
+BEGIN
+    -- Update reward points for each customer based on the bill
+    DECLARE @customerId UNIQUEIDENTIFIER, @totalSpent DECIMAL(10, 2), @rewardPoints DECIMAL(10, 2);
+
+    -- Calculate total spent for each customer in the inserted orders
+    SELECT @customerId = customerId, @totalSpent = SUM(initialBill - finalBill) FROM inserted GROUP BY customerId;
+
+    -- Calculate reward points based on total spent
+    SET @rewardPoints = @totalSpent * 0.1; -- Assuming 1 reward point for every $10 spent
+
+    -- Update reward points for the customer
+    UPDATE Customer
+    SET rewardPoint = rewardPoint + @rewardPoints
+    WHERE customerId = @customerId;
+END;
+
+/*Trigger 4 Cập nhật điểm của khách khi họ sử dụng điểm để thanh toán */
+CREATE TRIGGER tr_Customer_UseRewardPoint
+ON OrderBill
+AFTER UPDATE
+AS
+BEGIN
+    -- Update reward points for each customer when they use points for payment
+    DECLARE @customerId UNIQUEIDENTIFIER, @usedPoints DECIMAL(10, 2);
+
+    -- Calculate total used points for each customer in the updated orders
+    SELECT @customerId = customerId, @usedPoints = SUM(rewardPointsUsed) FROM inserted GROUP BY customerId;
+
+    -- Deduct used points from the customer's reward points
+    UPDATE Customer
+    SET rewardPoint = CASE
+                            WHEN rewardPoint - @usedPoints >= 0 THEN rewardPoint - @usedPoints
+                            ELSE 0
+                      END
+    WHERE customerId = @customerId;
+END;
 /*Trigger 5 Tự tạo tài khoản cho nhân viên khi thêm một nhân viên */
 --DROP TRIGGER tr_Employee_AfterInsert
 --GO
