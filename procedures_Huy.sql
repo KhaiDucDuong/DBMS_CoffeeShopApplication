@@ -31,6 +31,7 @@ BEGIN
 		isDeleted = @isDeleted
     WHERE customerId = @customerId;
 END;
+/* Procedure delete vào bảng Customer*/
 /* Procedure insert vào bảng Product*/
 GO
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertProductProc')
@@ -66,6 +67,7 @@ BEGIN
 		isDeleted = @isDeleted
     WHERE productId = @productId;
 END;
+/* Procedure delete vào bảng Product*/
 /* Procedure insert vào bảng InventoryCheck*/
 GO
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertInventoryCheckProc')
@@ -98,6 +100,7 @@ BEGIN
         checkDate = @checkDate
     WHERE checkId = @checkId;
 END;
+/* Procedure delete vào bảng InventoryCheck*/
 /* Procedure insert vào bảng InventoryCheckDetails*/
 GO
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertInventoryCheckDetailsProc')
@@ -127,3 +130,4 @@ BEGIN
     SET quantity = @quantity
     WHERE checkId = @checkId AND ingredientId = @ingredientId;
 END;
+/* Procedure delete vào bảng InventoryCheckDetails*/
