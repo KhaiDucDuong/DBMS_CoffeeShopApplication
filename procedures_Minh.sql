@@ -1,13 +1,14 @@
 --PROCEDURES
+--@UpdateType là dùng để định chức năng của Procedures
 CREATE PROCEDURE UpdateEmployee
     @EmployeeId UNIQUEIDENTIFIER,
     @FullName NVARCHAR(100),
     @PhoneNumber VARCHAR(15),
     @Address NVARCHAR(255),
     @Email VARCHAR(255),
-	@Role VARCHAR(20),
+    @Role VARCHAR(20),
     @IsWorking BIT,
-	@UpdateType VarChar(20)
+    @UpdateType VarChar(20)
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -72,12 +73,12 @@ END;
 GO
 
 CREATE PROCEDURE UpdateOrderBill
-	@CustomerId UNIQUEIDENTIFIER,
+    @CustomerId UNIQUEIDENTIFIER,
     @EmployeeId UNIQUEIDENTIFIER,
-	@BillId UNIQUEIDENTIFIER,
+    @BillId UNIQUEIDENTIFIER,
     @RewardPointsUsed DECIMAL(10, 2),
     @TotalBill DECIMAL(10, 2),
-	@UpdateType VARCHAR(20)
+    @UpdateType VARCHAR(20)
 AS
 BEGIN
 	IF @UpdateType = 'add'
@@ -107,7 +108,7 @@ CREATE PROCEDURE AddOrderBillDetails
     @BillId UNIQUEIDENTIFIER,
     @ProductId UNIQUEIDENTIFIER,
     @Quantity INT,
-	@UpdateType VarChar(20)
+    @UpdateType VarChar(20)
 AS
 BEGIN
     SET NOCOUNT ON;
