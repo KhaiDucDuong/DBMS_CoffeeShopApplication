@@ -18,11 +18,13 @@ if exists(select 1 from sys.views where name='GetRestockBillView' and type='v')
 drop view GetRestockBillView;
 GO
 CREATE VIEW GetRestockBillView AS
-SELECT rb.restockBillId, i.ingredientId, rb.quantity, rb.checkDate
+SELECT rb.restockBillId, rb.date, i.ingredientName,rbd.quantity, rbd.price
 FROM RestockBill rb
-JOIN Supplier s ON sup.supplierId = s.supplierId
-JOIN Ingredient i ON sup.ingredientId = i.ingredientId;
+JOIN RestockBillDetails rbd on rb.restockBillId = rbd.restockBillId
+JOIN Ingredient i ON rbd.ingredientId = i.ingredientId
 
+--GO
+--select * from GetRestockBillView ORDER BY restockBillId
 --select * from GetOrderBillDetailsView where createdAt between CAST(CONVERT(VARCHAR,GETDATE(),102) AS DATETIME) and CAST(CONVERT(VARCHAR,GETDATE() + 1,102) AS DATETIME)
 /*Câu 3 - Xem thông tin nhân viên đang làm việc (có thể xem dựa trên role của nhân viên)*/
 GO
