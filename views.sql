@@ -12,6 +12,17 @@ join OrderBillDetails obd on ob.billId = obd.billId
 join Product p on obd.productId = p.productId
 GROUP BY ob.billId, ob.rewardPointsUsed, ob.initialBill, ob.finalBill, ob.createdAt, ob.employeeId, ob.customerId
 
+-- câu 2 restockbill 
+GO
+if exists(select 1 from sys.views where name='GetRestockBillView' and type='v')
+drop view GetRestockBillView;
+GO
+CREATE VIEW GetRestockBillView AS
+SELECT rb.restockBillId, i.ingredientId, rb.quantity, rb.checkDate
+FROM RestockBill rb
+JOIN Supplier s ON sup.supplierId = s.supplierId
+JOIN Ingredient i ON sup.ingredientId = i.ingredientId;
+
 --select * from GetOrderBillDetailsView where createdAt between CAST(CONVERT(VARCHAR,GETDATE(),102) AS DATETIME) and CAST(CONVERT(VARCHAR,GETDATE() + 1,102) AS DATETIME)
 /*Câu 3 - Xem thông tin nhân viên đang làm việc (có thể xem dựa trên role của nhân viên)*/
 GO
