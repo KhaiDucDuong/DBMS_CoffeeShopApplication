@@ -2,71 +2,76 @@
 GO
 
 --Trigger update giờ làm việc của nhân viên dựa trên vai trò
-CREATE TRIGGER upt_position 
-ON Employee
-AFTER INSERT, UPDATE
-AS
-BEGIN
-    SET NOCOUNT ON;
+--CREATE TRIGGER upt_position 
+--ON Employee
+--AFTER INSERT, UPDATE
+--AS
+--BEGIN
+--    SET NOCOUNT ON;
 
-    IF EXISTS (SELECT 1 FROM INSERTED)
-    BEGIN
-        -- Update existing records
-        UPDATE Employee
-        SET hourRate = 
-            CASE 
-                WHEN INSERTED.position = 'employee' THEN 25
-                WHEN INSERTED.position = 'manager' THEN 50
-            END
-        FROM Employee
-        INNER JOIN INSERTED ON Employee.PrimaryKey = INSERTED.PrimaryKey;
+--    IF EXISTS (SELECT 1 FROM INSERTED)
+--    BEGIN
+--        -- Update existing records
+--        UPDATE Employee
+--        SET hourRate = 
+--            CASE 
+--                WHEN INSERTED.position = 'employee' THEN 25
+--                WHEN INSERTED.position = 'manager' THEN 50
+--            END
+--        FROM Employee
+--        INNER JOIN INSERTED ON Employee.PrimaryKey = INSERTED.PrimaryKey;
 
-        PRINT 'Updated records';
-    END
-    ELSE
-    BEGIN
-        -- Handle insert operations
-        INSERT INTO Employee (PrimaryKey, hourRate)
-        SELECT PrimaryKey, 
-               CASE 
-                   WHEN position = 'A' THEN 25
-                   WHEN position = 'B' THEN 50
-               END
-        FROM INSERTED;
+--        PRINT 'Updated records';
+--    END
+--    ELSE
+--    BEGIN
+--        -- Handle insert operations
+--        INSERT INTO Employee (PrimaryKey, hourRate)
+--        SELECT PrimaryKey, 
+--               CASE 
+--                   WHEN position = 'A' THEN 25
+--                   WHEN position = 'B' THEN 50
+--               END
+--        FROM INSERTED;
 
-        PRINT 'Inserted records';
-    END
-END;
-GO
+--        PRINT 'Inserted records';
+--    END
+--END;
+--GO
 
 --Trigger Update ngày lễ dựa
-CREATE TRIGGER trg_UpdateHolidayWeekend
-ON RegisterSchedule
-AFTER INSERT, UPDATE
-AS
-BEGIN
-    SET NOCOUNT ON;
 
-    -- Update isHoliday and isWeekend based on the inserted or updated date
-    UPDATE RS
-    SET isHoliday = 
-        CASE 
-            WHEN DATENAME(dw, inserted.date) IN ('Saturday', 'Sunday') THEN 'true'
-            ELSE 'false'
-        END,
-        isWeekend = 
-        CASE 
-            WHEN DATENAME(dw, inserted.date) IN ('Saturday', 'Sunday') THEN 'true'
-            ELSE 'false'
-        END
-    FROM RegisterSchedule RS
-    INNER JOIN inserted ON RS.PrimaryKey = inserted.PrimaryKey;
+--CREATE TRIGGER trg_UpdateHolidayWeekend
+--ON RegisterSchedule
+--AFTER INSERT, UPDATE
+--AS
+--BEGIN
+--    SET NOCOUNT ON;
 
-    PRINT 'Updated isHoliday and isWeekend columns';
-END;
-GO
+--    -- Update isHoliday and isWeekend based on the inserted or updated date
+--    UPDATE RS
+--    SET isHoliday = 
+--        CASE 
+--            WHEN DATENAME(dw, inserted.date) IN ('Saturday', 'Sunday') THEN 'true'
+--            ELSE 'false'
+--        END,
+--        isWeekend = 
+--        CASE 
+--            WHEN DATENAME(dw, inserted.date) IN ('Saturday', 'Sunday') THEN 'true'
+--            ELSE 'false'
+--        END
+--    FROM RegisterSchedule RS
+--    INNER JOIN inserted ON RS.PrimaryKey = inserted.PrimaryKey;
+
+--    PRINT 'Updated isHoliday and isWeekend columns';
+--END;
+--GO
 
 /*Trigger 3 Cập nhật điểm của khách hàng khi xuất bill*/
+
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_Customer_UpdateRewardPoint' AND [type] = 'TR')
+	DROP TRIGGER [dbo].[tr_Customer_UpdateRewardPoint];
+GO
 CREATE TRIGGER tr_Customer_UpdateRewardPoint
 ON OrderBill
 AFTER INSERT
@@ -87,7 +92,11 @@ BEGIN
     WHERE customerId = @customerId;
 END;
 
+GO
 /*Trigger 4 Cập nhật điểm của khách khi họ sử dụng điểm để thanh toán */
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_Customer_UseRewardPoint' AND [type] = 'TR')
+	DROP TRIGGER [dbo].[tr_Customer_UseRewardPoint];
+GO
 CREATE TRIGGER tr_Customer_UseRewardPoint
 ON OrderBill
 AFTER UPDATE
@@ -110,6 +119,10 @@ END;
 /*Trigger 5 Tự tạo tài khoản cho nhân viên khi thêm một nhân viên */
 --DROP TRIGGER tr_Employee_AfterInsert
 --GO
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_Employee_AfterInsert' AND [type] = 'TR')
+	DROP TRIGGER [dbo].[tr_Employee_AfterInsert];
+GO
 CREATE TRIGGER tr_Employee_AfterInsert
 ON Employee
 AFTER INSERT
@@ -132,6 +145,9 @@ GO
 /*Trigger 6 Khóa/Mở tài khoản của nhân viên khi cập nhật trạng thái đang làm việc của nhân viên đấy */
 --DROP TRIGGER tr_Employee_AfterUpdateIsWorking
 --GO
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_Employee_AfterUpdateIsWorking' AND [type] = 'TR')
+	DROP TRIGGER [dbo].[tr_Employee_AfterUpdateIsWorking];
+GO
 CREATE TRIGGER tr_Employee_AfterUpdateIsWorking
 ON Employee
 AFTER UPDATE
@@ -160,8 +176,10 @@ END;
 
 GO
 /* Trigger 7 Cập nhật số tiền tổng của OrderBill khi thêm một sản phẩm trong OrderBillDetails */
---DROP TRIGGER tr_OrderBill_AfterInsert
---GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_OrderBill_AfterInsert' AND [type] = 'TR')
+	DROP TRIGGER [dbo].[tr_OrderBill_AfterInsert];
+GO
 CREATE TRIGGER tr_OrderBill_AfterInsert
 ON OrderBillDetails
 AFTER INSERT
