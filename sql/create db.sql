@@ -57,7 +57,7 @@ CREATE TABLE Ingredient (
 GO
 CREATE TABLE Inventory (
     inventoryId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
-    name VARCHAR(255),
+    name NVARCHAR(255),
 	isDeleted BIT DEFAULT 0
 );
 
