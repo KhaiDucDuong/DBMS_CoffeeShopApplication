@@ -14,7 +14,7 @@ BEGIN
 END;
 
 --GO
---EXEC InsertIngredientProc N'Nguyên liệu 5', N'Trung Nguyên';
+--EXEC InsertIngredientProc N'Nguyên liệu 1', N'Trung Nguyên';
 --Go
 --select * from Ingredient
 
@@ -79,8 +79,6 @@ END;
 --GO
 --EXEC UpdateInventoryProc 'D48642D8-D205-4A1A-ACEE-A934E6A5829F', 'Phòng 2B01';
 
-/* Procedure Delete vào bảng Inventory */
-
 /* Procedure Insert vào bảng RestockBill */
 GO
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertRestockBillProc')
@@ -118,8 +116,29 @@ BEGIN
     WHERE restockBillId = @restockBillId;
 END;
 
+--select * from RestockBill
+
+--select * from Ingredient
+
+--select * from  RestockBillDetails
 --GO
---EXEC UpdateRestockBillProc 'DCEE2B02-6AA9-4F1C-8342-A87DADF34217', '2024-03-14', 'COOP', '200000.00';
+EXEC UpdateRestockBillProc 'DCEE2B02-6AA9-4F1C-8342-A87DADF34217', '2024-03-14', 'COOP', '200000.00';
+
+/* Procedure Delete vào bảng RestockBill */
+
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'DeleteRestockBillProc')
+DROP PROCEDURE DeleteRestockBillProc
+GO
+CREATE PROCEDURE DeleteRestockBillProc
+    @restockBillId UNIQUEIDENTIFIER
+AS
+BEGIN
+    DELETE FROM RestockBill
+    WHERE restockBillId = @restockBillId;
+END;
+
+--EXEC DeleteRestockBillProc '9B17B37A-BC97-4236-A19B-E6AD5C9102B2';
 
 /* Procedure Insert vào bảng RestockBillDetails */
 GO
@@ -127,8 +146,8 @@ IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertRestockB
 DROP PROCEDURE InsertRestockBillDetailsProc
 GO
 CREATE PROCEDURE InsertRestockBillDetailsProc
-    @ingredientId UNIQUEIDENTIFIER,
-    @restockBillId UNIQUEIDENTIFIER,
+	@ingredientId UNIQUEIDENTIFIER,
+	@restockBillId UNIQUEIDENTIFIER,
     @quantity INT,
     @price DECIMAL(10, 2)
 AS
@@ -137,7 +156,7 @@ BEGIN
     VALUES (@ingredientId, @restockBillId, @quantity, @price);
 END;
 
-EXEC InsertRestockBillDetailsProc '441E3AC0-4AB2-4BEF-AF15-95FE84C44EE0', 'DCEE2B02-6AA9-4F1C-8342-A87DADF34217', '2','25000.00'; 
+--EXEC InsertRestockBillDetailsProc '27AD7C35-3175-4E90-89D0-1A5E1BFC94E0', 'BB0C6C15-45CD-4FD1-BC1A-D786E09A7B4F', '2','25000.00'; 
 
 /* Procedure Update vào bảng RestockBillDetails */
 GO
@@ -175,7 +194,7 @@ BEGIN
     AND restockBillId = @restockBillId;
 END;
 
---EXEC DeleteRestockBillDetailsProc '441E3AC0-4AB2-4BEF-AF15-95FE84C44EE0', 'DCEE2B02-6AA9-4F1C-8342-A87DADF34217'; 
+--EXEC DeleteRestockBillDetailsProc 'BB0C6C15-45CD-4FD1-BC1A-D786E09A7B4F', '27AD7C35-3175-4E90-89D0-1A5E1BFC94E0';
 
 
 
