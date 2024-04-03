@@ -2142,24 +2142,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\PHUONG\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ĐH SPKT_CAO KKHAI MINH\\Năm 3\\hk2\\Window Programming\\FinalProject_WinForm\\FinalProject_WinForm.csproj",
+      "projectUniqueName": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\FinalProject_DBMS\\FinalProject_WinForm.csproj",
       "projectName": "FinalProject_WinForm",
-      "projectPath": "D:\\ĐH SPKT_CAO KKHAI MINH\\Năm 3\\hk2\\Window Programming\\FinalProject_WinForm\\FinalProject_WinForm.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\ĐH SPKT_CAO KKHAI MINH\\Năm 3\\hk2\\Window Programming\\FinalProject_WinForm\\obj\\",
+      "projectPath": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\FinalProject_DBMS\\FinalProject_WinForm.csproj",
+      "packagesPath": "C:\\Users\\PHUONG\\.nuget\\packages\\",
+      "outputPath": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\FinalProject_DBMS\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\PHUONG\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2167,7 +2162,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2207,6 +2201,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.17, 7.0.17]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.17, 7.0.17]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.17, 7.0.17]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.17, 7.0.17]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
