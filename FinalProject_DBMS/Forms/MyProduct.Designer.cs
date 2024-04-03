@@ -33,8 +33,8 @@
             lbSellerName = new Label();
             label1 = new Label();
             panel1 = new Panel();
-            pictureBox2 = new PictureBox();
             lbNumberProducts = new Label();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -91,17 +91,6 @@
             panel1.Size = new Size(297, 143);
             panel1.TabIndex = 16;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources._31958787_v915_techi_006_k;
-            pictureBox2.Location = new Point(-7, 64);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1200, 710);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 14;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
-            // 
             // lbNumberProducts
             // 
             lbNumberProducts.AutoSize = true;
@@ -112,6 +101,17 @@
             lbNumberProducts.Size = new Size(40, 46);
             lbNumberProducts.TabIndex = 4;
             lbNumberProducts.Text = "0";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources._31958787_v915_techi_006_k;
+            pictureBox2.Location = new Point(-7, 64);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1200, 710);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // MyProduct
             // 
