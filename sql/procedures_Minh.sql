@@ -6,7 +6,7 @@ CREATE PROCEDURE AddEmployeeProc
     @Address NVARCHAR(255),
     @Email VARCHAR(255),
     @Role VARCHAR(20),
-    @IsWorking BIT,
+    @IsWorking BIT
 AS
 BEGIN
     INSERT INTO Employee (fullName, phoneNumber, address, email, isWorking, joinedAt, updatedAt)

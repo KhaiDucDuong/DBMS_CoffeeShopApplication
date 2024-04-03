@@ -47,11 +47,12 @@ CREATE TABLE Customer (
 
 GO
 CREATE TABLE Ingredient (
-    ingredientId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+    ingredientId UNIQUEIDENTIFIER DEFAULT NEWID(),
     ingredientName NVARCHAR(100),
     manufacturerName NVARCHAR(50),
     updatedAt DATETIME,
-    isDeleted BIT DEFAULT 0
+    isDeleted BIT DEFAULT 0,
+	CONSTRAINT PK_Ingredient PRIMARY KEY (ingredientId)
 );
 
 GO
