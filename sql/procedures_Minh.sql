@@ -1,6 +1,20 @@
 --PROCEDURES
 --@UpdateType là dùng để định chức năng của Procedures
-CREATE PROCEDURE UpdateEmployee
+CREATE PROCEDURE AddEmployeeProc
+    @FullName NVARCHAR(100),
+    @PhoneNumber VARCHAR(15),
+    @Address NVARCHAR(255),
+    @Email VARCHAR(255),
+    @Role VARCHAR(20),
+    @IsWorking BIT,
+AS
+BEGIN
+    INSERT INTO Employee (fullName, phoneNumber, address, email, isWorking, joinedAt, updatedAt)
+		VALUES (@FullName, @PhoneNumber, @Address, @Email, @IsWorking, GETDATE(), GETDATE());
+END;
+GO
+
+CREATE PROCEDURE UpdateEmployeeProc
     @EmployeeId UNIQUEIDENTIFIER,
     @FullName NVARCHAR(100),
     @PhoneNumber VARCHAR(15),
@@ -11,20 +25,7 @@ CREATE PROCEDURE UpdateEmployee
     @UpdateType VarChar(20)
 AS
 BEGIN
-    SET NOCOUNT ON;
-	IF @UpdateType = 'add'
-	BEGIN
-		INSERT INTO Employee (fullName, phoneNumber, address, email, isWorking, joinedAt, updatedAt)
-		VALUES (@FullName, @PhoneNumber, @Address, @Email, @IsWorking, GETDATE(), GETDATE());
-
-		-- Lấy ID của Employee mới thêm
-		SET @EmployeeId = SCOPE_IDENTITY();
-
-		INSERT INTO Account (employeeId, username, password, role, createdAt, updatedAt)
-		VALUES (@EmployeeId, @Email, 'defaultpassword', @Role, GETDATE(), GETDATE());
-	END;
-    -- Cập nhật trạng thái IsWorking của Employee
-	ELSE IF @UpdateType = 'update'
+	IF @UpdateType = 'update'
 		BEGIN
 			UPDATE Employee
 			SET isWorking = @IsWorking,
@@ -42,21 +43,29 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE UpdateAccount
+CREATE PROCEDURE AddAccountProc
+	@EmployeeId UNIQUEIDENTIFIER,
+	@Passwords VarChar(255),
+	@UserName VarChar(255),
+	@Role VarChar(20),
+	@UpdateType VarChar(20)
+AS
+BEGIN
+	INSERT INTO Account(accountId, username, password, updatedAt, createdAt, role, isDeleted) 
+		VALUES (@AccountId, @UserName, @Passwords, GETDATE(), GETDATE(), @Role, 0);
+END;
+GO
+	
+CREATE PROCEDURE UpdateAccountProc
 	@AccountId UNIQUEIDENTIFIER,
 	@EmployeeId UNIQUEIDENTIFIER,
 	@Passwords VarChar(255),
 	@UserName VarChar(255),
 	@Role VarChar(20),
 	@UpdateType VarChar(20)
-As
-Begin
-	IF @UpdateType = 'add'
-	BEGIN
-		INSERT INTO Account(accountId, username, password, updatedAt, createdAt, role, isDeleted) 
-		VALUES (@AccountId, @UserName, @Passwords, GETDATE(), GETDATE(), @Role, 0);
-	END;
-	ELSE IF @UpdateType = 'update'
+AS
+BEGIN
+	IF @UpdateType = 'update'
 	BEGIN
 		UPDATE Account
 		SET password = @Passwords,
@@ -72,7 +81,20 @@ Begin
 END;
 GO
 
-CREATE PROCEDURE UpdateOrderBill
+CREATE PROCEDURE AddOrderBillProc
+	@CustomerId UNIQUEIDENTIFIER,
+     	@EmployeeId UNIQUEIDENTIFIER,
+	 @RewardPointsUsed DECIMAL(10, 2),
+    	@TotalBill DECIMAL(10, 2),
+    	@UpdateType VARCHAR(20)
+AS
+BEGIN
+	INSERT INTO OrderBill (billId, customerId, employeeId, rewardPointsUsed, totalBill, createdAt, isDeleted)
+		VALUES (@BillId, @CustomerId, @EmployeeId, @RewardPointsUsed, @TotalBill, GETDATE(), 0);
+END;
+GO
+
+CREATE PROCEDURE UpdateOrderBillProc
     @CustomerId UNIQUEIDENTIFIER,
     @EmployeeId UNIQUEIDENTIFIER,
     @BillId UNIQUEIDENTIFIER,
@@ -81,12 +103,7 @@ CREATE PROCEDURE UpdateOrderBill
     @UpdateType VARCHAR(20)
 AS
 BEGIN
-	IF @UpdateType = 'add'
-	BEGIN
-		INSERT INTO OrderBill (billId, customerId, employeeId, rewardPointsUsed, totalBill, createdAt, isDeleted)
-		VALUES (@BillId, @CustomerId, @EmployeeId, @RewardPointsUsed, @TotalBill, GETDATE(), 0);
-	END;
-	ELSE IF @UpdateType = 'update'
+	IF @UpdateType = 'update'
 	BEGIN
 	UPDATE OrderBill
 	SET customerId = @CustomerId, 
@@ -104,15 +121,13 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE AddOrderBillDetails
+CREATE PROCEDURE AddOrderBillDetailsProc
     @BillId UNIQUEIDENTIFIER,
     @ProductId UNIQUEIDENTIFIER,
     @Quantity INT,
     @UpdateType VarChar(20)
 AS
 BEGIN
-    SET NOCOUNT ON;
-
 	IF @UpdateType = 'add'
 	BEGIN
 		INSERT INTO OrderBillDetails (billId, productId, quantity)
