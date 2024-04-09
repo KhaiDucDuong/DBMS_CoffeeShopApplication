@@ -1,4 +1,67 @@
 ﻿USE CoffeeShop
+
+/* 4. Function findProductByName*/
+GO
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'FindProductByNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
+    DROP FUNCTION FindProductByNameFunction
+GO
+CREATE FUNCTION FindProductByNameFunction
+(
+    @productName NVARCHAR(100)
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT productId, productName, productSize, productPrice, createdAt, updatedAt
+    FROM Product
+    WHERE productName LIKE '%' + @productName + '%' AND isDeleted = 0
+);
+
+/* 5. Function findIventoryByName*/
+GO
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'FindInventoryByNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
+    DROP FUNCTION FindInventoryByNameFunction
+GO
+CREATE FUNCTION FindInventoryByNameFunction
+(
+    @inventoryName NVARCHAR(100)
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT inventoryId, name
+    FROM Inventory
+    WHERE name LIKE '%' + @inventoryName + '%'
+);
+/* 6. Function findInventoryCheckByDate*/
+GO
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'FindInventoryCheckByDateFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
+    DROP FUNCTION FindInventoryCheckByDateFunction
+GO
+CREATE FUNCTION FindInventoryCheckByDateFunction
+(
+    @checkDate DATE
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT checkId, employeeId, inventoryId, checkDate
+    FROM InventoryCheck
+    WHERE CAST(checkDate AS DATE) = CAST(@checkDate AS DATE)
+);
+
 /* 7. Function findIngredientByName */
 GO
 CREATE FULLTEXT CATALOG CoffeeShopFTCatalog WITH Accent_sensitivity = OFF --Create a catalog for the database, pls don't create a second one
