@@ -101,6 +101,17 @@ BEGIN
     WHERE checkId = @checkId;
 END;
 /* Procedure delete vào bảng InventoryCheck*/
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'DeleteInventoryCheckProc')
+DROP PROCEDURE DeleteInventoryCheckProc
+GO
+CREATE PROCEDURE DeleteInventoryCheckProc
+    @checkId UNIQUEIDENTIFIER
+AS
+BEGIN
+    DELETE FROM InventoryCheck
+    WHERE checkId = @checkId;
+END;
 /* Procedure insert vào bảng InventoryCheckDetails*/
 GO
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertInventoryCheckDetailsProc')
@@ -131,3 +142,15 @@ BEGIN
     WHERE checkId = @checkId AND ingredientId = @ingredientId;
 END;
 /* Procedure delete vào bảng InventoryCheckDetails*/
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'DeleteInventoryCheckDetailsProc')
+DROP PROCEDURE DeleteInventoryCheckDetailsProc
+GO
+CREATE PROCEDURE DeleteInventoryCheckDetailsProc
+    @checkId UNIQUEIDENTIFIER,
+    @ingredientId UNIQUEIDENTIFIER
+AS
+BEGIN
+    DELETE FROM InventoryCheckDetails
+    WHERE checkId = @checkId AND ingredientId = @ingredientId;
+END;
