@@ -1,5 +1,52 @@
 ﻿USE CoffeeShop
-
+--1. Function findEmployeeByName
+GO
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'findEmployeeByNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
+    DROP FUNCTION findEmployeeByNameFunction
+GO
+CREATE FUNCTION findEmployeeByNameFunction 
+( 
+	 @EmployeeName NVARCHAR(100)
+)
+RETURN TABLE
+RETURN (
+    SELECT * FROM Employee WHERE fullName = @EmployeeName
+);
+--2. Function findOrderBillById
+GO
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'findOrderBillByIdFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
+    DROP FUNCTION findOrderBillByIdFunction
+GO
+CREATE FUNCTION findOrderBillByIdFunction 
+( 
+	 @OrderBillId uniqueidentifier
+)
+RETURN TABLE
+RETURN (
+    SELECT * FROM GetOrderBillDetailsView WHERE billId = @OrderBilId
+);
+--3. Function findCustomerByPhoneNumber
+GO
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'findCustomerByPhoneNumberFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
+    DROP FUNCTION findCustomerByPhoneNumberFunction
+GO
+CREATE FUNCTION findCustomerByPhoneNumberFunction 
+( 
+	 @PhoneNumber VARCHAR(15)
+)
+RETURN TABLE
+RETURN (
+    SELECT * FROM Customer WHERE phoneNumber = @PhoneNumber
+);
 /* 4. Function findProductByName*/
 GO
 IF EXISTS (
