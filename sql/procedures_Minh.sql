@@ -46,8 +46,7 @@ CREATE PROCEDURE AddAccountProc
 	@EmployeeId UNIQUEIDENTIFIER,
 	@Passwords VarChar(255),
 	@UserName VarChar(255),
-	@Role VarChar(20),
-	@UpdateType VarChar(20)
+	@Role VarChar(20)
 AS
 BEGIN
 	INSERT INTO Account(accountId, username, password, updatedAt, createdAt, role, isDeleted) 
