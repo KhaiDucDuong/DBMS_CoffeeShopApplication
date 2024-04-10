@@ -114,28 +114,30 @@ BEGIN
 	BEGIN
 		UPDATE OrderBill
 		set isDeleted = 1
-		WHERE billId =@BillId;
+		WHERE billId = @BillId;
 	END;
 END;
 GO
 
 CREATE PROCEDURE AddOrderBillDetailsProc
-    @BillId UNIQUEIDENTIFIER,
     @ProductId UNIQUEIDENTIFIER,
-    @Quantity INT,
-    @UpdateType VarChar(20)
+    @Quantity INT
 AS
 BEGIN
-	IF @UpdateType = 'add'
-	BEGIN
-		INSERT INTO OrderBillDetails (billId, productId, quantity)
-		VALUES (@BillId, @ProductId, @Quantity);
-	END;
-	ELSE IF @UpdateType = 'update'
-	BEGIN
-		UPDATE OrderBillDetails
-		SET quantity = @Quantity
-		WHERE billId = @BillId AND productId = @ProductId;
-	END;
+	INSERT INTO OrderBillDetails (productId, quantity)
+	VALUES (@ProductId, @Quantity);
+END;
+GO
+
+CREATE PROCEDURE UpdateOrderBillDetialsProc
+	@BillId UNIQUEIDENTIFIER,
+	@ProductId UNIQUEIDENTIFIER,
+	@Quantity INT
+AS
+BEGIN
+	UPDATE OrderBillDetails
+	SET productId = @ProductId,
+	quantity = @quantity
+	WHERE billId = @BillId
 END;
 GO
