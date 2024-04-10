@@ -32,9 +32,7 @@ IF exists(SELECT 1 FROM sys.views WHERE name='GetWorkingEmployeesView' AND type=
 DROP VIEW GetWorkingEmployeesView;
 GO
 CREATE VIEW GetWorkingEmployeesView AS
-SELECT *
-FROM Employee
-WHERE isWorking = 1;
+SELECT * FROM Employee WHERE isWorking = 1;
 /*Câu 4 - Xem chi tiết số lượng hàng trong một đợt kiểm tra kho*/
 GO
 IF EXISTS(SELECT 1 FROM sys.views WHERE name='GetInventoryCheckDetailsView' AND type='v')
