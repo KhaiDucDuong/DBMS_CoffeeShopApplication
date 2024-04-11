@@ -15,8 +15,19 @@ namespace FinalProject_WinForm
 {
     class DBConnection
     {
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
-        FormEntry logIn = Program.logIn;
+        private static DBConnection _instance;
+        private static SqlConnection conn;
+        private DBConnection() {
+            conn = new SqlConnection(Properties.Settings.Default.connStr);
+        }
+        public static DBConnection getInstance()
+        {
+            if (_instance == null) {
+                _instance = new DBConnection();
+            }
+            return _instance;
+        }
+
         public void Execute(string sqlStr, string action, SqlParameter[] parameters = null)
         {
             try
@@ -143,6 +154,20 @@ namespace FinalProject_WinForm
                 conn.Close();
             }
             return LoadCart;
+        }
+
+        public DataSet ExecuteQueryDataSet (string sqlStr, CommandType ct, SqlParameter[] parameters = null) {
+            if(conn.State == ConnectionState.Open)
+                conn.Close();
+            conn.Open();
+            SqlCommand comm = new SqlCommand(sqlStr, conn);
+            comm.CommandType = ct;
+            if (parameters !=  null)
+                comm.Parameters.AddRange(parameters);
+            SqlDataAdapter da = new SqlDataAdapter(comm);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
         }
     }
 }

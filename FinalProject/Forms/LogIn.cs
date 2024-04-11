@@ -1,4 +1,7 @@
+using FinalProject_WinForm.C_.Classes;
+using FinalProject_WinForm.C_.DAOs;
 using FinalProject_WinForm.Properties;
+using System.DirectoryServices;
 
 namespace FinalProject_WinForm
 {
@@ -10,11 +13,11 @@ namespace FinalProject_WinForm
         public User user;
         public FormEntry()
         {
-            
+
             this.usersList = userDAO.LoadUInfo();
             InitializeComponent();
         }
-        
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (btnLogin.Text != "Login.")
@@ -34,7 +37,7 @@ namespace FinalProject_WinForm
             {
                 this.btnSUp.ForeColor = Color.FromArgb(204, 233, 255);
                 this.btnLogin.ForeColor = Color.Black;
-                this.btnSUp.BackColor = Color.FromArgb(60, 100, 159);   
+                this.btnSUp.BackColor = Color.FromArgb(60, 100, 159);
                 this.btnLogin.BackColor = Color.LightGray;
                 this.lbMode.Text = "Sign Up.";
                 this.btnLogSign_Main.Text = "Sign Up";
@@ -49,18 +52,33 @@ namespace FinalProject_WinForm
         private void btnLogSign_Click(object sender, EventArgs e)
         {
             if (lbMode.Text == "Login.")
-            { 
-                homePage = new HomePage(Functions.checkValidLogin(ucLogin.UserName(), ucLogin.Password(), usersList));
-                this.Hide();
-                homePage.Closed += (s, args) => this.Close();
-                homePage.Show();
+            {
+                //homePage = new HomePage(Functions.checkValidLogin(ucLogin.UserName(), ucLogin.Password(), usersList));
+                //this.Hide();
+                //homePage.Closed += (s, args) => this.Close();
+                //homePage.Show();
+                String username = ucLogin.UserName();
+                String password = ucLogin.Password();
+                Account account = AccountDAO.findAccount(username, password);
+                if (account != null)
+                {
+                    homePage = new HomePage(account);
+                    this.Hide();
+                    homePage.Closed += (s, args) => this.Close();
+                    homePage.Show();
+                }
+                else
+                {
+                    loginErrorLb.Text = "Incorrect Username/Password!";
+                }
+
             }
             else
             {
                 User Tmp = new User(ucLogin.UserName(), ucLogin.Password(), "", "", 2, null, 5);
                 userDAO.AddUser(Tmp);
                 usersList = userDAO.LoadUInfo();
-                MessageBox.Show("User name: " + ucLogin.UserName() + "\npassword: "+ ucLogin.Password());
+                MessageBox.Show("User name: " + ucLogin.UserName() + "\npassword: " + ucLogin.Password());
             }
         }
         private void ucLogin1_Load(object sender, EventArgs e)
@@ -69,6 +87,11 @@ namespace FinalProject_WinForm
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
