@@ -93,7 +93,7 @@
             lbMode.AutoSize = true;
             lbMode.Font = new Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point);
             lbMode.ForeColor = Color.FromArgb(204, 233, 255);
-            lbMode.Location = new Point(104, 21);
+            lbMode.Location = new Point(109, 38);
             lbMode.Name = "lbMode";
             lbMode.Size = new Size(175, 67);
             lbMode.TabIndex = 6;

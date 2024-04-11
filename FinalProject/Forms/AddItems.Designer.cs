@@ -153,7 +153,7 @@
             // pbPictureUpload1
             // 
             pbPictureUpload1.Image = Properties.Resources.add;
-            pbPictureUpload1.Location = new Point(574, 364);
+            pbPictureUpload1.Location = new Point(570, 364);
             pbPictureUpload1.Name = "pbPictureUpload1";
             pbPictureUpload1.Size = new Size(60, 60);
             pbPictureUpload1.SizeMode = PictureBoxSizeMode.StretchImage;

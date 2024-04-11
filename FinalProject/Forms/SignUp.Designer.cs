@@ -82,7 +82,7 @@
             panel1.Controls.Add(ucLogin1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnSignUp);
-            panel1.Location = new Point(372, 82);
+            panel1.Location = new Point(393, 80);
             panel1.Name = "panel1";
             panel1.Size = new Size(379, 274);
             panel1.TabIndex = 8;
