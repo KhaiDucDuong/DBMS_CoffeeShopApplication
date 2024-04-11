@@ -1,4 +1,5 @@
-﻿using FinalProject_WinForm.Properties;
+﻿using FinalProject_WinForm.C_.Classes;
+using FinalProject_WinForm.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,14 +26,14 @@ namespace FinalProject_WinForm
         
         FormEntry logIn = Program.logIn;
         
-        public HomePage(User user)
+        public HomePage(Account account)
         {
-            this.user = user;
-            this.user.Cart = new Cart(cartDAO.LoadCartInfo());
-            detailItems = itemsDAO.LoadItemsInfo();
-            userMoreInfo = new UserMoreInfo(user);
-            addItems = new AddItems(user, "add");
-            product = new MyProduct(user);
+            //this.user = user;
+            //this.user.Cart = new Cart(cartDAO.LoadCartInfo());
+            //detailItems = itemsDAO.LoadItemsInfo();
+            //userMoreInfo = new UserMoreInfo(user);
+            //addItems = new AddItems(user, "add");
+            //product = new MyProduct(user);
 
             foreach(Items items in detailItems)
             {

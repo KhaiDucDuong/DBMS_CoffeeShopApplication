@@ -8,7 +8,7 @@ namespace FinalProject_WinForm
 {
     public class CartDAO
     {
-        DBConnection db = new DBConnection();
+        DBConnection db = DBConnection.getInstance();
         public List<OrderedItem> LoadCartInfo()
         {
             string sqlStr = "SELECT * from CartView";

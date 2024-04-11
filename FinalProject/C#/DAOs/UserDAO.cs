@@ -12,7 +12,7 @@ namespace FinalProject_WinForm
     
     public class UserDAO
     {
-        DBConnection db = new DBConnection();
+        DBConnection db = DBConnection.getInstance();
 
         public List<User> LoadUInfo()
         {

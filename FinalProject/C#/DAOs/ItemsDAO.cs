@@ -8,7 +8,7 @@ namespace FinalProject_WinForm
 {
     public class ItemsDAO
     {
-        DBConnection db = new DBConnection();
+        DBConnection db = DBConnection.getInstance();
         public List<Items> LoadItemsInfo()
         {
             string sqlStr = "SELECT * from ItemInfo";
