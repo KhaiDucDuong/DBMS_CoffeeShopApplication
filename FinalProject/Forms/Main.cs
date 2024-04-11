@@ -1,10 +1,12 @@
 ﻿using FinalProject_WinForm.C_.Classes;
+using FinalProject_WinForm.C_.DAOs;
 using FinalProject_WinForm.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +28,7 @@ namespace FinalProject_WinForm
         
         FormEntry logIn = Program.logIn;
         
+        private List<Product> products = new List<Product>();
         public HomePage(Account account)
         {
             //this.user = user;
@@ -34,8 +37,9 @@ namespace FinalProject_WinForm
             //userMoreInfo = new UserMoreInfo(user);
             //addItems = new AddItems(user, "add");
             //product = new MyProduct(user);
+            products = ProductDAO.GetAllProducts();
 
-            foreach(Items items in detailItems)
+            /*foreach(Items items in detailItems)
             {
                 UCItems tmp =new UCItems(items);
                 UCMyProduct tmp1 = new UCMyProduct(items);
@@ -49,7 +53,8 @@ namespace FinalProject_WinForm
                 tmp1.ProductQuantity = Convert.ToString(items.ItemQuantity);
                 list.Add(tmp);
                 list1.Add(tmp1);
-            }
+            }*/
+
             InitializeComponent();
         }
         private void button3_Click(object sender, EventArgs e)
