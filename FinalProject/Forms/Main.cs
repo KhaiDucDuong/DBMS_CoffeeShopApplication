@@ -55,6 +55,17 @@ namespace FinalProject_WinForm
                 list1.Add(tmp1);
             }*/
 
+            foreach(Product product in products) {
+                UCMyProduct tmp1 = new UCMyProduct(product);
+
+                byte[] imageData = File.ReadAllBytes("Resources/menu.png");
+                Image image = Functions.ByteArrayToImage(imageData);
+                tmp1.ProductImage = image;
+                tmp1.ProductName = product.ProductName;
+                tmp1.ProductQuantity = 3.ToString();
+                list1.Add(tmp1);
+            }
+
             InitializeComponent();
         }
         private void button3_Click(object sender, EventArgs e)
