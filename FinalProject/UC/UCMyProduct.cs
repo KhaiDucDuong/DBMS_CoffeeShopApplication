@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject_WinForm.C_.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace FinalProject_WinForm
         private string productQuantity;
         private Image productImage;
         private Items items;
+        private Product product;
         public string ProductName { get { return productName; } set { productName = value; lbItemName.Text = value; } }
         public string ProductQuantity { get { return productQuantity; } set { productQuantity = value; lbItemQuantity.Text = value; } }
         public Image ProductImage { get { return productImage; } set { productImage = value; pbItemPicture.Image = value; } }
@@ -23,6 +25,12 @@ namespace FinalProject_WinForm
         public UCMyProduct(Items A)
         {
             this.items = A;
+            InitializeComponent();
+        }
+
+        public UCMyProduct(Product A)
+        {
+            this.product = A;
             InitializeComponent();
         }
 

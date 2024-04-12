@@ -104,7 +104,7 @@ namespace FinalProject_WinForm
             if (this.item.ItemName == null) { return; }
             txtProductName.Text = this.item.ItemName;
             txtProductDiscription.Text = this.item.ItemDescription;
-            txtProductQuantity.Text= Convert.ToString(this.item.ItemQuantity);
+            txtProductQuantity.Text = Convert.ToString(this.item.ItemQuantity);
             txtProductPrice.Text = Convert.ToString(this.item.ItemPrice);
             txtQuality.Text = Convert.ToString(this.item.ItemQuality);
             txtYear.Text = Convert.ToString(this.item.ItemYear);
@@ -129,6 +129,11 @@ namespace FinalProject_WinForm
         }
 
         private void lbOriginPrice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ucMenu1_Load(object sender, EventArgs e)
         {
 
         }

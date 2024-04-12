@@ -41,18 +41,20 @@
             // 
             flpList.AutoScroll = true;
             flpList.BackColor = Color.White;
-            flpList.Location = new Point(64, 189);
+            flpList.Location = new Point(56, 142);
+            flpList.Margin = new Padding(3, 2, 3, 2);
             flpList.Name = "flpList";
-            flpList.Size = new Size(1063, 501);
+            flpList.Size = new Size(930, 376);
             flpList.TabIndex = 6;
             // 
             // tbSearch
             // 
             tbSearch.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             tbSearch.ForeColor = SystemColors.ScrollBar;
-            tbSearch.Location = new Point(245, 90);
+            tbSearch.Location = new Point(214, 68);
+            tbSearch.Margin = new Padding(3, 2, 3, 2);
             tbSearch.Name = "tbSearch";
-            tbSearch.Size = new Size(627, 65);
+            tbSearch.Size = new Size(549, 53);
             tbSearch.TabIndex = 7;
             tbSearch.Text = "Search";
             // 
@@ -60,9 +62,10 @@
             // 
             pbSearch.BackColor = Color.White;
             pbSearch.Image = Properties.Resources.search2;
-            pbSearch.Location = new Point(888, 90);
+            pbSearch.Location = new Point(777, 68);
+            pbSearch.Margin = new Padding(3, 2, 3, 2);
             pbSearch.Name = "pbSearch";
-            pbSearch.Size = new Size(65, 65);
+            pbSearch.Size = new Size(57, 49);
             pbSearch.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSearch.TabIndex = 8;
             pbSearch.TabStop = false;
@@ -73,9 +76,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources._31958787_v915_techi_006_k;
-            pictureBox2.Location = new Point(-10, 63);
+            pictureBox2.Location = new Point(-9, 47);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1200, 710);
+            pictureBox2.Size = new Size(1050, 532);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 9;
             pictureBox2.TabStop = false;
@@ -83,22 +87,24 @@
             // ucMenu1
             // 
             ucMenu1.BackColor = Color.FromArgb(60, 100, 159);
-            ucMenu1.Location = new Point(-10, -8);
+            ucMenu1.Location = new Point(-9, -6);
+            ucMenu1.Margin = new Padding(3, 2, 3, 2);
             ucMenu1.Name = "ucMenu1";
-            ucMenu1.Size = new Size(1500, 114);
+            ucMenu1.Size = new Size(1312, 86);
             ucMenu1.TabIndex = 10;
             // 
             // HomePage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1182, 753);
+            ClientSize = new Size(1034, 565);
             Controls.Add(pbSearch);
             Controls.Add(tbSearch);
             Controls.Add(flpList);
             Controls.Add(pictureBox2);
             Controls.Add(ucMenu1);
             ForeColor = Color.FromArgb(204, 233, 255);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "HomePage";
             Text = "HomePage";
             Load += HomePage_Load;
