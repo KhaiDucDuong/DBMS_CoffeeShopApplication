@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShopApplication.BL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,15 +21,14 @@ namespace CoffeeShopApplication
 
         private void ShopProductsForm_Load(object sender, EventArgs e)
         {
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Product", Properties.Settings.Default.DatabaseConnectionString);
-            DataSet ds = new DataSet();
-            da.Fill(ds, "Product");
-            dataGridView1.DataSource = ds.Tables["Product"].DefaultView;
+            DataSet productDataSet = ProductBL.getAllProducts();
+            dgvProducts.DataSource = productDataSet.Tables["Product"].DefaultView;
         }
 
         private void pbSearch_Click(object sender, EventArgs e)
         {
-
+            DataSet productDataSet = ProductBL.findProductsByName(tbSearch.Text);
+            dgvProducts.DataSource = productDataSet.Tables["Product"].DefaultView;
         }
     }
 }

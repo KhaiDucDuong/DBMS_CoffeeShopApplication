@@ -34,7 +34,7 @@ namespace CoffeeShopApplication
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopProductsForm));
             tbSearch = new TextBox();
-            dataGridView1 = new DataGridView();
+            dgvProducts = new DataGridView();
             productIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             productNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             productSizeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@ namespace CoffeeShopApplication
             isDeletedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             productBindingSource = new BindingSource(components);
             pbSearch = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).BeginInit();
             SuspendLayout();
@@ -53,32 +53,34 @@ namespace CoffeeShopApplication
             // 
             tbSearch.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold);
             tbSearch.ForeColor = SystemColors.ScrollBar;
-            tbSearch.Location = new Point(243, 183);
-            tbSearch.Margin = new Padding(3, 2, 3, 2);
+            tbSearch.Location = new Point(278, 244);
             tbSearch.Name = "tbSearch";
-            tbSearch.Size = new Size(549, 53);
+            tbSearch.Size = new Size(627, 65);
             tbSearch.TabIndex = 7;
             tbSearch.Text = "Search";
             // 
-            // dataGridView1
+            // dgvProducts
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { productIdDataGridViewTextBoxColumn, productNameDataGridViewTextBoxColumn, productSizeDataGridViewTextBoxColumn, productPriceDataGridViewTextBoxColumn, createdAtDataGridViewTextBoxColumn, updatedAtDataGridViewTextBoxColumn, isDeletedDataGridViewCheckBoxColumn });
-            dataGridView1.DataSource = productBindingSource;
-            dataGridView1.Location = new Point(12, 284);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(1026, 354);
-            dataGridView1.TabIndex = 0;
+            dgvProducts.AllowUserToAddRows = false;
+            dgvProducts.AllowUserToDeleteRows = false;
+            dgvProducts.AutoGenerateColumns = false;
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProducts.Columns.AddRange(new DataGridViewColumn[] { productIdDataGridViewTextBoxColumn, productNameDataGridViewTextBoxColumn, productSizeDataGridViewTextBoxColumn, productPriceDataGridViewTextBoxColumn, createdAtDataGridViewTextBoxColumn, updatedAtDataGridViewTextBoxColumn, isDeletedDataGridViewCheckBoxColumn });
+            dgvProducts.DataSource = productBindingSource;
+            dgvProducts.Location = new Point(14, 379);
+            dgvProducts.Margin = new Padding(3, 4, 3, 4);
+            dgvProducts.Name = "dgvProducts";
+            dgvProducts.ReadOnly = true;
+            dgvProducts.RowHeadersWidth = 51;
+            dgvProducts.Size = new Size(1173, 472);
+            dgvProducts.TabIndex = 0;
             // 
             // productIdDataGridViewTextBoxColumn
             // 
             productIdDataGridViewTextBoxColumn.DataPropertyName = "productId";
             productIdDataGridViewTextBoxColumn.HeaderText = "productId";
+            productIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
             productIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -86,6 +88,7 @@ namespace CoffeeShopApplication
             // 
             productNameDataGridViewTextBoxColumn.DataPropertyName = "productName";
             productNameDataGridViewTextBoxColumn.HeaderText = "productName";
+            productNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
             productNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -93,6 +96,7 @@ namespace CoffeeShopApplication
             // 
             productSizeDataGridViewTextBoxColumn.DataPropertyName = "productSize";
             productSizeDataGridViewTextBoxColumn.HeaderText = "productSize";
+            productSizeDataGridViewTextBoxColumn.MinimumWidth = 6;
             productSizeDataGridViewTextBoxColumn.Name = "productSizeDataGridViewTextBoxColumn";
             productSizeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -100,6 +104,7 @@ namespace CoffeeShopApplication
             // 
             productPriceDataGridViewTextBoxColumn.DataPropertyName = "productPrice";
             productPriceDataGridViewTextBoxColumn.HeaderText = "productPrice";
+            productPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
             productPriceDataGridViewTextBoxColumn.Name = "productPriceDataGridViewTextBoxColumn";
             productPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -107,6 +112,7 @@ namespace CoffeeShopApplication
             // 
             createdAtDataGridViewTextBoxColumn.DataPropertyName = "createdAt";
             createdAtDataGridViewTextBoxColumn.HeaderText = "createdAt";
+            createdAtDataGridViewTextBoxColumn.MinimumWidth = 6;
             createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
             createdAtDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -114,6 +120,7 @@ namespace CoffeeShopApplication
             // 
             updatedAtDataGridViewTextBoxColumn.DataPropertyName = "updatedAt";
             updatedAtDataGridViewTextBoxColumn.HeaderText = "updatedAt";
+            updatedAtDataGridViewTextBoxColumn.MinimumWidth = 6;
             updatedAtDataGridViewTextBoxColumn.Name = "updatedAtDataGridViewTextBoxColumn";
             updatedAtDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -121,6 +128,7 @@ namespace CoffeeShopApplication
             // 
             isDeletedDataGridViewCheckBoxColumn.DataPropertyName = "isDeleted";
             isDeletedDataGridViewCheckBoxColumn.HeaderText = "isDeleted";
+            isDeletedDataGridViewCheckBoxColumn.MinimumWidth = 6;
             isDeletedDataGridViewCheckBoxColumn.Name = "isDeletedDataGridViewCheckBoxColumn";
             isDeletedDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
@@ -132,9 +140,10 @@ namespace CoffeeShopApplication
             // pbSearch
             // 
             pbSearch.Image = Properties.Resources.search1;
-            pbSearch.Location = new Point(813, 183);
+            pbSearch.Location = new Point(929, 244);
+            pbSearch.Margin = new Padding(3, 4, 3, 4);
             pbSearch.Name = "pbSearch";
-            pbSearch.Size = new Size(55, 53);
+            pbSearch.Size = new Size(63, 71);
             pbSearch.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSearch.TabIndex = 8;
             pbSearch.TabStop = false;
@@ -142,18 +151,19 @@ namespace CoffeeShopApplication
             // 
             // ShopProductsForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1050, 650);
+            ClientSize = new Size(1200, 867);
             Controls.Add(pbSearch);
             Controls.Add(tbSearch);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvProducts);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ShopProductsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Shop Products";
             Load += ShopProductsForm_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).EndInit();
             ResumeLayout(false);
@@ -162,7 +172,7 @@ namespace CoffeeShopApplication
 
         #endregion
         private TextBox tbSearch;
-        private DataGridView dataGridView1;
+        private DataGridView dgvProducts;
         private DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productSizeDataGridViewTextBoxColumn;
