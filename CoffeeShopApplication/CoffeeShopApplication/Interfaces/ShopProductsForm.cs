@@ -22,13 +22,13 @@ namespace CoffeeShopApplication
         private void ShopProductsForm_Load(object sender, EventArgs e)
         {
             DataSet productDataSet = ProductBL.getAllProducts();
-            dgvProducts.DataSource = productDataSet.Tables["Product"].DefaultView;
+            dgvProducts.DataSource = productDataSet.Tables[0].DefaultView;
         }
 
         private void pbSearch_Click(object sender, EventArgs e)
         {
             DataSet productDataSet = ProductBL.findProductsByName(tbSearch.Text);
-            dgvProducts.DataSource = productDataSet.Tables["Product"].DefaultView;
+            dgvProducts.DataSource = productDataSet.Tables[0].DefaultView;
         }
     }
 }
