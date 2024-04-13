@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,47 @@ namespace CoffeeShopApplication.UC
 {
     public partial class Header : UserControl
     {
+        private String topLevelForm;
         public Header()
         {
             InitializeComponent();
         }
 
+        private void Header_Load(object sender, EventArgs e)
+        {
+            topLevelForm = ((Form)this.TopLevelControl).GetType().Name;
+            if (topLevelForm == "HomeForm")
+            {
+                pbAppIcon.BackColor = Color.White;
+                pbAppIcon.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else if (topLevelForm == "ShopProductsForm")
+            {
+                pbProduct.BackColor = Color.White;
+                pbProduct.BorderStyle = BorderStyle.FixedSingle;
+            }
+        }
+
+        private void pbAppIcon_Click(object sender, EventArgs e)
+        {
+            if (topLevelForm != "HomeForm")
+            {
+                Program.MainForm.Show();
+                ((Form)this.TopLevelControl).Close();
+            }
+        }
+
         private void pbProduct_Click(object sender, EventArgs e)
         {
-
+            if (topLevelForm != "ShopProductsForm")
+            {
+                ShopProductsForm newForm = new ShopProductsForm();
+                newForm.Show();
+                if (topLevelForm == "HomeForm")
+                    ((Form)this.TopLevelControl).Hide();
+                else
+                    ((Form)this.TopLevelControl).Close();
+            }
         }
 
         private void pbEmployee_Click(object sender, EventArgs e)
@@ -44,8 +78,11 @@ namespace CoffeeShopApplication.UC
 
         private void pbProduct_MouseHover(object sender, EventArgs e)
         {
-            pbProduct.BackColor = Color.White;
-            pbProduct.BorderStyle = BorderStyle.FixedSingle;
+            if (topLevelForm != "ShopProductsForm")
+            {
+                pbProduct.BackColor = Color.White;
+                pbProduct.BorderStyle = BorderStyle.FixedSingle;
+            }
         }
 
         private void pbEmployee_MouseHover(object sender, EventArgs e)
@@ -74,8 +111,11 @@ namespace CoffeeShopApplication.UC
 
         private void pbProduct_MouseLeave(object sender, EventArgs e)
         {
-            pbProduct.BackColor = Color.Transparent;
-            pbProduct.BorderStyle = BorderStyle.None;
+            if (topLevelForm != "ShopProductsForm")
+            {
+                pbProduct.BackColor = Color.Transparent;
+                pbProduct.BorderStyle = BorderStyle.None;
+            }
         }
 
         private void pbEmployee_MouseLeave(object sender, EventArgs e)

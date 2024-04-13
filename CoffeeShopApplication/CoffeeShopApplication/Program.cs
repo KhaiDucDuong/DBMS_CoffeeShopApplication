@@ -2,6 +2,9 @@ namespace CoffeeShopApplication
 {
     internal static class Program
     {
+        static Form mainForm = new HomeForm();
+
+        public static Form MainForm { get => mainForm;}
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -11,7 +14,7 @@ namespace CoffeeShopApplication
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ShopProductsForm());
+            Application.Run(MainForm);
         }
     }
 }

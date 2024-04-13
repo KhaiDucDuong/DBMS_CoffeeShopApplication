@@ -45,21 +45,26 @@
             // 
             // pbAppIcon
             // 
+            pbAppIcon.Cursor = Cursors.Hand;
             pbAppIcon.Image = Properties.Resources.coffeeshopicon;
-            pbAppIcon.Location = new Point(3, 10);
+            pbAppIcon.Location = new Point(3, 8);
+            pbAppIcon.Margin = new Padding(3, 2, 3, 2);
             pbAppIcon.Name = "pbAppIcon";
-            pbAppIcon.Size = new Size(146, 144);
+            pbAppIcon.Size = new Size(128, 108);
             pbAppIcon.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAppIcon.TabIndex = 0;
             pbAppIcon.TabStop = false;
+            pbAppIcon.Click += pbAppIcon_Click;
             // 
             // pbInventory
             // 
             pbInventory.BackColor = Color.Transparent;
+            pbInventory.Cursor = Cursors.Hand;
             pbInventory.Image = (Image)resources.GetObject("pbInventory.Image");
-            pbInventory.Location = new Point(1040, 10);
+            pbInventory.Location = new Point(910, 8);
+            pbInventory.Margin = new Padding(3, 2, 3, 2);
             pbInventory.Name = "pbInventory";
-            pbInventory.Size = new Size(144, 144);
+            pbInventory.Size = new Size(126, 108);
             pbInventory.SizeMode = PictureBoxSizeMode.StretchImage;
             pbInventory.TabIndex = 0;
             pbInventory.TabStop = false;
@@ -70,10 +75,12 @@
             // pbRestockOrder
             // 
             pbRestockOrder.BackColor = Color.Transparent;
+            pbRestockOrder.Cursor = Cursors.Hand;
             pbRestockOrder.Image = (Image)resources.GetObject("pbRestockOrder.Image");
-            pbRestockOrder.Location = new Point(890, 10);
+            pbRestockOrder.Location = new Point(779, 8);
+            pbRestockOrder.Margin = new Padding(3, 2, 3, 2);
             pbRestockOrder.Name = "pbRestockOrder";
-            pbRestockOrder.Size = new Size(144, 144);
+            pbRestockOrder.Size = new Size(126, 108);
             pbRestockOrder.SizeMode = PictureBoxSizeMode.StretchImage;
             pbRestockOrder.TabIndex = 0;
             pbRestockOrder.TabStop = false;
@@ -84,10 +91,12 @@
             // pbOrder
             // 
             pbOrder.BackColor = Color.Transparent;
+            pbOrder.Cursor = Cursors.Hand;
             pbOrder.Image = (Image)resources.GetObject("pbOrder.Image");
-            pbOrder.Location = new Point(740, 10);
+            pbOrder.Location = new Point(648, 8);
+            pbOrder.Margin = new Padding(3, 2, 3, 2);
             pbOrder.Name = "pbOrder";
-            pbOrder.Size = new Size(144, 144);
+            pbOrder.Size = new Size(126, 108);
             pbOrder.SizeMode = PictureBoxSizeMode.StretchImage;
             pbOrder.TabIndex = 0;
             pbOrder.TabStop = false;
@@ -98,10 +107,12 @@
             // pbEmployee
             // 
             pbEmployee.BackColor = Color.Transparent;
+            pbEmployee.Cursor = Cursors.Hand;
             pbEmployee.Image = (Image)resources.GetObject("pbEmployee.Image");
-            pbEmployee.Location = new Point(590, 10);
+            pbEmployee.Location = new Point(516, 8);
+            pbEmployee.Margin = new Padding(3, 2, 3, 2);
             pbEmployee.Name = "pbEmployee";
-            pbEmployee.Size = new Size(144, 144);
+            pbEmployee.Size = new Size(126, 108);
             pbEmployee.SizeMode = PictureBoxSizeMode.StretchImage;
             pbEmployee.TabIndex = 0;
             pbEmployee.TabStop = false;
@@ -112,10 +123,12 @@
             // pbProduct
             // 
             pbProduct.BackColor = Color.Transparent;
+            pbProduct.Cursor = Cursors.Hand;
             pbProduct.Image = (Image)resources.GetObject("pbProduct.Image");
-            pbProduct.Location = new Point(440, 10);
+            pbProduct.Location = new Point(385, 8);
+            pbProduct.Margin = new Padding(3, 2, 3, 2);
             pbProduct.Name = "pbProduct";
-            pbProduct.Size = new Size(144, 144);
+            pbProduct.Size = new Size(126, 108);
             pbProduct.SizeMode = PictureBoxSizeMode.StretchImage;
             pbProduct.TabIndex = 0;
             pbProduct.TabStop = false;
@@ -125,7 +138,7 @@
             // 
             // Header
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.MenuHighlight;
             Controls.Add(pbProduct);
@@ -135,8 +148,10 @@
             Controls.Add(pbInventory);
             Controls.Add(pbAppIcon);
             ForeColor = SystemColors.Highlight;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Header";
-            Size = new Size(1200, 163);
+            Size = new Size(1050, 122);
+            Load += Header_Load;
             ((System.ComponentModel.ISupportInitialize)pbAppIcon).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbInventory).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbRestockOrder).EndInit();

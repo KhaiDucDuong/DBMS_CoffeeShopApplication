@@ -21,6 +21,7 @@ namespace CoffeeShopApplication
 
         private void ShopProductsForm_Load(object sender, EventArgs e)
         {
+            this.ControlBox = false;
             DataSet productDataSet = ProductBL.getAllProducts();
             dgvProducts.DataSource = productDataSet.Tables[0].DefaultView;
         }
@@ -34,6 +35,30 @@ namespace CoffeeShopApplication
         private void pbAdd_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbSearch_MouseHover(object sender, EventArgs e)
+        {
+            pbSearch.Size = new Size(65, 65);
+            pbSearch.Location = new Point(819, 168);
+        }
+
+        private void pbSearch_MouseLeave(object sender, EventArgs e)
+        {
+            pbSearch.Size = new Size(55, 55);
+            pbSearch.Location = new Point(819, 178);
+        }
+
+        private void pbAdd_MouseHover(object sender, EventArgs e)
+        {
+            pbAdd.Size = new Size(65, 65);
+            pbAdd.Location = new Point(909, 168);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            pbAdd.Size = new Size(55, 55);
+            pbAdd.Location = new Point(909, 178);
         }
     }
 }

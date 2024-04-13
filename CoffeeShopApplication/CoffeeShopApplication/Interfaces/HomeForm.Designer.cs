@@ -36,27 +36,29 @@
             // 
             header1.BackColor = SystemColors.MenuHighlight;
             header1.ForeColor = SystemColors.Highlight;
-            header1.Location = new Point(0, 0);
+            header1.Location = new Point(1, 0);
+            header1.Margin = new Padding(3, 2, 3, 2);
             header1.Name = "header1";
-            header1.Size = new Size(1202, 163);
-            header1.TabIndex = 10;
+            header1.Size = new Size(1050, 125);
+            header1.TabIndex = 0;
             // 
             // HomeForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 867);
+            ClientSize = new Size(1050, 850);
             Controls.Add(header1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "HomeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home Menu";
+            Load += HomeForm_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
+        private UC.Header headerUc;
         private UC.Header header1;
     }
 }

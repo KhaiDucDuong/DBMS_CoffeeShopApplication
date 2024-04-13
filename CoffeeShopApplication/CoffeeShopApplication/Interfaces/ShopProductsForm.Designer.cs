@@ -56,9 +56,10 @@ namespace CoffeeShopApplication
             // 
             tbSearch.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold);
             tbSearch.ForeColor = SystemColors.ScrollBar;
-            tbSearch.Location = new Point(278, 244);
+            tbSearch.Location = new Point(243, 383);
+            tbSearch.Margin = new Padding(3, 2, 3, 2);
             tbSearch.Name = "tbSearch";
-            tbSearch.Size = new Size(627, 65);
+            tbSearch.Size = new Size(549, 53);
             tbSearch.TabIndex = 7;
             tbSearch.Text = "Search";
             // 
@@ -71,12 +72,11 @@ namespace CoffeeShopApplication
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProducts.Columns.AddRange(new DataGridViewColumn[] { productIdDataGridViewTextBoxColumn, productNameDataGridViewTextBoxColumn, productSizeDataGridViewTextBoxColumn, productPriceDataGridViewTextBoxColumn, createdAtDataGridViewTextBoxColumn, updatedAtDataGridViewTextBoxColumn, isDeletedDataGridViewCheckBoxColumn });
             dgvProducts.DataSource = productBindingSource;
-            dgvProducts.Location = new Point(14, 379);
-            dgvProducts.Margin = new Padding(3, 4, 3, 4);
+            dgvProducts.Location = new Point(12, 484);
             dgvProducts.Name = "dgvProducts";
             dgvProducts.ReadOnly = true;
             dgvProducts.RowHeadersWidth = 51;
-            dgvProducts.Size = new Size(1173, 472);
+            dgvProducts.Size = new Size(1026, 354);
             dgvProducts.TabIndex = 0;
             // 
             // productIdDataGridViewTextBoxColumn
@@ -143,48 +143,50 @@ namespace CoffeeShopApplication
             // pbSearch
             // 
             pbSearch.Image = Properties.Resources.search1;
-            pbSearch.Location = new Point(936, 238);
-            pbSearch.Margin = new Padding(3, 4, 3, 4);
+            pbSearch.Location = new Point(819, 378);
             pbSearch.Name = "pbSearch";
-            pbSearch.Size = new Size(63, 71);
+            pbSearch.Size = new Size(55, 55);
             pbSearch.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSearch.TabIndex = 8;
             pbSearch.TabStop = false;
             pbSearch.Click += pbSearch_Click;
+            pbSearch.MouseLeave += pbSearch_MouseLeave;
+            pbSearch.MouseHover += pbSearch_MouseHover;
             // 
             // pbAdd
             // 
             pbAdd.Image = (Image)resources.GetObject("pbAdd.Image");
-            pbAdd.Location = new Point(1039, 238);
-            pbAdd.Margin = new Padding(3, 4, 3, 4);
+            pbAdd.Location = new Point(909, 378);
             pbAdd.Name = "pbAdd";
-            pbAdd.Size = new Size(63, 71);
+            pbAdd.Size = new Size(55, 55);
             pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAdd.TabIndex = 8;
             pbAdd.TabStop = false;
             pbAdd.Click += pbAdd_Click;
+            pbAdd.MouseLeave += pbAdd_MouseLeave;
+            pbAdd.MouseHover += pbAdd_MouseHover;
             // 
             // header1
             // 
             header1.BackColor = SystemColors.MenuHighlight;
             header1.ForeColor = SystemColors.Highlight;
-            header1.Location = new Point(-1, 0);
+            header1.Location = new Point(0, -2);
+            header1.Margin = new Padding(3, 2, 3, 2);
             header1.Name = "header1";
-            header1.Size = new Size(1202, 163);
+            header1.Size = new Size(1050, 125);
             header1.TabIndex = 9;
             // 
             // ShopProductsForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 867);
+            ClientSize = new Size(1050, 850);
             Controls.Add(header1);
             Controls.Add(pbAdd);
             Controls.Add(pbSearch);
             Controls.Add(tbSearch);
             Controls.Add(dgvProducts);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ShopProductsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Shop Products";
