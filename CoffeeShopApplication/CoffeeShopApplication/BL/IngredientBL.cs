@@ -26,5 +26,48 @@ namespace CoffeeShopApplication.BL
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
             return ds;
         }
+
+        public static bool updateIngredient(String ingredientId, String ingredientName, String manufacturerName, bool isDeleted)
+        {
+            if (ingredientId == "" || ingredientName == "" || manufacturerName == "")
+                return false;
+
+            try
+            {
+                String str = "UpdateIngredientProc";
+                SqlParameter ingredientIdParam = new SqlParameter("@ingredientId", ingredientId);
+                SqlParameter ingredientNameParam = new SqlParameter("@ingredientName", ingredientName);
+                SqlParameter manufacturerNameParam = new SqlParameter("@manufacturerName", manufacturerName);
+                SqlParameter isDeletedParam = new SqlParameter("@isDeleted", isDeleted.ToString());
+                SqlParameter[] parameters = { ingredientIdParam, ingredientNameParam, manufacturerNameParam, isDeletedParam };
+                bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
+                return commandResult;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
+        }
+
+        public static bool addIngredient(String ingredientName, string manufacturerName)
+        {
+            if (ingredientName == "" || manufacturerName == "")
+                return false;
+
+            try
+            {
+                String str = "InsertIngredientProc";
+                SqlParameter ingredientNameParam = new SqlParameter("@ingredientName", ingredientName);
+                SqlParameter manufacturerNameParam = new SqlParameter("@manufacturerName", manufacturerName);
+                SqlParameter[] parameters = { ingredientNameParam, manufacturerNameParam };
+                bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
+                return commandResult;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

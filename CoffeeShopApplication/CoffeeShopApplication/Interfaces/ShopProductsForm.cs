@@ -43,12 +43,12 @@ namespace CoffeeShopApplication
             productPrice = tbPrice.Text;
             if (ProductBL.addProduct(productName, productSize, productPrice))
             {
-                MessageBox.Show("Updated a row successfully!", "Action result");
+                MessageBox.Show("Added a new row successfully!", "Action result");
                 DataSet productDataSet = ProductBL.getAllProducts();
                 dgvProducts.DataSource = productDataSet.Tables[0].DefaultView;
             }
             else
-                MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
+                MessageBox.Show("Failed to add a row! Check your input data!", "Action result");
         }
 
         private void pbSave_Click(object sender, EventArgs e)

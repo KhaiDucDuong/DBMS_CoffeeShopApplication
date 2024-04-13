@@ -74,7 +74,7 @@ namespace CoffeeShopApplication
             tbSearch.Margin = new Padding(3, 2, 3, 2);
             tbSearch.Name = "tbSearch";
             tbSearch.Size = new Size(549, 53);
-            tbSearch.TabIndex = 7;
+            tbSearch.TabIndex = 6;
             tbSearch.Text = "Search";
             // 
             // dgvProducts
@@ -200,7 +200,7 @@ namespace CoffeeShopApplication
             tbId.Multiline = true;
             tbId.Name = "tbId";
             tbId.Size = new Size(333, 42);
-            tbId.TabIndex = 10;
+            tbId.TabIndex = 1;
             tbId.TextChanged += tbId_TextChanged;
             // 
             // label1
@@ -220,7 +220,7 @@ namespace CoffeeShopApplication
             tbName.Multiline = true;
             tbName.Name = "tbName";
             tbName.Size = new Size(314, 42);
-            tbName.TabIndex = 10;
+            tbName.TabIndex = 2;
             // 
             // label2
             // 
@@ -252,7 +252,7 @@ namespace CoffeeShopApplication
             cbSize.Location = new Point(501, 217);
             cbSize.Name = "cbSize";
             cbSize.Size = new Size(144, 40);
-            cbSize.TabIndex = 12;
+            cbSize.TabIndex = 4;
             // 
             // tbPrice
             // 
@@ -261,7 +261,7 @@ namespace CoffeeShopApplication
             tbPrice.Multiline = true;
             tbPrice.Name = "tbPrice";
             tbPrice.Size = new Size(212, 43);
-            tbPrice.TabIndex = 10;
+            tbPrice.TabIndex = 3;
             // 
             // label4
             // 
@@ -291,7 +291,7 @@ namespace CoffeeShopApplication
             cbDeleted.Location = new Point(865, 214);
             cbDeleted.Name = "cbDeleted";
             cbDeleted.Size = new Size(146, 40);
-            cbDeleted.TabIndex = 12;
+            cbDeleted.TabIndex = 5;
             // 
             // pbSave
             // 

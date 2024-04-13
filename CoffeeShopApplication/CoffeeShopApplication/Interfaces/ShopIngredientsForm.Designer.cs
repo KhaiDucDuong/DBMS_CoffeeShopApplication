@@ -187,7 +187,7 @@
             tbSearch.Margin = new Padding(3, 2, 3, 2);
             tbSearch.Name = "tbSearch";
             tbSearch.Size = new Size(549, 53);
-            tbSearch.TabIndex = 11;
+            tbSearch.TabIndex = 5;
             tbSearch.Text = "Search";
             // 
             // label2
@@ -217,7 +217,7 @@
             tbName.Multiline = true;
             tbName.Name = "tbName";
             tbName.Size = new Size(314, 42);
-            tbName.TabIndex = 16;
+            tbName.TabIndex = 2;
             // 
             // tbId
             // 
@@ -227,7 +227,7 @@
             tbId.Multiline = true;
             tbId.Name = "tbId";
             tbId.Size = new Size(333, 42);
-            tbId.TabIndex = 17;
+            tbId.TabIndex = 1;
             // 
             // cbDeleted
             // 
@@ -237,7 +237,7 @@
             cbDeleted.Location = new Point(876, 207);
             cbDeleted.Name = "cbDeleted";
             cbDeleted.Size = new Size(146, 40);
-            cbDeleted.TabIndex = 21;
+            cbDeleted.TabIndex = 4;
             // 
             // label5
             // 
@@ -261,13 +261,12 @@
             // 
             // tbManufacturerName
             // 
-            tbManufacturerName.Enabled = false;
             tbManufacturerName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbManufacturerName.Location = new Point(292, 205);
             tbManufacturerName.Multiline = true;
             tbManufacturerName.Name = "tbManufacturerName";
             tbManufacturerName.Size = new Size(333, 42);
-            tbManufacturerName.TabIndex = 22;
+            tbManufacturerName.TabIndex = 3;
             // 
             // ShopIngredientsForm
             // 

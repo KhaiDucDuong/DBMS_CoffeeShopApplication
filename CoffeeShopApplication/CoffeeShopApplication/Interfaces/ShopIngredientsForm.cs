@@ -36,12 +36,34 @@ namespace CoffeeShopApplication.Interfaces
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-
+            String ingredientName, manufacturername;
+            ingredientName = tbName.Text;
+            manufacturername = tbManufacturerName.Text;
+            if (IngredientBL.addIngredient(ingredientName, manufacturername))
+            {
+                MessageBox.Show("Added a new row successfully!", "Action result");
+                DataSet productDataSet = IngredientBL.getAllIngredients();
+                dgvIngredients.DataSource = productDataSet.Tables[0].DefaultView;
+            }
+            else
+                MessageBox.Show("Failed to add a row! Check your input data!", "Action result");
         }
 
         private void pbSave_Click(object sender, EventArgs e)
         {
-
+            String ingredientId, ingredientName, manufacturername, isDeleted;
+            ingredientId = tbId.Text;
+            ingredientName = tbName.Text;
+            manufacturername = tbManufacturerName.Text;
+            isDeleted = cbDeleted.Text;
+            if (IngredientBL.updateIngredient(ingredientId, ingredientName, manufacturername, isDeleted == "Yes"))
+            {
+                MessageBox.Show("Updated a row successfully!", "Action result");
+                DataSet productDataSet = IngredientBL.getAllIngredients();
+                dgvIngredients.DataSource = productDataSet.Tables[0].DefaultView;
+            }
+            else
+                MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
         }
 
         private void pbRefresh_Click(object sender, EventArgs e)
