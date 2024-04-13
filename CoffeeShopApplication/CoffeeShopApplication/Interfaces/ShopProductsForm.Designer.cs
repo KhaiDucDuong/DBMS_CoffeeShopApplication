@@ -162,7 +162,7 @@ namespace CoffeeShopApplication
             pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAdd.TabIndex = 8;
             pbAdd.TabStop = false;
-            pbAdd.Click += pbSearch_Click;
+            pbAdd.Click += pbAdd_Click;
             // 
             // header1
             // 

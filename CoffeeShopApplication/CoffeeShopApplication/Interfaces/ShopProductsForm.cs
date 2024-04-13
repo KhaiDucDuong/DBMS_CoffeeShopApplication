@@ -30,5 +30,10 @@ namespace CoffeeShopApplication
             DataSet productDataSet = ProductBL.findProductsByName(tbSearch.Text);
             dgvProducts.DataSource = productDataSet.Tables[0].DefaultView;
         }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
