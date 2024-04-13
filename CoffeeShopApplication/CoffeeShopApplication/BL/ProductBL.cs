@@ -24,13 +24,6 @@ namespace CoffeeShopApplication.BL
             String str = "SELECT * FROM dbo.FindProductByNameFunction(@productName)";
             SqlParameter productNameParam = new SqlParameter("@productName", productName);
             SqlParameter[] parameters = { productNameParam };
-            /*SqlConnection conn = new SqlConnection(Properties.Settings.Default.DatabaseConnectionString);
-            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.FindProductByNameFunction(@productName)", conn);
-            cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@productName", productName);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds, "Product");*/
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
             return ds;
         }

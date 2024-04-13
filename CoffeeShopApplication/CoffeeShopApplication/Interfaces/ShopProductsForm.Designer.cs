@@ -44,9 +44,12 @@ namespace CoffeeShopApplication
             isDeletedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             productBindingSource = new BindingSource(components);
             pbSearch = new PictureBox();
+            pbAdd = new PictureBox();
+            header1 = new UC.Header();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAdd).BeginInit();
             SuspendLayout();
             // 
             // tbSearch
@@ -140,7 +143,7 @@ namespace CoffeeShopApplication
             // pbSearch
             // 
             pbSearch.Image = Properties.Resources.search1;
-            pbSearch.Location = new Point(929, 244);
+            pbSearch.Location = new Point(936, 238);
             pbSearch.Margin = new Padding(3, 4, 3, 4);
             pbSearch.Name = "pbSearch";
             pbSearch.Size = new Size(63, 71);
@@ -149,11 +152,34 @@ namespace CoffeeShopApplication
             pbSearch.TabStop = false;
             pbSearch.Click += pbSearch_Click;
             // 
+            // pbAdd
+            // 
+            pbAdd.Image = (Image)resources.GetObject("pbAdd.Image");
+            pbAdd.Location = new Point(1039, 238);
+            pbAdd.Margin = new Padding(3, 4, 3, 4);
+            pbAdd.Name = "pbAdd";
+            pbAdd.Size = new Size(63, 71);
+            pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbAdd.TabIndex = 8;
+            pbAdd.TabStop = false;
+            pbAdd.Click += pbSearch_Click;
+            // 
+            // header1
+            // 
+            header1.BackColor = SystemColors.MenuHighlight;
+            header1.ForeColor = SystemColors.Highlight;
+            header1.Location = new Point(-1, 0);
+            header1.Name = "header1";
+            header1.Size = new Size(1202, 163);
+            header1.TabIndex = 9;
+            // 
             // ShopProductsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 867);
+            Controls.Add(header1);
+            Controls.Add(pbAdd);
             Controls.Add(pbSearch);
             Controls.Add(tbSearch);
             Controls.Add(dgvProducts);
@@ -166,6 +192,7 @@ namespace CoffeeShopApplication
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAdd).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -182,5 +209,7 @@ namespace CoffeeShopApplication
         private DataGridViewCheckBoxColumn isDeletedDataGridViewCheckBoxColumn;
         private BindingSource productBindingSource;
         private PictureBox pbSearch;
+        private PictureBox pbAdd;
+        private UC.Header header1;
     }
 }
