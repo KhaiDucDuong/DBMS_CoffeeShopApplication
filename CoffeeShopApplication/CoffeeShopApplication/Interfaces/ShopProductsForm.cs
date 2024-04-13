@@ -34,7 +34,18 @@ namespace CoffeeShopApplication
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-
+            String productName, productSize, productPrice;
+            productName = tbName.Text;
+            productSize = cbSize.Text;
+            productPrice = tbPrice.Text;
+            if (ProductBL.addProduct(productName, productSize, productPrice))
+            {
+                MessageBox.Show("Updated a row successfully!", "Action result");
+                DataSet productDataSet = ProductBL.getAllProducts();
+                dgvProducts.DataSource = productDataSet.Tables[0].DefaultView;
+            }
+            else
+                MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
         }
 
         private void pbSave_Click(object sender, EventArgs e)
@@ -156,7 +167,7 @@ namespace CoffeeShopApplication
 
         }
 
-                private void tbId_TextChanged(object sender, EventArgs e)
+        private void tbId_TextChanged(object sender, EventArgs e)
         {
 
         }

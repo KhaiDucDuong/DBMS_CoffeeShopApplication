@@ -31,6 +31,9 @@ namespace CoffeeShopApplication.BL
 
         public static bool updateProduct(String productId, String productName, String productSize, String productPrice, bool isDeleted)
         {
+            if (productId == "" || productName == "" || productSize == "" || productPrice == "")
+                return false;
+
             try
             {
                 float.Parse(productPrice);
@@ -47,6 +50,28 @@ namespace CoffeeShopApplication.BL
                 return false;
             }
             
+        }
+
+        public static bool addProduct(String productName, string productSize, String productPrice)
+        {
+            if(productName == "" || productSize == "" || productPrice == "")
+                return false;
+
+            try
+            {
+                float.Parse(productPrice);
+                String str = "InsertProductProc";
+                SqlParameter productNameParam = new SqlParameter("@productName", productName);
+                SqlParameter productSizeParam = new SqlParameter("@productSize", productSize);
+                SqlParameter productPriceParam = new SqlParameter("@productPrice", productPrice);
+                SqlParameter[] parameters = { productNameParam, productSizeParam, productPriceParam };
+                bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
+                return commandResult;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }
