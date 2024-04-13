@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShopApplication.Interfaces;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,10 +28,20 @@ namespace CoffeeShopApplication.UC
                 pbAppIcon.BackColor = Color.White;
                 pbAppIcon.BorderStyle = BorderStyle.FixedSingle;
             }
+            else if (topLevelForm == "ShopIngredientsForm")
+            {
+                pbIngredient.BackColor = Color.White;
+                pbIngredient.BorderStyle = BorderStyle.FixedSingle;
+            }
             else if (topLevelForm == "ShopProductsForm")
             {
                 pbProduct.BackColor = Color.White;
                 pbProduct.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else if (topLevelForm == "ShopEmployeesForm")
+            {
+                pbEmployee.BackColor = Color.White;
+                pbEmployee.BorderStyle = BorderStyle.FixedSingle;
             }
         }
 
@@ -40,6 +51,19 @@ namespace CoffeeShopApplication.UC
             {
                 Program.MainForm.Show();
                 ((Form)this.TopLevelControl).Close();
+            }
+        }
+
+        private void pbIngredient_Click(object sender, EventArgs e)
+        {
+            if (topLevelForm != "ShopIngredientsForm")
+            {
+                ShopIngredientsForm newForm = new ShopIngredientsForm();
+                newForm.Show();
+                if (topLevelForm == "HomeForm")
+                    ((Form)this.TopLevelControl).Hide();
+                else
+                    ((Form)this.TopLevelControl).Close();
             }
         }
 
@@ -58,7 +82,15 @@ namespace CoffeeShopApplication.UC
 
         private void pbEmployee_Click(object sender, EventArgs e)
         {
-
+            if (topLevelForm != "ShopEmployeesForm")
+            {
+                ShopEmployeesForm newForm = new ShopEmployeesForm();
+                newForm.Show();
+                if (topLevelForm == "HomeForm")
+                    ((Form)this.TopLevelControl).Hide();
+                else
+                    ((Form)this.TopLevelControl).Close();
+            }
         }
 
         private void pbOrder_Click(object sender, EventArgs e)
@@ -87,8 +119,12 @@ namespace CoffeeShopApplication.UC
 
         private void pbEmployee_MouseHover(object sender, EventArgs e)
         {
-            pbEmployee.BackColor = Color.White;
-            pbEmployee.BorderStyle = BorderStyle.FixedSingle;
+            if (topLevelForm != "ShopEmployeesForm")
+            {
+                pbEmployee.BackColor = Color.White;
+                pbEmployee.BorderStyle = BorderStyle.FixedSingle;
+            }
+
         }
 
         private void pbOrder_MouseHover(object sender, EventArgs e)
@@ -140,6 +176,42 @@ namespace CoffeeShopApplication.UC
         {
             pbInventory.BackColor = Color.Transparent;
             pbInventory.BorderStyle = BorderStyle.None;
+        }
+
+        private void pbIngredient_MouseHover(object sender, EventArgs e)
+        {
+            if (topLevelForm != "ShopIngredientsForm")
+            {
+                pbIngredient.BackColor = Color.White;
+                pbIngredient.BorderStyle = BorderStyle.FixedSingle;
+            }
+        }
+
+        private void pbIngredient_MouseLeave(object sender, EventArgs e)
+        {
+            if (topLevelForm != "ShopIngredientsForm")
+            {
+                pbIngredient.BackColor = Color.Transparent;
+                pbIngredient.BorderStyle = BorderStyle.None;
+            }
+        }
+
+        private void pbAppIcon_MouseHover(object sender, EventArgs e)
+        {
+            if (topLevelForm != "HomeForm")
+            {
+                pbAppIcon.BackColor = Color.White;
+                pbAppIcon.BorderStyle = BorderStyle.FixedSingle;
+            }
+        }
+
+        private void pbAppIcon_MouseLeave(object sender, EventArgs e)
+        {
+            if (topLevelForm != "HomeForm")
+            {
+                pbAppIcon.BackColor = Color.Transparent;
+                pbAppIcon.BorderStyle = BorderStyle.None;
+            }
         }
     }
 }

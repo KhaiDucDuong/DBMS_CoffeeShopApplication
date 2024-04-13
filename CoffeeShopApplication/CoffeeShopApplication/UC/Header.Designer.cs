@@ -35,12 +35,14 @@
             pbOrder = new PictureBox();
             pbEmployee = new PictureBox();
             pbProduct = new PictureBox();
+            pbIngredient = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pbAppIcon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbInventory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRestockOrder).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbOrder).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbEmployee).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbProduct).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbIngredient).BeginInit();
             SuspendLayout();
             // 
             // pbAppIcon
@@ -55,6 +57,8 @@
             pbAppIcon.TabIndex = 0;
             pbAppIcon.TabStop = false;
             pbAppIcon.Click += pbAppIcon_Click;
+            pbAppIcon.MouseLeave += pbAppIcon_MouseLeave;
+            pbAppIcon.MouseHover += pbAppIcon_MouseHover;
             // 
             // pbInventory
             // 
@@ -136,11 +140,28 @@
             pbProduct.MouseLeave += pbProduct_MouseLeave;
             pbProduct.MouseHover += pbProduct_MouseHover;
             // 
+            // pbIngredient
+            // 
+            pbIngredient.BackColor = Color.Transparent;
+            pbIngredient.Cursor = Cursors.Hand;
+            pbIngredient.Image = (Image)resources.GetObject("pbIngredient.Image");
+            pbIngredient.Location = new Point(253, 8);
+            pbIngredient.Margin = new Padding(3, 2, 3, 2);
+            pbIngredient.Name = "pbIngredient";
+            pbIngredient.Size = new Size(126, 108);
+            pbIngredient.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbIngredient.TabIndex = 0;
+            pbIngredient.TabStop = false;
+            pbIngredient.Click += pbIngredient_Click;
+            pbIngredient.MouseLeave += pbIngredient_MouseLeave;
+            pbIngredient.MouseHover += pbIngredient_MouseHover;
+            // 
             // Header
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.MenuHighlight;
+            Controls.Add(pbIngredient);
             Controls.Add(pbProduct);
             Controls.Add(pbEmployee);
             Controls.Add(pbOrder);
@@ -158,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)pbOrder).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbEmployee).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbProduct).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbIngredient).EndInit();
             ResumeLayout(false);
         }
 
@@ -169,5 +191,6 @@
         private PictureBox pbOrder;
         private PictureBox pbEmployee;
         private PictureBox pbProduct;
+        private PictureBox pbIngredient;
     }
 }
