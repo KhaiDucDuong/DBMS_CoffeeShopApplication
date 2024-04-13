@@ -31,13 +31,13 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopIngredientsForm));
             header1 = new UC.Header();
-            dgvProducts = new DataGridView();
-            ingredientBindingSource = new BindingSource(components);
+            dgvIngredients = new DataGridView();
             ingredientIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ingredientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             manufacturerNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             updatedAtDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             isDeletedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+            ingredientBindingSource = new BindingSource(components);
             pbRefresh = new PictureBox();
             pbSave = new PictureBox();
             pbAdd = new PictureBox();
@@ -51,7 +51,7 @@
             label5 = new Label();
             label3 = new Label();
             textBox1 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvIngredients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ingredientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
@@ -69,27 +69,22 @@
             header1.Size = new Size(1050, 125);
             header1.TabIndex = 9;
             // 
-            // dgvProducts
+            // dgvIngredients
             // 
-            dgvProducts.AllowUserToAddRows = false;
-            dgvProducts.AllowUserToDeleteRows = false;
-            dgvProducts.AutoGenerateColumns = false;
-            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.Columns.AddRange(new DataGridViewColumn[] { ingredientIdDataGridViewTextBoxColumn, ingredientNameDataGridViewTextBoxColumn, manufacturerNameDataGridViewTextBoxColumn, updatedAtDataGridViewTextBoxColumn, isDeletedDataGridViewCheckBoxColumn });
-            dgvProducts.DataSource = ingredientBindingSource;
-            dgvProducts.Location = new Point(12, 378);
-            dgvProducts.MultiSelect = false;
-            dgvProducts.Name = "dgvProducts";
-            dgvProducts.ReadOnly = true;
-            dgvProducts.RowHeadersWidth = 51;
-            dgvProducts.Size = new Size(1026, 354);
-            dgvProducts.TabIndex = 10;
-            // 
-            // ingredientBindingSource
-            // 
-            ingredientBindingSource.DataMember = "Ingredient";
-            ingredientBindingSource.DataSource = typeof(CoffeeShopDataset);
+            dgvIngredients.AllowUserToAddRows = false;
+            dgvIngredients.AllowUserToDeleteRows = false;
+            dgvIngredients.AutoGenerateColumns = false;
+            dgvIngredients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvIngredients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvIngredients.Columns.AddRange(new DataGridViewColumn[] { ingredientIdDataGridViewTextBoxColumn, ingredientNameDataGridViewTextBoxColumn, manufacturerNameDataGridViewTextBoxColumn, updatedAtDataGridViewTextBoxColumn, isDeletedDataGridViewCheckBoxColumn });
+            dgvIngredients.DataSource = ingredientBindingSource;
+            dgvIngredients.Location = new Point(12, 378);
+            dgvIngredients.MultiSelect = false;
+            dgvIngredients.Name = "dgvIngredients";
+            dgvIngredients.ReadOnly = true;
+            dgvIngredients.RowHeadersWidth = 51;
+            dgvIngredients.Size = new Size(1026, 354);
+            dgvIngredients.TabIndex = 10;
             // 
             // ingredientIdDataGridViewTextBoxColumn
             // 
@@ -125,6 +120,11 @@
             isDeletedDataGridViewCheckBoxColumn.HeaderText = "isDeleted";
             isDeletedDataGridViewCheckBoxColumn.Name = "isDeletedDataGridViewCheckBoxColumn";
             isDeletedDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // ingredientBindingSource
+            // 
+            ingredientBindingSource.DataMember = "Ingredient";
+            ingredientBindingSource.DataSource = typeof(CoffeeShopDataset);
             // 
             // pbRefresh
             // 
@@ -278,14 +278,14 @@
             Controls.Add(pbAdd);
             Controls.Add(pbSearch);
             Controls.Add(tbSearch);
-            Controls.Add(dgvProducts);
+            Controls.Add(dgvIngredients);
             Controls.Add(header1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShopIngredientsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Shop Ingredients";
             Load += ShopIngredientsForm_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvIngredients).EndInit();
             ((System.ComponentModel.ISupportInitialize)ingredientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).EndInit();
@@ -297,7 +297,7 @@
 
         #endregion
         private UC.Header header1;
-        private DataGridView dgvProducts;
+        private DataGridView dgvIngredients;
         private DataGridViewTextBoxColumn ingredientIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn ingredientNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn manufacturerNameDataGridViewTextBoxColumn;
