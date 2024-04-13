@@ -1,4 +1,5 @@
-﻿using CoffeeShopApplication.DB;
+﻿using CoffeeShopApplication.CoffeeShopDatasetTableAdapters;
+using CoffeeShopApplication.DB;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,6 +27,26 @@ namespace CoffeeShopApplication.BL
             SqlParameter[] parameters = { productNameParam };
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
             return ds;
+        }
+
+        public static bool updateProduct(String productId, String productName, String productSize, String productPrice, bool isDeleted)
+        {
+            try
+            {
+                float.Parse(productPrice);
+                String str = "UpdateProductProc";
+                SqlParameter productIdParam = new SqlParameter("@productId", productId);
+                SqlParameter productNameParam = new SqlParameter("@productName", productName);
+                SqlParameter productSizeParam = new SqlParameter("@productSize", productSize);
+                SqlParameter productPriceParam = new SqlParameter("@productPrice", productPrice);
+                SqlParameter isDeletedParam = new SqlParameter("@isDeleted", isDeleted.ToString());
+                SqlParameter[] parameters = { productIdParam, productNameParam, productSizeParam, productPriceParam, isDeletedParam };
+                bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
+                return commandResult;
+            } catch (Exception e) {
+                return false;
+            }
+            
         }
     }
 }

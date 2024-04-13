@@ -57,18 +57,20 @@ namespace CoffeeShopApplication
             label5 = new Label();
             cbDeleted = new ComboBox();
             pbSave = new PictureBox();
+            pbRefresh = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAdd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
             SuspendLayout();
             // 
             // tbSearch
             // 
             tbSearch.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold);
             tbSearch.ForeColor = SystemColors.ScrollBar;
-            tbSearch.Location = new Point(145, 299);
+            tbSearch.Location = new Point(96, 301);
             tbSearch.Margin = new Padding(3, 2, 3, 2);
             tbSearch.Name = "tbSearch";
             tbSearch.Size = new Size(549, 53);
@@ -157,7 +159,7 @@ namespace CoffeeShopApplication
             // pbSearch
             // 
             pbSearch.Image = Properties.Resources.search1;
-            pbSearch.Location = new Point(721, 299);
+            pbSearch.Location = new Point(672, 301);
             pbSearch.Name = "pbSearch";
             pbSearch.Size = new Size(55, 55);
             pbSearch.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -170,7 +172,7 @@ namespace CoffeeShopApplication
             // pbAdd
             // 
             pbAdd.Image = (Image)resources.GetObject("pbAdd.Image");
-            pbAdd.Location = new Point(811, 299);
+            pbAdd.Location = new Point(762, 301);
             pbAdd.Name = "pbAdd";
             pbAdd.Size = new Size(55, 55);
             pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -294,15 +296,28 @@ namespace CoffeeShopApplication
             // pbSave
             // 
             pbSave.Image = (Image)resources.GetObject("pbSave.Image");
-            pbSave.Location = new Point(901, 299);
+            pbSave.Location = new Point(852, 301);
             pbSave.Name = "pbSave";
             pbSave.Size = new Size(55, 55);
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSave.TabIndex = 8;
             pbSave.TabStop = false;
             pbSave.Click += pbSave_Click;
-            pbSave.MouseLeave += pbAdd_MouseLeave;
-            pbSave.MouseHover += pbAdd_MouseHover;
+            pbSave.MouseLeave += pbSave_MouseLeave;
+            pbSave.MouseHover += pbSave_MouseHover;
+            // 
+            // pbRefresh
+            // 
+            pbRefresh.Image = (Image)resources.GetObject("pbRefresh.Image");
+            pbRefresh.Location = new Point(941, 301);
+            pbRefresh.Name = "pbRefresh";
+            pbRefresh.Size = new Size(55, 55);
+            pbRefresh.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbRefresh.TabIndex = 8;
+            pbRefresh.TabStop = false;
+            pbRefresh.Click += pbRefresh_Click;
+            pbRefresh.MouseLeave += pbRefresh_MouseLeave;
+            pbRefresh.MouseHover += pbRefresh_MouseHover;
             // 
             // ShopProductsForm
             // 
@@ -320,6 +335,7 @@ namespace CoffeeShopApplication
             Controls.Add(tbName);
             Controls.Add(tbId);
             Controls.Add(header1);
+            Controls.Add(pbRefresh);
             Controls.Add(pbSave);
             Controls.Add(pbAdd);
             Controls.Add(pbSearch);
@@ -335,6 +351,7 @@ namespace CoffeeShopApplication
             ((System.ComponentModel.ISupportInitialize)pbSearch).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAdd).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbRefresh).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -364,5 +381,6 @@ namespace CoffeeShopApplication
         private Label label5;
         private ComboBox cbDeleted;
         private PictureBox pbSave;
+        private PictureBox pbRefresh;
     }
 }

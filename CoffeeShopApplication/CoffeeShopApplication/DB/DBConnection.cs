@@ -43,9 +43,28 @@ namespace CoffeeShopApplication.DB
             return ds;
         }
 
-        public void ExecuteNonQuery(string sqlStr, CommandType CT, SqlParameter[] parameters = null)
+        public bool ExecuteNonQuery(string sqlStr, CommandType ct, SqlParameter[] parameters = null)
         {
-
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
+            conn.Open();
+            SqlCommand comm = new SqlCommand(sqlStr, conn);
+            comm.CommandType = ct;
+            if (parameters != null)
+                comm.Parameters.AddRange(parameters);
+            try
+            {
+                comm.ExecuteNonQuery();
+                return true;
+            } catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR");
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }
