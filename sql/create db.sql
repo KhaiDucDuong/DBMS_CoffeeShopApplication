@@ -1,4 +1,4 @@
--- Create CoffeeShopManagement database
+﻿-- Create CoffeeShopManagement database
 use master;
 GO
 IF DB_ID('CoffeeShop') IS NOT NULL
@@ -128,3 +128,7 @@ CREATE TABLE RestockBillDetails (
     quantity INT CHECK (quantity >= 1),
     price DECIMAL(10, 2),
 );
+
+GO
+ALTER TABLE Product
+ADD CONSTRAINT productSizeConstraint CHECK (productSize = N'Lớn' or productSize = N'Nhỏ' or productSize = N'Vừa' );

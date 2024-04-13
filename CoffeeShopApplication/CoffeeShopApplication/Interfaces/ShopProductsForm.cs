@@ -37,28 +37,85 @@ namespace CoffeeShopApplication
 
         }
 
+        private void pbSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void pbSearch_MouseHover(object sender, EventArgs e)
         {
             pbSearch.Size = new Size(65, 65);
-            pbSearch.Location = new Point(819, 168);
+            pbSearch.Location = new Point(721, 289);
         }
 
         private void pbSearch_MouseLeave(object sender, EventArgs e)
         {
             pbSearch.Size = new Size(55, 55);
-            pbSearch.Location = new Point(819, 178);
+            pbSearch.Location = new Point(721, 299);
         }
 
         private void pbAdd_MouseHover(object sender, EventArgs e)
         {
             pbAdd.Size = new Size(65, 65);
-            pbAdd.Location = new Point(909, 168);
+            pbAdd.Location = new Point(811, 289);
         }
 
         private void pbAdd_MouseLeave(object sender, EventArgs e)
         {
             pbAdd.Size = new Size(55, 55);
-            pbAdd.Location = new Point(909, 178);
+            pbAdd.Location = new Point(811, 299);
+        }
+
+        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvProducts.Rows[e.RowIndex];
+                tbId.Text = row.Cells[0].Value.ToString();
+                tbName.Text = row.Cells[1].Value.ToString();
+                tbPrice.Text = row.Cells[3].Value.ToString();
+                switch (row.Cells[2].Value.ToString())
+                {
+                    case "Lớn":
+                        cbSize.SelectedIndex = 0;
+                        break;
+                    case "Vừa":
+                        cbSize.SelectedIndex = 1;
+                        break;
+                    case "Nhỏ":
+                        cbSize.SelectedIndex = 2;
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (row.Cells[6].Value)
+                {
+                    case true:
+                        cbDeleted.SelectedIndex = 0;
+                        break;
+                    case false:
+                        cbDeleted.SelectedIndex = 1;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
