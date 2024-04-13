@@ -27,7 +27,7 @@ namespace CoffeeShopApplication.Interfaces
 
         private void pbSearch_Click(object sender, EventArgs e)
         {
-            if(tbSearch.Text.Length > 0)
+            if (tbSearch.Text.Length > 0)
             {
                 DataSet ingredientDataSet = IngredientBL.findIngredientsByName(tbSearch.Text);
                 dgvIngredients.DataSource = ingredientDataSet.Tables[0].DefaultView;
@@ -48,6 +48,77 @@ namespace CoffeeShopApplication.Interfaces
         {
             DataSet ingredientDataSet = IngredientBL.getAllIngredients();
             dgvIngredients.DataSource = ingredientDataSet.Tables[0].DefaultView;
+        }
+
+        private void dgvIngredients_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvIngredients.Rows[e.RowIndex];
+                tbId.Text = row.Cells[0].Value.ToString();
+                tbName.Text = row.Cells[1].Value.ToString();
+                tbManufacturerName.Text = row.Cells[2].Value.ToString();
+
+                switch (row.Cells[4].Value)
+                {
+                    case true:
+                        cbDeleted.SelectedIndex = 0;
+                        break;
+                    case false:
+                        cbDeleted.SelectedIndex = 1;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void pbSearch_MouseHover(object sender, EventArgs e)
+        {
+            pbSearch.Size = new Size(65, 65);
+            pbSearch.Location = new Point(652, 283);
+        }
+
+        private void pbSearch_MouseLeave(object sender, EventArgs e)
+        {
+            pbSearch.Size = new Size(55, 55);
+            pbSearch.Location = new Point(652, 293);
+        }
+
+        private void pbAdd_MouseHover(object sender, EventArgs e)
+        {
+            pbAdd.Size = new Size(65, 65);
+            pbAdd.Location = new Point(742, 283);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            pbAdd.Size = new Size(55, 55);
+            pbAdd.Location = new Point(742, 293);
+        }
+
+        private void pbSave_MouseHover(object sender, EventArgs e)
+        {
+            pbSave.Size = new Size(65, 65);
+            pbSave.Location = new Point(832, 283);
+        }
+
+        private void pbSave_MouseLeave(object sender, EventArgs e)
+        {
+            pbSave.Size = new Size(55, 55);
+            pbSave.Location = new Point(832, 293);
+        }
+
+        private void pbRefresh_MouseHover(object sender, EventArgs e)
+        {
+            pbRefresh.Size = new Size(65, 65);
+            pbRefresh.Location = new Point(921, 283);
+        }
+
+        private void pbRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            pbRefresh.Size = new Size(55, 55);
+            pbRefresh.Location = new Point(921, 293);
         }
     }
 }

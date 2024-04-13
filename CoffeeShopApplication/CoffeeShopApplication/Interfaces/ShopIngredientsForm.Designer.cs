@@ -50,7 +50,7 @@
             cbDeleted = new ComboBox();
             label5 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
+            tbManufacturerName = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvIngredients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ingredientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
@@ -85,6 +85,7 @@
             dgvIngredients.RowHeadersWidth = 51;
             dgvIngredients.Size = new Size(1026, 354);
             dgvIngredients.TabIndex = 10;
+            dgvIngredients.CellContentClick += dgvIngredients_CellContentClick;
             // 
             // ingredientIdDataGridViewTextBoxColumn
             // 
@@ -136,6 +137,8 @@
             pbRefresh.TabIndex = 12;
             pbRefresh.TabStop = false;
             pbRefresh.Click += pbRefresh_Click;
+            pbRefresh.MouseLeave += pbRefresh_MouseLeave;
+            pbRefresh.MouseHover += pbRefresh_MouseHover;
             // 
             // pbSave
             // 
@@ -147,6 +150,8 @@
             pbSave.TabIndex = 13;
             pbSave.TabStop = false;
             pbSave.Click += pbSave_Click;
+            pbSave.MouseLeave += pbSave_MouseLeave;
+            pbSave.MouseHover += pbSave_MouseHover;
             // 
             // pbAdd
             // 
@@ -158,6 +163,8 @@
             pbAdd.TabIndex = 14;
             pbAdd.TabStop = false;
             pbAdd.Click += pbAdd_Click;
+            pbAdd.MouseLeave += pbAdd_MouseLeave;
+            pbAdd.MouseHover += pbAdd_MouseHover;
             // 
             // pbSearch
             // 
@@ -169,6 +176,8 @@
             pbSearch.TabIndex = 15;
             pbSearch.TabStop = false;
             pbSearch.Click += pbSearch_Click;
+            pbSearch.MouseLeave += pbSearch_MouseLeave;
+            pbSearch.MouseHover += pbSearch_MouseHover;
             // 
             // tbSearch
             // 
@@ -250,15 +259,15 @@
             label3.TabIndex = 23;
             label3.Text = "Manufacturer name";
             // 
-            // textBox1
+            // tbManufacturerName
             // 
-            textBox1.Enabled = false;
-            textBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(292, 205);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(333, 42);
-            textBox1.TabIndex = 22;
+            tbManufacturerName.Enabled = false;
+            tbManufacturerName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbManufacturerName.Location = new Point(292, 205);
+            tbManufacturerName.Multiline = true;
+            tbManufacturerName.Name = "tbManufacturerName";
+            tbManufacturerName.Size = new Size(333, 42);
+            tbManufacturerName.TabIndex = 22;
             // 
             // ShopIngredientsForm
             // 
@@ -266,7 +275,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1050, 744);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(tbManufacturerName);
             Controls.Add(cbDeleted);
             Controls.Add(label5);
             Controls.Add(label2);
@@ -316,6 +325,6 @@
         private ComboBox cbDeleted;
         private Label label5;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox tbManufacturerName;
     }
 }
