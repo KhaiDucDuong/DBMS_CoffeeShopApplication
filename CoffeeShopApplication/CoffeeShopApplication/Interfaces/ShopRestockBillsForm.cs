@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace CoffeeShopApplication.Interfaces
 {
@@ -31,7 +32,17 @@ namespace CoffeeShopApplication.Interfaces
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-
+            String date, suppliername;
+            date = dtpRestockBill.Value.ToString("MM/dd/yyyy");
+            suppliername = tbSupplierName.Text;
+            if (RestockBillBL.addRestockBill(date, suppliername))
+            {
+                MessageBox.Show("Added a new row successfully!", "Action result");
+                DataSet productDataSet = RestockBillBL.getAllRestockBills();
+                dgvRestockBills.DataSource = productDataSet.Tables[0].DefaultView;
+            }
+            else
+                MessageBox.Show("Failed to add a row! Check your input data!", "Action result");
         }
     }
 }

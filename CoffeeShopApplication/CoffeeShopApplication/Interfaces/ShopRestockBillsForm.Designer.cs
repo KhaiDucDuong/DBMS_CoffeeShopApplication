@@ -43,7 +43,7 @@
             pbSearch = new PictureBox();
             tbSearch = new TextBox();
             label3 = new Label();
-            tbManufacturerName = new TextBox();
+            tbSupplierName = new TextBox();
             lbDate = new Label();
             label1 = new Label();
             tbId = new TextBox();
@@ -179,14 +179,14 @@
             label3.TabIndex = 35;
             label3.Text = "Supplier Name";
             // 
-            // tbManufacturerName
+            // tbSupplierName
             // 
-            tbManufacturerName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbManufacturerName.Location = new Point(249, 217);
-            tbManufacturerName.Multiline = true;
-            tbManufacturerName.Name = "tbManufacturerName";
-            tbManufacturerName.Size = new Size(333, 42);
-            tbManufacturerName.TabIndex = 3;
+            tbSupplierName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbSupplierName.Location = new Point(249, 217);
+            tbSupplierName.Multiline = true;
+            tbSupplierName.Name = "tbSupplierName";
+            tbSupplierName.Size = new Size(333, 42);
+            tbSupplierName.TabIndex = 3;
             // 
             // lbDate
             // 
@@ -248,7 +248,7 @@
             Controls.Add(btnViewDetails);
             Controls.Add(dtpRestockBill);
             Controls.Add(label3);
-            Controls.Add(tbManufacturerName);
+            Controls.Add(tbSupplierName);
             Controls.Add(lbDate);
             Controls.Add(label1);
             Controls.Add(tbId);
@@ -288,7 +288,7 @@
         private DataGridViewTextBoxColumn totalBillDataGridViewTextBoxColumn;
         private BindingSource restockBillBindingSource;
         private Label label3;
-        private TextBox tbManufacturerName;
+        private TextBox tbSupplierName;
         private Label lbDate;
         private Label label1;
         private TextBox tbId;

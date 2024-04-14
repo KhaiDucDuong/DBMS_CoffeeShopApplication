@@ -211,3 +211,29 @@ END;
 /*Trigger cập nhật số điểm thưởng của khách hàng khi cập nhật finalBill của một Order Bill*/
 
 /*Trigger cập nhật số điểm thưởng của khách hàng khi xóa một Order Bill*/
+
+/* Trigger Cập nhật số tiền tổng của RestockBill khi thêm một sản phẩm trong RestockBillDetails */
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_RestockBill_AfterInsert' AND [type] = 'TR')
+	DROP TRIGGER [dbo].tr_RestockBill_AfterInsert;
+GO
+CREATE TRIGGER tr_RestockBill_AfterInsert
+ON RestockBillDetails
+AFTER INSERT
+AS
+BEGIN
+	--Get billId and calculate the new price we need to add to the OrderBill
+	DECLARE @restockBillId UNIQUEIDENTIFIER, @addedPrice DECIMAL(10, 2);
+	SELECT @restockBillId = restockBillId, @addedPrice = SUM(quantity * price) FROM inserted GROUP BY restockBillId
+
+	--Update the totalBill in the RestockBill
+	UPDATE RestockBill
+	SET totalBill = totalBill + @addedPrice
+	WHERE restockBillId = @restockBillId
+END;
+GO
+
+/* Trigger Cập nhật số tiền tổng của RestockBill khi sửa một sản phẩm trong RestockBillDetails */
+
+/* Trigger Cập nhật số tiền tổng của RestockBill khi xóa một sản phẩm trong RestockBillDetails */
+

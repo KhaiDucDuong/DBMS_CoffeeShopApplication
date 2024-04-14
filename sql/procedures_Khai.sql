@@ -99,12 +99,11 @@ DROP PROCEDURE InsertRestockBillProc
 GO
 CREATE PROCEDURE InsertRestockBillProc
     @date DATE,
-    @supplierName NVARCHAR(50),
-    @totalBill DECIMAL(10, 2)
+    @supplierName NVARCHAR(50)
 AS
 BEGIN
-    INSERT INTO RestockBill (date, supplierName, totalBill)
-    VALUES (@date, @supplierName, @totalBill);
+    INSERT INTO RestockBill (date, supplierName)
+    VALUES (@date, @supplierName);
 END;
 
 --GO

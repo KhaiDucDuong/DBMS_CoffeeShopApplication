@@ -18,17 +18,17 @@ namespace CoffeeShopApplication.BL
             return ds;
         }
 
-        public static bool addRestockBill(String ingredientName, string manufacturerName)
+        public static bool addRestockBill(String date, string supplierName)
         {
-            if (ingredientName == "" || manufacturerName == "")
+            if (date == "" || supplierName == "")
                 return false;
 
             try
             {
-                String str = "InsertIngredientProc";
-                SqlParameter ingredientNameParam = new SqlParameter("@ingredientName", ingredientName);
-                SqlParameter manufacturerNameParam = new SqlParameter("@manufacturerName", manufacturerName);
-                SqlParameter[] parameters = { ingredientNameParam, manufacturerNameParam };
+                String str = "InsertRestockBillProc";
+                SqlParameter dateParam = new SqlParameter("@date", date);
+                SqlParameter supplierNameParam = new SqlParameter("@supplierName", supplierName);
+                SqlParameter[] parameters = { dateParam, supplierNameParam };
                 bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
                 return commandResult;
             }
