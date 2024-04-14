@@ -157,6 +157,7 @@
             pbSearch.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSearch.TabIndex = 28;
             pbSearch.TabStop = false;
+            pbSearch.Click += pbSearch_Click;
             // 
             // tbSearch
             // 

@@ -44,5 +44,14 @@ namespace CoffeeShopApplication.Interfaces
             else
                 MessageBox.Show("Failed to add a row! Check your input data!", "Action result");
         }
+
+        private void pbSearch_Click(object sender, EventArgs e)
+        {
+            if (tbSearch.Text.Length > 0)
+            {
+                DataSet restockBillDataSet = RestockBillBL.findRestockBillById(tbSearch.Text);
+                dgvRestockBills.DataSource = restockBillDataSet.Tables[0].DefaultView;
+            }
+        }
     }
 }

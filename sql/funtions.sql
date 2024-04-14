@@ -7,28 +7,48 @@ GO
 
 CREATE FUNCTION findEmployeeByNameFunction 
 ( 
-    @EmployeeName NVARCHAR(100)
+    @employeeName NVARCHAR(100)
 )
 RETURNS TABLE
 AS
 RETURN (
-    SELECT * FROM Employee WHERE fullName = @EmployeeName
+    SELECT * FROM Employee WHERE fullName = @employeeName
 );
 GO
 
 -- 2. Function findOrderBillById
-IF OBJECT_ID(N'findOrderBillByIdFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'findOrderBillByIdFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION findOrderBillByIdFunction
 GO
-
 CREATE FUNCTION findOrderBillByIdFunction 
 ( 
-    @OrderBillId UNIQUEIDENTIFIER
+    @orderBillId NVARCHAR(36)
 )
 RETURNS TABLE
 AS
 RETURN (
-    SELECT * FROM GetOrderBillDetailsView WHERE billId = @OrderBillId
+    SELECT * FROM OrderBill WHERE CAST( billId as NVARCHAR(36)) like '%' + @orderBillId + '%'
+);
+GO
+
+--Function findRestockBillById
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'findRestockBillByIdFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
+    DROP FUNCTION findRestockBillByIdFunction
+GO
+CREATE FUNCTION findRestockBillByIdFunction 
+( 
+    @restockBillId NVARCHAR(36)
+)
+RETURNS TABLE
+AS
+RETURN (
+    SELECT * FROM RestockBill WHERE CAST( restockBillId as NVARCHAR(36)) like '%' + @restockBillId + '%'
 );
 GO
 

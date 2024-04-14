@@ -18,6 +18,15 @@ namespace CoffeeShopApplication.BL
             return ds;
         }
 
+        public static DataSet findRestockBillById(String restockBillId)
+        {
+            String str = "SELECT * FROM dbo.findRestockBillByIdFunction(@restockBillId)";
+            SqlParameter restockBillIdParam = new SqlParameter("@restockBillId", restockBillId);
+            SqlParameter[] parameters = { restockBillIdParam };
+            DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
+            return ds;
+        }
+
         public static bool addRestockBill(String date, string supplierName)
         {
             if (date == "" || supplierName == "")
