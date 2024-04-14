@@ -117,14 +117,12 @@ GO
 CREATE PROCEDURE UpdateRestockBillProc
     @restockBillId UNIQUEIDENTIFIER,
     @date DATE,
-    @supplierName NVARCHAR(50),
-    @totalBill DECIMAL(10, 2)
+    @supplierName NVARCHAR(50)
 AS
 BEGIN
     UPDATE RestockBill
     SET date = @date,
-        supplierName = @supplierName,
-        totalBill = @totalBill
+        supplierName = @supplierName
     WHERE restockBillId = @restockBillId;
 END;
 
