@@ -32,6 +32,19 @@ BEGIN
     WHERE customerId = @customerId;
 END;
 /* Procedure delete vào bảng Customer*/
+GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'DeleteCustomerProc')
+DROP PROCEDURE DeleteCustomerProc
+GO
+
+CREATE PROCEDURE DeleteCustomerProc
+    @customerId UNIQUEIDENTIFIER
+AS
+BEGIN
+    DELETE FROM Customer
+    WHERE customerId = @customerId;
+END;
 /* Procedure insert vào bảng Product*/
 GO
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertProductProc')
