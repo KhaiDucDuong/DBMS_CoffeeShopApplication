@@ -31,12 +31,12 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopRestockBillDetailsForm));
             dgvRestockBillDetails = new DataGridView();
-            getRestockBillViewBindingSource = new BindingSource(components);
             restockBillIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ingredientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             quantityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            getRestockBillViewBindingSource = new BindingSource(components);
             dtpRestockBill = new DateTimePicker();
             lbDate = new Label();
             label1 = new Label();
@@ -76,11 +76,6 @@
             dgvRestockBillDetails.Size = new Size(1026, 354);
             dgvRestockBillDetails.TabIndex = 11;
             // 
-            // getRestockBillViewBindingSource
-            // 
-            getRestockBillViewBindingSource.DataMember = "GetRestockBillView";
-            getRestockBillViewBindingSource.DataSource = typeof(CoffeeShopDataset);
-            // 
             // restockBillIdDataGridViewTextBoxColumn
             // 
             restockBillIdDataGridViewTextBoxColumn.DataPropertyName = "restockBillId";
@@ -116,11 +111,16 @@
             priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // getRestockBillViewBindingSource
+            // 
+            getRestockBillViewBindingSource.DataMember = "GetRestockBillView";
+            getRestockBillViewBindingSource.DataSource = typeof(CoffeeShopDataset);
+            // 
             // dtpRestockBill
             // 
             dtpRestockBill.CalendarFont = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpRestockBill.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpRestockBill.Location = new Point(615, 12);
+            dtpRestockBill.Location = new Point(613, 28);
             dtpRestockBill.MinimumSize = new Size(314, 42);
             dtpRestockBill.Name = "dtpRestockBill";
             dtpRestockBill.Size = new Size(412, 42);
@@ -130,7 +130,7 @@
             // 
             lbDate.AutoSize = true;
             lbDate.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDate.Location = new Point(516, 19);
+            lbDate.Location = new Point(514, 35);
             lbDate.Name = "lbDate";
             lbDate.Size = new Size(67, 32);
             lbDate.TabIndex = 37;
@@ -140,7 +140,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(29, 15);
+            label1.Location = new Point(27, 31);
             label1.Name = "label1";
             label1.Size = new Size(40, 32);
             label1.TabIndex = 38;
@@ -150,7 +150,7 @@
             // 
             tbId.Enabled = false;
             tbId.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbId.Location = new Point(169, 9);
+            tbId.Location = new Point(167, 25);
             tbId.Multiline = true;
             tbId.Name = "tbId";
             tbId.Size = new Size(333, 42);
@@ -160,7 +160,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(29, 84);
+            label3.Location = new Point(27, 100);
             label3.Name = "label3";
             label3.Size = new Size(134, 32);
             label3.TabIndex = 40;
@@ -169,7 +169,7 @@
             // tbSupplierName
             // 
             tbSupplierName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbSupplierName.Location = new Point(169, 81);
+            tbSupplierName.Location = new Point(167, 97);
             tbSupplierName.Multiline = true;
             tbSupplierName.Name = "tbSupplierName";
             tbSupplierName.Size = new Size(333, 42);
@@ -179,7 +179,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(520, 84);
+            label2.Location = new Point(518, 100);
             label2.Name = "label2";
             label2.Size = new Size(71, 32);
             label2.TabIndex = 42;
@@ -188,7 +188,7 @@
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(615, 81);
+            textBox1.Location = new Point(613, 97);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(412, 42);
@@ -198,7 +198,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(29, 168);
+            label4.Location = new Point(27, 184);
             label4.Name = "label4";
             label4.Size = new Size(113, 32);
             label4.TabIndex = 44;
@@ -207,7 +207,7 @@
             // textBox2
             // 
             textBox2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(169, 158);
+            textBox2.Location = new Point(167, 174);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(333, 42);
@@ -216,7 +216,7 @@
             // pbRefresh
             // 
             pbRefresh.Image = (Image)resources.GetObject("pbRefresh.Image");
-            pbRefresh.Location = new Point(938, 145);
+            pbRefresh.Location = new Point(936, 161);
             pbRefresh.Name = "pbRefresh";
             pbRefresh.Size = new Size(55, 55);
             pbRefresh.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -226,7 +226,7 @@
             // pbDelete
             // 
             pbDelete.Image = (Image)resources.GetObject("pbDelete.Image");
-            pbDelete.Location = new Point(843, 145);
+            pbDelete.Location = new Point(841, 161);
             pbDelete.Name = "pbDelete";
             pbDelete.Size = new Size(55, 55);
             pbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -236,7 +236,7 @@
             // pbSave
             // 
             pbSave.Image = (Image)resources.GetObject("pbSave.Image");
-            pbSave.Location = new Point(745, 145);
+            pbSave.Location = new Point(743, 161);
             pbSave.Name = "pbSave";
             pbSave.Size = new Size(55, 55);
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -246,7 +246,7 @@
             // pbAdd
             // 
             pbAdd.Image = (Image)resources.GetObject("pbAdd.Image");
-            pbAdd.Location = new Point(651, 145);
+            pbAdd.Location = new Point(649, 161);
             pbAdd.Name = "pbAdd";
             pbAdd.Size = new Size(55, 55);
             pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
