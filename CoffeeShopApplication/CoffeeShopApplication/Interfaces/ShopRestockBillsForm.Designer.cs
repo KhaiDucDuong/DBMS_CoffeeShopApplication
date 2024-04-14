@@ -49,12 +49,14 @@
             tbId = new TextBox();
             dtpRestockBill = new DateTimePicker();
             btnViewDetails = new Button();
+            pbRefresh = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvRestockBills).BeginInit();
             ((System.ComponentModel.ISupportInitialize)restockBillBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDelete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAdd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
             SuspendLayout();
             // 
             // header1
@@ -83,6 +85,7 @@
             dgvRestockBills.RowHeadersWidth = 51;
             dgvRestockBills.Size = new Size(1026, 354);
             dgvRestockBills.TabIndex = 11;
+            dgvRestockBills.CellContentClick += dgvRestockBills_CellContentClick;
             // 
             // restockBillIdDataGridViewTextBoxColumn
             // 
@@ -136,6 +139,7 @@
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSave.TabIndex = 26;
             pbSave.TabStop = false;
+            pbSave.Click += pbSave_Click;
             // 
             // pbAdd
             // 
@@ -240,12 +244,24 @@
             btnViewDetails.UseVisualStyleBackColor = true;
             btnViewDetails.Click += btnViewDetails_Click;
             // 
+            // pbRefresh
+            // 
+            pbRefresh.Image = (Image)resources.GetObject("pbRefresh.Image");
+            pbRefresh.Location = new Point(971, 294);
+            pbRefresh.Name = "pbRefresh";
+            pbRefresh.Size = new Size(55, 55);
+            pbRefresh.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbRefresh.TabIndex = 38;
+            pbRefresh.TabStop = false;
+            pbRefresh.Click += pbRefresh_Click;
+            // 
             // ShopRestockBillsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1050, 744);
             ControlBox = false;
+            Controls.Add(pbRefresh);
             Controls.Add(btnViewDetails);
             Controls.Add(dtpRestockBill);
             Controls.Add(label3);
@@ -271,6 +287,7 @@
             ((System.ComponentModel.ISupportInitialize)pbSave).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAdd).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbRefresh).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -295,5 +312,6 @@
         private TextBox tbId;
         private DateTimePicker dtpRestockBill;
         private Button btnViewDetails;
+        private PictureBox pbRefresh;
     }
 }

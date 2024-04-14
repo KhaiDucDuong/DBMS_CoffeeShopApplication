@@ -46,5 +46,27 @@ namespace CoffeeShopApplication.BL
                 return false;
             }
         }
+
+        public static bool updateRestockBill(String restockBillId, String date, string supplierName)
+        {
+            if (restockBillId == "" || date == "" || supplierName == "")
+                return false;
+
+            try
+            {
+                String str = "UpdateRestockBillProc";
+                SqlParameter restockBillIdParam = new SqlParameter("@restockBillId", restockBillId);
+                SqlParameter dateParam = new SqlParameter("@date", date);
+                SqlParameter supplierNameParam = new SqlParameter("@supplierName", supplierName);
+                SqlParameter[] parameters = { restockBillIdParam, dateParam, supplierNameParam };
+                bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
+                return commandResult;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
+        }
     }
 }

@@ -53,5 +53,38 @@ namespace CoffeeShopApplication.Interfaces
                 dgvRestockBills.DataSource = restockBillDataSet.Tables[0].DefaultView;
             }
         }
+
+        private void pbRefresh_Click(object sender, EventArgs e)
+        {
+            DataSet restockBillDataSet = RestockBillBL.getAllRestockBills();
+            dgvRestockBills.DataSource = restockBillDataSet.Tables[0].DefaultView;
+        }
+
+        private void dgvRestockBills_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvRestockBills.Rows[e.RowIndex];
+                tbId.Text = row.Cells[0].Value.ToString();
+                dtpRestockBill.Value = DateTime.Parse(row.Cells[1].Value.ToString());
+                tbSupplierName.Text = row.Cells[2].Value.ToString();
+            }
+        }
+
+        private void pbSave_Click(object sender, EventArgs e)
+        {
+            String restockBillId, date, supplierName;
+            restockBillId = tbId.Text;
+            date = dtpRestockBill.Value.ToString("MM/dd/yyyy");
+            supplierName = tbSupplierName.Text;
+            if (RestockBillBL.updateRestockBill(restockBillId, date, supplierName))
+            {
+                MessageBox.Show("Updated a row successfully!", "Action result");
+                DataSet productDataSet = RestockBillBL.getAllRestockBills();
+                dgvRestockBills.DataSource = productDataSet.Tables[0].DefaultView;
+            }
+            else
+                MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
+        }
     }
 }
