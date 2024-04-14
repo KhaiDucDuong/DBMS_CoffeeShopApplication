@@ -17,6 +17,9 @@
     <Compile Update="Interfaces\ShopProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Interfaces\ShopRestockBillDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Interfaces\ShopRestockBillsForm.cs">
       <SubType>Form</SubType>
     </Compile>

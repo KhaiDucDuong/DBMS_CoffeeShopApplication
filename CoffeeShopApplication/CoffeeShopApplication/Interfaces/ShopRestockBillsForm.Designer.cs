@@ -279,7 +279,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShopRestockBillsForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ShopRestockBillsForm";
+            Text = "Shop Restock Bills";
             Load += ShopRestockBillsForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvRestockBills).EndInit();
             ((System.ComponentModel.ISupportInitialize)restockBillBindingSource).EndInit();
