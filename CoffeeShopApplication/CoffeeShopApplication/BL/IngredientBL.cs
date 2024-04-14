@@ -69,5 +69,23 @@ namespace CoffeeShopApplication.BL
                 return false;
             }
         }
+
+        public static bool deleteIngredient(String ingredientId)
+        {
+            if (ingredientId == "")
+                return false;
+            try
+            {
+                String str = "DeleteIngredientProc";
+                SqlParameter ingredientIdParam = new SqlParameter("@ingredientId", ingredientId);
+                SqlParameter[] parameters = { ingredientIdParam };
+                bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
+                return commandResult;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

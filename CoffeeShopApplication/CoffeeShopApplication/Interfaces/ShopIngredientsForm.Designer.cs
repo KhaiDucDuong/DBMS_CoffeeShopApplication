@@ -51,12 +51,14 @@
             label5 = new Label();
             label3 = new Label();
             tbManufacturerName = new TextBox();
+            pbDelete = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvIngredients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ingredientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAdd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbDelete).BeginInit();
             SuspendLayout();
             // 
             // header1
@@ -130,7 +132,7 @@
             // pbRefresh
             // 
             pbRefresh.Image = (Image)resources.GetObject("pbRefresh.Image");
-            pbRefresh.Location = new Point(921, 293);
+            pbRefresh.Location = new Point(967, 293);
             pbRefresh.Name = "pbRefresh";
             pbRefresh.Size = new Size(55, 55);
             pbRefresh.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -143,7 +145,7 @@
             // pbSave
             // 
             pbSave.Image = (Image)resources.GetObject("pbSave.Image");
-            pbSave.Location = new Point(832, 293);
+            pbSave.Location = new Point(778, 293);
             pbSave.Name = "pbSave";
             pbSave.Size = new Size(55, 55);
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -156,7 +158,7 @@
             // pbAdd
             // 
             pbAdd.Image = (Image)resources.GetObject("pbAdd.Image");
-            pbAdd.Location = new Point(742, 293);
+            pbAdd.Location = new Point(684, 293);
             pbAdd.Name = "pbAdd";
             pbAdd.Size = new Size(55, 55);
             pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -169,7 +171,7 @@
             // pbSearch
             // 
             pbSearch.Image = Properties.Resources.search1;
-            pbSearch.Location = new Point(652, 293);
+            pbSearch.Location = new Point(588, 293);
             pbSearch.Name = "pbSearch";
             pbSearch.Size = new Size(55, 55);
             pbSearch.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -183,7 +185,7 @@
             // 
             tbSearch.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold);
             tbSearch.ForeColor = SystemColors.ScrollBar;
-            tbSearch.Location = new Point(76, 293);
+            tbSearch.Location = new Point(12, 293);
             tbSearch.Margin = new Padding(3, 2, 3, 2);
             tbSearch.Name = "tbSearch";
             tbSearch.Size = new Size(549, 53);
@@ -268,11 +270,25 @@
             tbManufacturerName.Size = new Size(333, 42);
             tbManufacturerName.TabIndex = 3;
             // 
+            // pbDelete
+            // 
+            pbDelete.Image = (Image)resources.GetObject("pbDelete.Image");
+            pbDelete.Location = new Point(876, 293);
+            pbDelete.Name = "pbDelete";
+            pbDelete.Size = new Size(55, 55);
+            pbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbDelete.TabIndex = 24;
+            pbDelete.TabStop = false;
+            pbDelete.Click += pbDelete_Click;
+            pbDelete.MouseLeave += pbDelete_MouseLeave;
+            pbDelete.MouseHover += pbDelete_MouseHover;
+            // 
             // ShopIngredientsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1050, 744);
+            Controls.Add(pbDelete);
             Controls.Add(label3);
             Controls.Add(tbManufacturerName);
             Controls.Add(cbDeleted);
@@ -299,6 +315,7 @@
             ((System.ComponentModel.ISupportInitialize)pbSave).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAdd).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbDelete).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -325,5 +342,6 @@
         private Label label5;
         private Label label3;
         private TextBox tbManufacturerName;
+        private PictureBox pbDelete;
     }
 }

@@ -72,6 +72,26 @@ namespace CoffeeShopApplication.Interfaces
             dgvIngredients.DataSource = ingredientDataSet.Tables[0].DefaultView;
         }
 
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            String ingredientId;
+            ingredientId = tbId.Text;
+
+            if (MessageBox.Show("Are you sure you want to delete ingredient " + tbName.Text + " (id: " + ingredientId + ")?", "Delete Confirmation",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (IngredientBL.deleteIngredient(ingredientId))
+                {
+                    MessageBox.Show("Deleted a row successfully!", "Action result");
+                    DataSet productDataSet = IngredientBL.getAllIngredients();
+                    dgvIngredients.DataSource = productDataSet.Tables[0].DefaultView;
+                }
+                else
+                    MessageBox.Show("Failed to delete a row! Check your input data!", "Action result");
+            }
+        }
+
         private void dgvIngredients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -98,49 +118,61 @@ namespace CoffeeShopApplication.Interfaces
         private void pbSearch_MouseHover(object sender, EventArgs e)
         {
             pbSearch.Size = new Size(65, 65);
-            pbSearch.Location = new Point(652, 283);
+            pbSearch.Location = new Point(588, 283);
         }
 
         private void pbSearch_MouseLeave(object sender, EventArgs e)
         {
             pbSearch.Size = new Size(55, 55);
-            pbSearch.Location = new Point(652, 293);
+            pbSearch.Location = new Point(588, 293);
         }
 
         private void pbAdd_MouseHover(object sender, EventArgs e)
         {
             pbAdd.Size = new Size(65, 65);
-            pbAdd.Location = new Point(742, 283);
+            pbAdd.Location = new Point(684, 283);
         }
 
         private void pbAdd_MouseLeave(object sender, EventArgs e)
         {
             pbAdd.Size = new Size(55, 55);
-            pbAdd.Location = new Point(742, 293);
+            pbAdd.Location = new Point(684, 293);
         }
 
         private void pbSave_MouseHover(object sender, EventArgs e)
         {
             pbSave.Size = new Size(65, 65);
-            pbSave.Location = new Point(832, 283);
+            pbSave.Location = new Point(778, 283);
         }
 
         private void pbSave_MouseLeave(object sender, EventArgs e)
         {
             pbSave.Size = new Size(55, 55);
-            pbSave.Location = new Point(832, 293);
+            pbSave.Location = new Point(778, 293);
         }
 
         private void pbRefresh_MouseHover(object sender, EventArgs e)
         {
             pbRefresh.Size = new Size(65, 65);
-            pbRefresh.Location = new Point(921, 283);
+            pbRefresh.Location = new Point(967, 283);
         }
 
         private void pbRefresh_MouseLeave(object sender, EventArgs e)
         {
             pbRefresh.Size = new Size(55, 55);
-            pbRefresh.Location = new Point(921, 293);
+            pbRefresh.Location = new Point(967, 293);
+        }
+
+        private void pbDelete_MouseHover(object sender, EventArgs e)
+        {
+            pbDelete.Size = new Size(65, 65);
+            pbDelete.Location = new Point(876, 283);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            pbDelete.Size = new Size(55, 55);
+            pbDelete.Location = new Point(876, 293);
         }
     }
 }
