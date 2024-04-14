@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShopApplication.BL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,22 @@ namespace CoffeeShopApplication.Interfaces
         public ShopRestockBillsForm()
         {
             InitializeComponent();
+        }
+
+        private void ShopRestockBillsForm_Load(object sender, EventArgs e)
+        {
+            DataSet restockBillDataSet = RestockBillBL.getAllRestockBills();
+            dgvRestockBills.DataSource = restockBillDataSet.Tables[0].DefaultView;
+        }
+
+        private void btnViewDetails_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
