@@ -68,6 +68,17 @@ BEGIN
     WHERE productId = @productId;
 END;
 /* Procedure delete vào bảng Product*/
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'DeleteProductProc')
+DROP PROCEDURE DeleteProductProc
+GO
+CREATE PROCEDURE DeleteProductProc
+    @productId UNIQUEIDENTIFIER
+AS
+BEGIN
+    DELETE FROM Product
+	WHERE productId = @productId;
+END;
 /* Procedure insert vào bảng InventoryCheck*/
 GO
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertInventoryCheckProc')

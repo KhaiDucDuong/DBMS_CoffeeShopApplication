@@ -38,10 +38,23 @@ BEGIN
     WHERE ingredientId = @ingredientId;
 END;
 
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'DeleteIngredientProc')
+DROP PROCEDURE DeleteIngredientProc
+GO
+CREATE PROCEDURE DeleteIngredientProc
+    @ingredientId UNIQUEIDENTIFIER
+AS
+BEGIN
+    DELETE FROM Ingredient
+	WHERE ingredientId = @ingredientId;
+END;
+
+GO
 --GO
-EXEC UpdateIngredientProc '5EE8A239-92ED-499F-9E69-9113FBA03A8A',N'Bột năng', N'Trung Nguyên', 0;
+--EXEC UpdateIngredientProc '5EE8A239-92ED-499F-9E69-9113FBA03A8A',N'Bột năng', N'Trung Nguyên', 0;
 --Go
-select * from Ingredient
+--select * from Ingredient
 
 /* Procedure delete vào bảng Ingredient */
 
@@ -122,7 +135,7 @@ END;
 
 --select * from  RestockBillDetails
 --GO
-EXEC UpdateRestockBillProc 'DCEE2B02-6AA9-4F1C-8342-A87DADF34217', '2024-03-14', 'COOP', '200000.00';
+--EXEC UpdateRestockBillProc 'DCEE2B02-6AA9-4F1C-8342-A87DADF34217', '2024-03-14', 'COOP', '200000.00';
 
 /* Procedure Delete vào bảng RestockBill */
 
