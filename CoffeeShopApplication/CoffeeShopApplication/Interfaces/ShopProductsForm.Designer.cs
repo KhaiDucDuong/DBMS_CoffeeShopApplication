@@ -35,6 +35,7 @@ namespace CoffeeShopApplication
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopProductsForm));
             tbSearch = new TextBox();
             dgvProducts = new DataGridView();
+            coffeeShopDatasetBindingSource = new BindingSource(components);
             productBindingSource = new BindingSource(components);
             pbSearch = new PictureBox();
             pbAdd = new PictureBox();
@@ -52,15 +53,23 @@ namespace CoffeeShopApplication
             pbSave = new PictureBox();
             pbRefresh = new PictureBox();
             pbDelete = new PictureBox();
-            coffeeShopDatasetBindingSource = new BindingSource(components);
+            productBindingSource1 = new BindingSource(components);
+            productIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productSizeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productPriceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            createdAtDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            updatedAtDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            isDeletedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)coffeeShopDatasetBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAdd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDelete).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)coffeeShopDatasetBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)productBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // tbSearch
@@ -82,7 +91,8 @@ namespace CoffeeShopApplication
             dgvProducts.AutoGenerateColumns = false;
             dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.DataSource = coffeeShopDatasetBindingSource;
+            dgvProducts.Columns.AddRange(new DataGridViewColumn[] { productIdDataGridViewTextBoxColumn, productNameDataGridViewTextBoxColumn, productSizeDataGridViewTextBoxColumn, productPriceDataGridViewTextBoxColumn, createdAtDataGridViewTextBoxColumn, updatedAtDataGridViewTextBoxColumn, isDeletedDataGridViewCheckBoxColumn });
+            dgvProducts.DataSource = productBindingSource1;
             dgvProducts.Location = new Point(12, 378);
             dgvProducts.MultiSelect = false;
             dgvProducts.Name = "dgvProducts";
@@ -91,6 +101,11 @@ namespace CoffeeShopApplication
             dgvProducts.Size = new Size(1026, 354);
             dgvProducts.TabIndex = 0;
             dgvProducts.CellContentClick += dgvProducts_CellContentClick;
+            // 
+            // coffeeShopDatasetBindingSource
+            // 
+            coffeeShopDatasetBindingSource.DataSource = typeof(CoffeeShopDataset);
+            coffeeShopDatasetBindingSource.Position = 0;
             // 
             // productBindingSource
             // 
@@ -273,10 +288,59 @@ namespace CoffeeShopApplication
             pbDelete.MouseLeave += pbDelete_MouseLeave;
             pbDelete.MouseHover += pbDelete_MouseHover;
             // 
-            // coffeeShopDatasetBindingSource
+            // productBindingSource1
             // 
-            coffeeShopDatasetBindingSource.DataSource = typeof(CoffeeShopDataset);
-            coffeeShopDatasetBindingSource.Position = 0;
+            productBindingSource1.DataMember = "Product";
+            productBindingSource1.DataSource = typeof(CoffeeShopDataset);
+            // 
+            // productIdDataGridViewTextBoxColumn
+            // 
+            productIdDataGridViewTextBoxColumn.DataPropertyName = "productId";
+            productIdDataGridViewTextBoxColumn.HeaderText = "productId";
+            productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
+            productIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            productNameDataGridViewTextBoxColumn.DataPropertyName = "productName";
+            productNameDataGridViewTextBoxColumn.HeaderText = "productName";
+            productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productSizeDataGridViewTextBoxColumn
+            // 
+            productSizeDataGridViewTextBoxColumn.DataPropertyName = "productSize";
+            productSizeDataGridViewTextBoxColumn.HeaderText = "productSize";
+            productSizeDataGridViewTextBoxColumn.Name = "productSizeDataGridViewTextBoxColumn";
+            productSizeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productPriceDataGridViewTextBoxColumn
+            // 
+            productPriceDataGridViewTextBoxColumn.DataPropertyName = "productPrice";
+            productPriceDataGridViewTextBoxColumn.HeaderText = "productPrice";
+            productPriceDataGridViewTextBoxColumn.Name = "productPriceDataGridViewTextBoxColumn";
+            productPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // createdAtDataGridViewTextBoxColumn
+            // 
+            createdAtDataGridViewTextBoxColumn.DataPropertyName = "createdAt";
+            createdAtDataGridViewTextBoxColumn.HeaderText = "createdAt";
+            createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
+            createdAtDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // updatedAtDataGridViewTextBoxColumn
+            // 
+            updatedAtDataGridViewTextBoxColumn.DataPropertyName = "updatedAt";
+            updatedAtDataGridViewTextBoxColumn.HeaderText = "updatedAt";
+            updatedAtDataGridViewTextBoxColumn.Name = "updatedAtDataGridViewTextBoxColumn";
+            updatedAtDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // isDeletedDataGridViewCheckBoxColumn
+            // 
+            isDeletedDataGridViewCheckBoxColumn.DataPropertyName = "isDeleted";
+            isDeletedDataGridViewCheckBoxColumn.HeaderText = "isDeleted";
+            isDeletedDataGridViewCheckBoxColumn.Name = "isDeletedDataGridViewCheckBoxColumn";
+            isDeletedDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // ShopProductsForm
             // 
@@ -307,13 +371,14 @@ namespace CoffeeShopApplication
             Text = "Shop Products";
             Load += ShopProductsForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)coffeeShopDatasetBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAdd).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbDelete).EndInit();
-            ((System.ComponentModel.ISupportInitialize)coffeeShopDatasetBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)productBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -339,5 +404,13 @@ namespace CoffeeShopApplication
         private PictureBox pbRefresh;
         private PictureBox pbDelete;
         private BindingSource coffeeShopDatasetBindingSource;
+        private DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn productSizeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn productPriceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn updatedAtDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn isDeletedDataGridViewCheckBoxColumn;
+        private BindingSource productBindingSource1;
     }
 }
