@@ -121,6 +121,11 @@ namespace CoffeeShopApplication.UC
 
         }
 
+        private void pbCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void pbProduct_MouseHover(object sender, EventArgs e)
         {
             if (topLevelForm != "ShopProductsForm")
@@ -234,6 +239,18 @@ namespace CoffeeShopApplication.UC
                 pbAppIcon.BackColor = Color.Transparent;
                 pbAppIcon.BorderStyle = BorderStyle.None;
             }
+        }
+
+        private void pbCustomer_MouseHover(object sender, EventArgs e)
+        {
+            pbCustomer.BackColor = Color.White;
+            pbCustomer.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void pbCustomer_MouseLeave(object sender, EventArgs e)
+        {
+            pbCustomer.BackColor = Color.Transparent;
+            pbCustomer.BorderStyle = BorderStyle.None;
         }
     }
 }
