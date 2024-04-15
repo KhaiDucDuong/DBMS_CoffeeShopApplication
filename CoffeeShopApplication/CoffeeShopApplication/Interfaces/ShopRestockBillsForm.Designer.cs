@@ -129,6 +129,7 @@
             pbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
             pbDelete.TabIndex = 29;
             pbDelete.TabStop = false;
+            pbDelete.Click += pbDelete_Click;
             // 
             // pbSave
             // 

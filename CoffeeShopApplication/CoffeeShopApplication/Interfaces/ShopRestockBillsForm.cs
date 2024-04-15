@@ -30,7 +30,7 @@ namespace CoffeeShopApplication.Interfaces
         {
             if (tbId.Text.Length > 0)
             {
-                restockBillDetailsForm = new ShopRestockBillDetailsForm(tbId.Text,  dtpRestockBill.Value.ToString());
+                restockBillDetailsForm = new ShopRestockBillDetailsForm(tbId.Text, dtpRestockBill.Value.ToString());
                 restockBillDetailsForm.Show();
             }
         }
@@ -90,6 +90,29 @@ namespace CoffeeShopApplication.Interfaces
             }
             else
                 MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            if (tbId.Text.Length == 0)
+                return;
+
+            String restockBillId;
+            restockBillId = tbId.Text;
+
+            if (MessageBox.Show("Are you sure you want to delete this restockBill (id: " + tbId.Text + ") ? All of the details of the bill will be deleted as well!", "Delete Confirmation",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (RestockBillBL.deleteRestockBill(restockBillId))
+                {
+                    MessageBox.Show("Deleted a row successfully!", "Action result");
+                    DataSet restockBillDataSet = RestockBillBL.getAllRestockBills();
+                    dgvRestockBills.DataSource = restockBillDataSet.Tables[0].DefaultView;
+                }
+                else
+                    MessageBox.Show("Failed to delete a row! Check your input data!", "Action result");
+            }
         }
     }
 }
