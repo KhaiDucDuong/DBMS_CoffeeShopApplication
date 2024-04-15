@@ -1,4 +1,5 @@
-﻿using CoffeeShopApplication.DB;
+﻿using CoffeeShopApplication.CoffeeShopDatasetTableAdapters;
+using CoffeeShopApplication.DB;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CoffeeShopApplication.BL
 {
@@ -26,16 +28,6 @@ namespace CoffeeShopApplication.BL
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
             return ds;
         }
-
-        public static DataSet findEmployeeByPhoneNume(String phoneNum)
-        {
-            String str = "SELECT * FROM dbo.findCustomerByPhoneNumberFunction(@PhoneNumber)";
-            SqlParameter productNameParam = new SqlParameter("@employeeName", phoneNum);
-            SqlParameter[] parameters = { productNameParam };
-            DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
-            return ds;
-        }
-
         public static bool addEmployee(string fullName, string phoneNumber, string address, string email, bool isWorking)
         {
             if (fullName == "" || phoneNumber == "" || address == "" || email == "" || isWorking == false)
