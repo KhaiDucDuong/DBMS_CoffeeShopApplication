@@ -237,6 +237,7 @@
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSave.TabIndex = 45;
             pbSave.TabStop = false;
+            pbSave.Click += pbSave_Click;
             // 
             // pbAdd
             // 

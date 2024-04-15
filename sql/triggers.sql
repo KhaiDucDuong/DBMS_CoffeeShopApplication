@@ -240,7 +240,7 @@ IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_RestockBill_AfterUpdate
 GO
 CREATE TRIGGER tr_RestockBill_AfterUpdate
 ON RestockBillDetails
-AFTER DELETE
+AFTER UPDATE
 AS
 BEGIN
 	--Get billId and calculate the new price we need to add to the OrderBill

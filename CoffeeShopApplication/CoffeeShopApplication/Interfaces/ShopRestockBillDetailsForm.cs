@@ -100,5 +100,27 @@ namespace CoffeeShopApplication.Interfaces
                 cbIngredient.SelectedIndex = cbIngredient.FindStringExact(row.Cells[2].Value.ToString());
             }
         }
+
+        private void pbSave_Click(object sender, EventArgs e)
+        {
+            String ingredientId, quantity, price;
+            if (cbIngredient.SelectedValue == null)
+            {
+                MessageBox.Show("Please input all the fields first!");
+                return;
+            }
+
+            ingredientId = cbIngredient.SelectedValue.ToString();
+            quantity = tbQuantity.Text;
+            price = tbPrice.Text;
+            if (RestockBillDetailsBL.updateRestockBill(ingredientId, restockBillId, quantity, price))
+            {
+                MessageBox.Show("Updated a row successfully!", "Action result");
+                DataSet restockBillDetailsDataSet = RestockBillDetailsBL.findRestockBillDetailsById(restockBillId);
+                dgvRestockBillDetails.DataSource = restockBillDetailsDataSet.Tables[0].DefaultView;
+            }
+            else
+                MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
+        }
     }
 }
