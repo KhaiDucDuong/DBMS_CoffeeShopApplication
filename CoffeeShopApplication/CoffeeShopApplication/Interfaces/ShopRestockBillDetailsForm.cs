@@ -8,22 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace CoffeeShopApplication.Interfaces
 {
     public partial class ShopRestockBillDetailsForm : Form
     {
         private String restockBillId;
+        private String restockBillDate;
         private DataSet ingredientDataSet;
-        public ShopRestockBillDetailsForm(string restockBillId)
+        public ShopRestockBillDetailsForm(string restockBillId, string date)
         {
             InitializeComponent();
             this.restockBillId = restockBillId;
+            this.restockBillDate = date;
         }
 
         private void ShopRestockBillDetailsForm_Load(object sender, EventArgs e)
         {
             tbId.Text = restockBillId;
+            dtpRestockBill.Value = DateTime.Parse(restockBillDate);
             DataSet restockBillDetailsDataSet = RestockBillDetailsBL.findRestockBillDetailsById(restockBillId);
             dgvRestockBillDetails.DataSource = restockBillDetailsDataSet.Tables[0].DefaultView;
             ingredientDataSet = IngredientBL.getAllIngredients();
@@ -58,6 +63,42 @@ namespace CoffeeShopApplication.Interfaces
         {
             DataSet restockBillDetailsDataSet = RestockBillDetailsBL.findRestockBillDetailsById(restockBillId);
             dgvRestockBillDetails.DataSource = restockBillDetailsDataSet.Tables[0].DefaultView;
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            String ingredientId;
+            if (cbIngredient.SelectedValue == null)
+            {
+                MessageBox.Show("Please input all the fields first!");
+                return;
+            }
+            ingredientId = cbIngredient.SelectedValue.ToString();
+
+            if (MessageBox.Show("Are you sure you want to delete ingredient " + cbIngredient.Text + " from the restock bill?", "Delete Confirmation",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (RestockBillDetailsBL.deleteRestockBillDetails(ingredientId, restockBillId))
+                {
+                    MessageBox.Show("Deleted a row successfully!", "Action result");
+                    DataSet restockBillDetailsDataSet = RestockBillDetailsBL.findRestockBillDetailsById(restockBillId);
+                    dgvRestockBillDetails.DataSource = restockBillDetailsDataSet.Tables[0].DefaultView;
+                }
+                else
+                    MessageBox.Show("Failed to delete a row! Check your input data!", "Action result");
+            }
+        }
+
+        private void dgvRestockBillDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvRestockBillDetails.Rows[e.RowIndex];
+                tbQuantity.Text = row.Cells[3].Value.ToString();
+                tbPrice.Text = row.Cells[4].Value.ToString();
+                cbIngredient.SelectedIndex = cbIngredient.FindStringExact(row.Cells[2].Value.ToString());
+            }
         }
     }
 }

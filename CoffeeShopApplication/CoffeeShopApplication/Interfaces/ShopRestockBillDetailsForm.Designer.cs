@@ -75,6 +75,7 @@
             dgvRestockBillDetails.RowHeadersWidth = 51;
             dgvRestockBillDetails.Size = new Size(1026, 354);
             dgvRestockBillDetails.TabIndex = 11;
+            dgvRestockBillDetails.CellContentClick += dgvRestockBillDetails_CellContentClick;
             // 
             // restockBillIdDataGridViewTextBoxColumn
             // 
@@ -225,6 +226,7 @@
             pbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
             pbDelete.TabIndex = 47;
             pbDelete.TabStop = false;
+            pbDelete.Click += pbDelete_Click;
             // 
             // pbSave
             // 

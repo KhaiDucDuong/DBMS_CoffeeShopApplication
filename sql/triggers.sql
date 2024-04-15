@@ -234,6 +234,50 @@ END;
 GO
 
 /* Trigger Cập nhật số tiền tổng của RestockBill khi sửa một sản phẩm trong RestockBillDetails */
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_RestockBill_AfterUpdate' AND [type] = 'TR')
+	DROP TRIGGER [dbo].tr_RestockBill_AfterUpdate;
+GO
+CREATE TRIGGER tr_RestockBill_AfterUpdate
+ON RestockBillDetails
+AFTER DELETE
+AS
+BEGIN
+	--Get billId and calculate the new price we need to add to the OrderBill
+	DECLARE @restockBillId UNIQUEIDENTIFIER, @oldAmount DECIMAL(10, 2), @newAmount DECIMAL(10, 2), @amountDifference DECIMAL(10, 2);
+	SELECT @restockBillId = deleted.restockBillId, 
+	@oldAmount = deleted.quantity * deleted.price,
+    @newAmount = inserted.quantity * inserted.price 
+	FROM deleted
+    JOIN inserted ON deleted.ingredientId = inserted.ingredientId AND deleted.restockBillId = inserted.restockBillId;
+
+	-- Calculate the difference in amount
+    SET @amountDifference = @newAmount - @oldAmount;
+
+	--Update the totalBill in the RestockBill
+	UPDATE RestockBill
+	SET totalBill = totalBill + @amountDifference
+	WHERE restockBillId = @restockBillId
+END;
+GO
 
 /* Trigger Cập nhật số tiền tổng của RestockBill khi xóa một sản phẩm trong RestockBillDetails */
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_RestockBill_AfterDelete' AND [type] = 'TR')
+	DROP TRIGGER [dbo].tr_RestockBill_AfterDelete;
+GO
+CREATE TRIGGER tr_RestockBill_AfterDelete
+ON RestockBillDetails
+AFTER DELETE
+AS
+BEGIN
+	--Get billId and calculate the new price we need to add to the OrderBill
+	DECLARE @restockBillId UNIQUEIDENTIFIER, @subtractedAmount DECIMAL(10, 2);
+	SELECT @restockBillId = restockBillId, @subtractedAmount = SUM(quantity * price) FROM deleted GROUP BY restockBillId
 
+	--Update the totalBill in the RestockBill
+	UPDATE RestockBill
+	SET totalBill = totalBill - @subtractedAmount
+	WHERE restockBillId = @restockBillId
+END;
+GO

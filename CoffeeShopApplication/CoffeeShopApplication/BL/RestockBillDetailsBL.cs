@@ -44,5 +44,24 @@ namespace CoffeeShopApplication.BL
                 return false;
             }
         }
+
+        public static bool deleteRestockBillDetails(String ingredientId, String restockBillId)
+        {
+            if (ingredientId == "" || restockBillId == "")
+                return false;
+            try
+            {
+                String str = "DeleteRestockBillDetailsProc";
+                SqlParameter ingredientIdParam = new SqlParameter("@ingredientId", ingredientId);
+                SqlParameter restockBillIdParam = new SqlParameter("@restockBillId", restockBillId);
+                SqlParameter[] parameters = { ingredientIdParam, restockBillIdParam };
+                bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
+                return commandResult;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

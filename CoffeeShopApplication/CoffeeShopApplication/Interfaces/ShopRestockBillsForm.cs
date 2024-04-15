@@ -30,7 +30,7 @@ namespace CoffeeShopApplication.Interfaces
         {
             if (tbId.Text.Length > 0)
             {
-                restockBillDetailsForm = new ShopRestockBillDetailsForm(tbId.Text);
+                restockBillDetailsForm = new ShopRestockBillDetailsForm(tbId.Text,  dtpRestockBill.Value.ToString());
                 restockBillDetailsForm.Show();
             }
         }
