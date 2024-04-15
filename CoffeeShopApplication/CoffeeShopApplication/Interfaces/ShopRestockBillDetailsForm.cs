@@ -122,5 +122,53 @@ namespace CoffeeShopApplication.Interfaces
             else
                 MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
         }
+
+        private void pbAdd_MouseHover(object sender, EventArgs e)
+        {
+            pbAdd.Size = new Size(65, 65);
+            pbAdd.Location = new Point(649, 151);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            pbAdd.Size = new Size(55, 55);
+            pbAdd.Location = new Point(649, 161);
+        }
+
+        private void pbSave_MouseHover(object sender, EventArgs e)
+        {
+            pbSave.Size = new Size(65, 65);
+            pbSave.Location = new Point(743, 151);
+        }
+
+        private void pbSave_MouseLeave(object sender, EventArgs e)
+        {
+            pbSave.Size = new Size(55, 55);
+            pbSave.Location = new Point(743, 161);
+        }
+
+        private void pbRefresh_MouseHover(object sender, EventArgs e)
+        {
+            pbRefresh.Size = new Size(65, 65);
+            pbRefresh.Location = new Point(936, 151);
+        }
+
+        private void pbRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            pbRefresh.Size = new Size(55, 55);
+            pbRefresh.Location = new Point(936, 161);
+        }
+
+        private void pbDelete_MouseHover(object sender, EventArgs e)
+        {
+            pbDelete.Size = new Size(65, 65);
+            pbDelete.Location = new Point(841, 151);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            pbDelete.Size = new Size(55, 55);
+            pbDelete.Location = new Point(841, 161);
+        }
     }
 }

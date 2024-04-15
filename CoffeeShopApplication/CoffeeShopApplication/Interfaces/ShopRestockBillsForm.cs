@@ -114,5 +114,65 @@ namespace CoffeeShopApplication.Interfaces
                     MessageBox.Show("Failed to delete a row! Check your input data!", "Action result");
             }
         }
+
+        private void pbSearch_MouseHover(object sender, EventArgs e)
+        {
+            pbSearch.Size = new Size(65, 65);
+            pbSearch.Location = new Point(588, 284);
+        }
+
+        private void pbSearch_MouseLeave(object sender, EventArgs e)
+        {
+            pbSearch.Size = new Size(55, 55);
+            pbSearch.Location = new Point(588, 294);
+        }
+
+        private void pbAdd_MouseHover(object sender, EventArgs e)
+        {
+            pbAdd.Size = new Size(65, 65);
+            pbAdd.Location = new Point(684, 284);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            pbAdd.Size = new Size(55, 55);
+            pbAdd.Location = new Point(684, 294);
+        }
+
+        private void pbSave_MouseHover(object sender, EventArgs e)
+        {
+            pbSave.Size = new Size(65, 65);
+            pbSave.Location = new Point(778, 284);
+        }
+
+        private void pbSave_MouseLeave(object sender, EventArgs e)
+        {
+            pbSave.Size = new Size(55, 55);
+            pbSave.Location = new Point(778, 294);
+        }
+
+        private void pbRefresh_MouseHover(object sender, EventArgs e)
+        {
+            pbRefresh.Size = new Size(65, 65);
+            pbRefresh.Location = new Point(971, 284);
+        }
+
+        private void pbRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            pbRefresh.Size = new Size(55, 55);
+            pbRefresh.Location = new Point(971, 294);
+        }
+
+        private void pbDelete_MouseHover(object sender, EventArgs e)
+        {
+            pbDelete.Size = new Size(65, 65);
+            pbDelete.Location = new Point(876, 284);
+        }
+
+        private void pbDelete_MouseLeave(object sender, EventArgs e)
+        {
+            pbDelete.Size = new Size(55, 55);
+            pbDelete.Location = new Point(876, 294);
+        }
     }
 }

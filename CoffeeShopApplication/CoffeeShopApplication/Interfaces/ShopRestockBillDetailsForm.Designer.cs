@@ -216,6 +216,8 @@
             pbRefresh.TabIndex = 48;
             pbRefresh.TabStop = false;
             pbRefresh.Click += pbRefresh_Click;
+            pbRefresh.MouseLeave += pbRefresh_MouseLeave;
+            pbRefresh.MouseHover += pbRefresh_MouseHover;
             // 
             // pbDelete
             // 
@@ -227,6 +229,8 @@
             pbDelete.TabIndex = 47;
             pbDelete.TabStop = false;
             pbDelete.Click += pbDelete_Click;
+            pbDelete.MouseLeave += pbDelete_MouseLeave;
+            pbDelete.MouseHover += pbDelete_MouseHover;
             // 
             // pbSave
             // 
@@ -238,6 +242,8 @@
             pbSave.TabIndex = 45;
             pbSave.TabStop = false;
             pbSave.Click += pbSave_Click;
+            pbSave.MouseLeave += pbSave_MouseLeave;
+            pbSave.MouseHover += pbSave_MouseHover;
             // 
             // pbAdd
             // 
@@ -249,6 +255,8 @@
             pbAdd.TabIndex = 46;
             pbAdd.TabStop = false;
             pbAdd.Click += pbAdd_Click;
+            pbAdd.MouseLeave += pbAdd_MouseLeave;
+            pbAdd.MouseHover += pbAdd_MouseHover;
             // 
             // cbIngredient
             // 
