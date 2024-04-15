@@ -51,7 +51,7 @@ namespace CoffeeShopApplication.BL
             }
         }
 
-        public static bool updateEmployee(Guid id, string fullName, string phoneNumber, string address, string email, bool isWorking)
+        public static bool updateEmployee(string id, string fullName, string phoneNumber, string address, string email, bool isWorking)
         {
             if (id == null || fullName == "" || phoneNumber == "" || address == "" || email == "" || isWorking == false)
                 return false;
