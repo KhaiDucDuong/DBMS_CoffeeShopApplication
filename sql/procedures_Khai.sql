@@ -88,7 +88,18 @@ BEGIN
     SET name = @name
     WHERE inventoryId = @inventoryId;
 END;
-
+/* Procedure Delete vào bảng Inventory */
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'DeleteInventoryProc')
+DROP PROCEDURE DeleteInventoryProc
+GO
+CREATE PROCEDURE DeleteInventoryProc
+    @inventoryId UNIQUEIDENTIFIER
+AS
+BEGIN
+    DELETE FROM Inventory
+	WHERE inventoryId = @inventoryId;
+END;
 --GO
 --EXEC UpdateInventoryProc 'D48642D8-D205-4A1A-ACEE-A934E6A5829F', 'Phòng 2B01';
 
