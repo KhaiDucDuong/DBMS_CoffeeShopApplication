@@ -14,6 +14,7 @@ namespace CoffeeShopApplication.Interfaces
 {
     public partial class ShopRestockBillsForm : Form
     {
+        private ShopRestockBillDetailsForm restockBillDetailsForm;
         public ShopRestockBillsForm()
         {
             InitializeComponent();
@@ -27,7 +28,11 @@ namespace CoffeeShopApplication.Interfaces
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
-
+            if (tbId.Text.Length > 0)
+            {
+                restockBillDetailsForm = new ShopRestockBillDetailsForm(tbId.Text);
+                restockBillDetailsForm.Show();
+            }
         }
 
         private void pbAdd_Click(object sender, EventArgs e)

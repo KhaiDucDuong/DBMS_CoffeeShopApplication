@@ -50,7 +50,7 @@ namespace CoffeeShopApplication.BL
 
         }
 
-        public static bool addIngredient(String ingredientName, string manufacturerName)
+        public static bool addIngredient(String ingredientName, String manufacturerName)
         {
             if (ingredientName == "" || manufacturerName == "")
                 return false;
