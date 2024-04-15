@@ -126,7 +126,7 @@
             dtpRestockBill.MinimumSize = new Size(314, 42);
             dtpRestockBill.Name = "dtpRestockBill";
             dtpRestockBill.Size = new Size(412, 42);
-            dtpRestockBill.TabIndex = 36;
+            dtpRestockBill.TabIndex = 2;
             // 
             // lbDate
             // 
@@ -156,7 +156,7 @@
             tbId.Multiline = true;
             tbId.Name = "tbId";
             tbId.Size = new Size(333, 42);
-            tbId.TabIndex = 35;
+            tbId.TabIndex = 1;
             // 
             // label3
             // 
@@ -185,7 +185,7 @@
             tbPrice.Multiline = true;
             tbPrice.Name = "tbPrice";
             tbPrice.Size = new Size(412, 42);
-            tbPrice.TabIndex = 41;
+            tbPrice.TabIndex = 4;
             // 
             // label4
             // 
@@ -204,7 +204,7 @@
             tbQuantity.Multiline = true;
             tbQuantity.Name = "tbQuantity";
             tbQuantity.Size = new Size(333, 42);
-            tbQuantity.TabIndex = 43;
+            tbQuantity.TabIndex = 5;
             // 
             // pbRefresh
             // 
@@ -268,7 +268,7 @@
             cbIngredient.MinimumSize = new Size(333, 0);
             cbIngredient.Name = "cbIngredient";
             cbIngredient.Size = new Size(333, 40);
-            cbIngredient.TabIndex = 49;
+            cbIngredient.TabIndex = 3;
             // 
             // ShopRestockBillDetailsForm
             // 
