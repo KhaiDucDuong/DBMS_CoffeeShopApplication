@@ -64,7 +64,7 @@ IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertInventor
 DROP PROCEDURE InsertInventoryProc
 GO
 CREATE PROCEDURE InsertInventoryProc
-    @name VARCHAR(255)
+    @name NVARCHAR(255)
 AS
 BEGIN
     INSERT INTO Inventory (name)
@@ -81,14 +81,25 @@ DROP PROCEDURE UpdateInventoryProc
 GO
 CREATE PROCEDURE UpdateInventoryProc
     @inventoryId UNIQUEIDENTIFIER,
-    @name VARCHAR(255)
+    @name NVARCHAR(255)
 AS
 BEGIN
     UPDATE Inventory
     SET name = @name
     WHERE inventoryId = @inventoryId;
 END;
-
+/* Procedure Delete vào bảng Inventory */
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'DeleteInventoryProc')
+DROP PROCEDURE DeleteInventoryProc
+GO
+CREATE PROCEDURE DeleteInventoryProc
+    @inventoryId UNIQUEIDENTIFIER
+AS
+BEGIN
+    DELETE FROM Inventory
+	WHERE inventoryId = @inventoryId;
+END;
 --GO
 --EXEC UpdateInventoryProc 'D48642D8-D205-4A1A-ACEE-A934E6A5829F', 'Phòng 2B01';
 
@@ -144,8 +155,24 @@ CREATE PROCEDURE DeleteRestockBillProc
     @restockBillId UNIQUEIDENTIFIER
 AS
 BEGIN
+    -- Start a transaction
+    BEGIN TRANSACTION;
+    
+    -- Delete from RestockBillDetails where restockBillId matches
+    DELETE FROM RestockBillDetails
+    WHERE restockBillId = @restockBillId;
+    
+    -- Delete from RestockBill where restockBillId matches
     DELETE FROM RestockBill
     WHERE restockBillId = @restockBillId;
+    
+    -- Commit the transaction if everything goes well
+    COMMIT TRANSACTION;
+    
+    -- Handle any errors that might occur during the transaction
+    EXCEPTION:
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
 END;
 
 --EXEC DeleteRestockBillProc '9B17B37A-BC97-4236-A19B-E6AD5C9102B2';

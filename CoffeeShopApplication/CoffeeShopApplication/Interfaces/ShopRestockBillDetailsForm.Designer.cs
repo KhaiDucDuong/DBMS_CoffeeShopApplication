@@ -42,15 +42,15 @@
             label1 = new Label();
             tbId = new TextBox();
             label3 = new Label();
-            tbSupplierName = new TextBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            tbPrice = new TextBox();
             label4 = new Label();
-            textBox2 = new TextBox();
+            tbQuantity = new TextBox();
             pbRefresh = new PictureBox();
             pbDelete = new PictureBox();
             pbSave = new PictureBox();
             pbAdd = new PictureBox();
+            cbIngredient = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvRestockBillDetails).BeginInit();
             ((System.ComponentModel.ISupportInitialize)getRestockBillViewBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
@@ -75,6 +75,7 @@
             dgvRestockBillDetails.RowHeadersWidth = 51;
             dgvRestockBillDetails.Size = new Size(1026, 354);
             dgvRestockBillDetails.TabIndex = 11;
+            dgvRestockBillDetails.CellContentClick += dgvRestockBillDetails_CellContentClick;
             // 
             // restockBillIdDataGridViewTextBoxColumn
             // 
@@ -119,12 +120,13 @@
             // dtpRestockBill
             // 
             dtpRestockBill.CalendarFont = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpRestockBill.Enabled = false;
             dtpRestockBill.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpRestockBill.Location = new Point(613, 28);
             dtpRestockBill.MinimumSize = new Size(314, 42);
             dtpRestockBill.Name = "dtpRestockBill";
             dtpRestockBill.Size = new Size(412, 42);
-            dtpRestockBill.TabIndex = 36;
+            dtpRestockBill.TabIndex = 2;
             // 
             // lbDate
             // 
@@ -154,7 +156,7 @@
             tbId.Multiline = true;
             tbId.Name = "tbId";
             tbId.Size = new Size(333, 42);
-            tbId.TabIndex = 35;
+            tbId.TabIndex = 1;
             // 
             // label3
             // 
@@ -166,15 +168,6 @@
             label3.TabIndex = 40;
             label3.Text = "Ingredient";
             // 
-            // tbSupplierName
-            // 
-            tbSupplierName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbSupplierName.Location = new Point(167, 97);
-            tbSupplierName.Multiline = true;
-            tbSupplierName.Name = "tbSupplierName";
-            tbSupplierName.Size = new Size(333, 42);
-            tbSupplierName.TabIndex = 39;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -185,14 +178,14 @@
             label2.TabIndex = 42;
             label2.Text = "Price";
             // 
-            // textBox1
+            // tbPrice
             // 
-            textBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(613, 97);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(412, 42);
-            textBox1.TabIndex = 41;
+            tbPrice.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbPrice.Location = new Point(613, 97);
+            tbPrice.Multiline = true;
+            tbPrice.Name = "tbPrice";
+            tbPrice.Size = new Size(412, 42);
+            tbPrice.TabIndex = 4;
             // 
             // label4
             // 
@@ -204,14 +197,14 @@
             label4.TabIndex = 44;
             label4.Text = "Quantity";
             // 
-            // textBox2
+            // tbQuantity
             // 
-            textBox2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(167, 174);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(333, 42);
-            textBox2.TabIndex = 43;
+            tbQuantity.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbQuantity.Location = new Point(167, 174);
+            tbQuantity.Multiline = true;
+            tbQuantity.Name = "tbQuantity";
+            tbQuantity.Size = new Size(333, 42);
+            tbQuantity.TabIndex = 5;
             // 
             // pbRefresh
             // 
@@ -222,6 +215,9 @@
             pbRefresh.SizeMode = PictureBoxSizeMode.StretchImage;
             pbRefresh.TabIndex = 48;
             pbRefresh.TabStop = false;
+            pbRefresh.Click += pbRefresh_Click;
+            pbRefresh.MouseLeave += pbRefresh_MouseLeave;
+            pbRefresh.MouseHover += pbRefresh_MouseHover;
             // 
             // pbDelete
             // 
@@ -232,6 +228,9 @@
             pbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
             pbDelete.TabIndex = 47;
             pbDelete.TabStop = false;
+            pbDelete.Click += pbDelete_Click;
+            pbDelete.MouseLeave += pbDelete_MouseLeave;
+            pbDelete.MouseHover += pbDelete_MouseHover;
             // 
             // pbSave
             // 
@@ -242,6 +241,9 @@
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSave.TabIndex = 45;
             pbSave.TabStop = false;
+            pbSave.Click += pbSave_Click;
+            pbSave.MouseLeave += pbSave_MouseLeave;
+            pbSave.MouseHover += pbSave_MouseHover;
             // 
             // pbAdd
             // 
@@ -252,22 +254,37 @@
             pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAdd.TabIndex = 46;
             pbAdd.TabStop = false;
+            pbAdd.Click += pbAdd_Click;
+            pbAdd.MouseLeave += pbAdd_MouseLeave;
+            pbAdd.MouseHover += pbAdd_MouseHover;
+            // 
+            // cbIngredient
+            // 
+            cbIngredient.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbIngredient.FormattingEnabled = true;
+            cbIngredient.IntegralHeight = false;
+            cbIngredient.ItemHeight = 32;
+            cbIngredient.Location = new Point(167, 97);
+            cbIngredient.MinimumSize = new Size(333, 0);
+            cbIngredient.Name = "cbIngredient";
+            cbIngredient.Size = new Size(333, 40);
+            cbIngredient.TabIndex = 3;
             // 
             // ShopRestockBillDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1050, 611);
+            Controls.Add(cbIngredient);
             Controls.Add(pbRefresh);
             Controls.Add(pbDelete);
             Controls.Add(pbSave);
             Controls.Add(pbAdd);
             Controls.Add(label4);
-            Controls.Add(textBox2);
+            Controls.Add(tbQuantity);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(tbPrice);
             Controls.Add(label3);
-            Controls.Add(tbSupplierName);
             Controls.Add(dtpRestockBill);
             Controls.Add(lbDate);
             Controls.Add(label1);
@@ -277,6 +294,7 @@
             Name = "ShopRestockBillDetailsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Restock Bill Details";
+            Load += ShopRestockBillDetailsForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvRestockBillDetails).EndInit();
             ((System.ComponentModel.ISupportInitialize)getRestockBillViewBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).EndInit();
@@ -301,14 +319,14 @@
         private Label label1;
         private TextBox tbId;
         private Label label3;
-        private TextBox tbSupplierName;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox tbPrice;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox tbQuantity;
         private PictureBox pbRefresh;
         private PictureBox pbDelete;
         private PictureBox pbSave;
         private PictureBox pbAdd;
+        private ComboBox cbIngredient;
     }
 }
