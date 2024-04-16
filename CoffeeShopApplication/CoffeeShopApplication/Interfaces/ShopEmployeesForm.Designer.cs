@@ -177,6 +177,7 @@
             pbRefresh.SizeMode = PictureBoxSizeMode.StretchImage;
             pbRefresh.TabIndex = 31;
             pbRefresh.TabStop = false;
+            pbRefresh.Click += pbRefresh_Click;
             // 
             // pbSave
             // 
@@ -188,6 +189,7 @@
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSave.TabIndex = 32;
             pbSave.TabStop = false;
+            pbSave.Click += pbSave_Click;
             // 
             // pbAdd
             // 
@@ -200,6 +202,7 @@
             pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAdd.TabIndex = 33;
             pbAdd.TabStop = false;
+            pbAdd.Click += pbAdd_Click;
             // 
             // pbSearch
             // 
@@ -211,6 +214,7 @@
             pbSearch.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSearch.TabIndex = 34;
             pbSearch.TabStop = false;
+            pbSearch.Click += pbSave_Click;
             // 
             // tbSearch
             // 
