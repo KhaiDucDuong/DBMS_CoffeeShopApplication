@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using CoffeeShopApplication.DB;
+using System.Xml.Linq;
 
 namespace CoffeeShopApplication.BL
 {
@@ -32,7 +33,7 @@ namespace CoffeeShopApplication.BL
             try
             {
                 String str = "InsertInventoryProc";
-                SqlParameter inventoryNameParam = new SqlParameter("@inventoryName", inventoryName);
+                SqlParameter inventoryNameParam = new SqlParameter("@name", inventoryName);
                 SqlParameter[] parameters = { inventoryNameParam};
                 bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
                 return commandResult;
@@ -44,19 +45,20 @@ namespace CoffeeShopApplication.BL
         }
         public static bool updateInventory(String inventoryId, String inventoryName, bool isDeleted)
         {
-            if (inventoryId == "" || inventoryName == "" || inventoryId == "")
+            if (inventoryId == "" || inventoryName == "")
             {
                 return false;
             }
             try
             {
-                String str = "UpdateInventoryProc";
-                SqlParameter inventoryIdParam = new SqlParameter("@inventoryId", inventoryId);
-                SqlParameter inventoryNameParam = new SqlParameter("@inventoryName", inventoryName);
-                SqlParameter isDeletedParam = new SqlParameter("@isDeleted", isDeleted.ToString());
-                SqlParameter[] parameters = { inventoryIdParam, inventoryNameParam, isDeletedParam };
-                bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
-                return commandResult;
+                string procedureName = "UpdateInventoryProc";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("@inventoryId", inventoryId),
+                    new SqlParameter("@name", inventoryName)
+                };
+                bool success = DBConnection.getInstance().ExecuteNonQuery(procedureName, CommandType.StoredProcedure, parameters);
+                return success;
             }
             catch (Exception e)
             {
