@@ -109,5 +109,10 @@ namespace CoffeeShopApplication.Interfaces
                 }
             }
         }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
