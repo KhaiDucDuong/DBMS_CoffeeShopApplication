@@ -54,6 +54,11 @@ namespace CoffeeShopApplication.UC
                 pbRestockOrder.BackColor = Color.White;
                 pbRestockOrder.BorderStyle = BorderStyle.FixedSingle;
             }
+            else if (topLevelForm == "ShopInventoryCheckForm")
+            {
+                pbRestockOrder.BackColor = Color.White;
+                pbRestockOrder.BorderStyle = BorderStyle.FixedSingle;
+            }
             else if (topLevelForm == "ShopInventoryForm")
             {
                 pbRestockOrder.BackColor = Color.White;
@@ -129,7 +134,15 @@ namespace CoffeeShopApplication.UC
 
         private void pbInventoryCheck_Click(object sender, EventArgs e)
         {
-
+            if (topLevelForm != "ShopInventoryCheckForm")
+            {
+                ShopInventoryCheckForm newForm = new ShopInventoryCheckForm();
+                newForm.Show();
+                if (topLevelForm == "HomeForm")
+                    ((Form)this.TopLevelControl).Hide();
+                else
+                    ((Form)this.TopLevelControl).Close();
+            }
         }
 
         private void pbInventory_Click(object sender, EventArgs e)
@@ -194,8 +207,11 @@ namespace CoffeeShopApplication.UC
 
         private void pbInventory_MouseHover(object sender, EventArgs e)
         {
-            pbInventory.BackColor = Color.White;
-            pbInventory.BorderStyle = BorderStyle.FixedSingle;
+            if (topLevelForm != "ShopInventoryForm")
+            {
+                pbInventory.BackColor = Color.White;
+                pbInventory.BorderStyle = BorderStyle.FixedSingle;
+            }
         }
 
         private void pbProduct_MouseLeave(object sender, EventArgs e)
@@ -233,8 +249,11 @@ namespace CoffeeShopApplication.UC
 
         private void pbInventory_MouseLeave(object sender, EventArgs e)
         {
-            pbInventory.BackColor = Color.Transparent;
-            pbInventory.BorderStyle = BorderStyle.None;
+            if (topLevelForm != "ShopInventoryForm")
+            {
+                pbInventory.BackColor = Color.Transparent;
+                pbInventory.BorderStyle = BorderStyle.None;
+            }
         }
 
         private void pbIngredient_MouseHover(object sender, EventArgs e)
@@ -275,26 +294,38 @@ namespace CoffeeShopApplication.UC
 
         private void pbCustomer_MouseHover(object sender, EventArgs e)
         {
-            pbCustomer.BackColor = Color.White;
-            pbCustomer.BorderStyle = BorderStyle.FixedSingle;
+            if (topLevelForm != "ShopCustomersForm")
+            {
+                pbCustomer.BackColor = Color.White;
+                pbCustomer.BorderStyle = BorderStyle.FixedSingle;
+            }
         }
 
         private void pbCustomer_MouseLeave(object sender, EventArgs e)
         {
-            pbCustomer.BackColor = Color.Transparent;
-            pbCustomer.BorderStyle = BorderStyle.None;
+            if (topLevelForm != "ShopCustomersForm")
+            {
+                pbCustomer.BackColor = Color.Transparent;
+                pbCustomer.BorderStyle = BorderStyle.None;
+            }
         }
 
         private void pbInventoryCheck_MouseHover(object sender, EventArgs e)
         {
-            pbInventoryCheck.BackColor = Color.White;
-            pbInventoryCheck.BorderStyle = BorderStyle.FixedSingle;
+            if (topLevelForm != "ShopInventoryCheckForm")
+            {
+                pbInventoryCheck.BackColor = Color.White;
+                pbInventoryCheck.BorderStyle = BorderStyle.FixedSingle;
+            }
         }
 
         private void pbInventoryCheck_MouseLeave(object sender, EventArgs e)
         {
-            pbInventoryCheck.BackColor = Color.Transparent;
-            pbInventoryCheck.BorderStyle = BorderStyle.None;
+            if (topLevelForm != "ShopInventoryCheckForm")
+            {
+                pbInventoryCheck.BackColor = Color.Transparent;
+                pbInventoryCheck.BorderStyle = BorderStyle.None;
+            }
         }
     }
 }
