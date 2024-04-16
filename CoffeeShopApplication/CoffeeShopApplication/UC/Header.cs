@@ -28,6 +28,12 @@ namespace CoffeeShopApplication.UC
                 pbAppIcon.BackColor = Color.White;
                 pbAppIcon.BorderStyle = BorderStyle.FixedSingle;
             }
+            else if (topLevelForm == "ShopCustomersForm")
+            {
+                pbCustomer.BackColor = Color.White;
+                pbCustomer.BorderStyle = BorderStyle.FixedSingle;
+
+            }
             else if (topLevelForm == "ShopIngredientsForm")
             {
                 pbIngredient.BackColor = Color.White;
@@ -44,6 +50,11 @@ namespace CoffeeShopApplication.UC
                 pbEmployee.BorderStyle = BorderStyle.FixedSingle;
             }
             else if (topLevelForm == "ShopRestockBillsForm")
+            {
+                pbRestockOrder.BackColor = Color.White;
+                pbRestockOrder.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else if (topLevelForm == "ShopInventoryForm")
             {
                 pbRestockOrder.BackColor = Color.White;
                 pbRestockOrder.BorderStyle = BorderStyle.FixedSingle;
@@ -123,12 +134,28 @@ namespace CoffeeShopApplication.UC
 
         private void pbInventory_Click(object sender, EventArgs e)
         {
-
+            if (topLevelForm != "ShopInventoryForm")
+            {
+                ShopInventoryForm newForm = new ShopInventoryForm();
+                newForm.Show();
+                if (topLevelForm == "HomeForm")
+                    ((Form)this.TopLevelControl).Hide();
+                else
+                    ((Form)this.TopLevelControl).Close();
+            }
         }
 
         private void pbCustomer_Click(object sender, EventArgs e)
         {
-
+            if (topLevelForm != "ShopCustomersForm")
+            {
+                ShopCustomersForm newForm = new ShopCustomersForm();
+                newForm.Show();
+                if (topLevelForm == "HomeForm")
+                    ((Form)this.TopLevelControl).Hide();
+                else
+                    ((Form)this.TopLevelControl).Close();
+            }
         }
 
         private void pbProduct_MouseHover(object sender, EventArgs e)

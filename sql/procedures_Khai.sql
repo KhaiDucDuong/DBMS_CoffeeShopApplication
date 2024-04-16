@@ -64,7 +64,7 @@ IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertInventor
 DROP PROCEDURE InsertInventoryProc
 GO
 CREATE PROCEDURE InsertInventoryProc
-    @name VARCHAR(255)
+    @name NVARCHAR(255)
 AS
 BEGIN
     INSERT INTO Inventory (name)
@@ -81,7 +81,7 @@ DROP PROCEDURE UpdateInventoryProc
 GO
 CREATE PROCEDURE UpdateInventoryProc
     @inventoryId UNIQUEIDENTIFIER,
-    @name VARCHAR(255)
+    @name NVARCHAR(255)
 AS
 BEGIN
     UPDATE Inventory
