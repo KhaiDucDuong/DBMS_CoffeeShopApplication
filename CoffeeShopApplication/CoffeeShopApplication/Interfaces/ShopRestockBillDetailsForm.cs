@@ -18,11 +18,14 @@ namespace CoffeeShopApplication.Interfaces
         private String restockBillId;
         private String restockBillDate;
         private DataSet ingredientDataSet;
+        private Point[] componentLocations;
+        private Size pbSize;
         public ShopRestockBillDetailsForm(string restockBillId, string date)
         {
             InitializeComponent();
             this.restockBillId = restockBillId;
             this.restockBillDate = date;
+            componentLocations = new Point[4];
         }
 
         private void ShopRestockBillDetailsForm_Load(object sender, EventArgs e)
@@ -35,6 +38,11 @@ namespace CoffeeShopApplication.Interfaces
             cbIngredient.DataSource = ingredientDataSet.Tables[0];
             cbIngredient.DisplayMember = "ingredientName";
             cbIngredient.ValueMember = "ingredientId";
+            componentLocations[0] = pbAdd.Location;
+            componentLocations[1] = pbSave.Location;
+            componentLocations[2] = pbDelete.Location;
+            componentLocations[3] = pbRefresh.Location;
+            pbSize = pbAdd.Size;
         }
 
         private void pbAdd_Click(object sender, EventArgs e)
@@ -125,50 +133,50 @@ namespace CoffeeShopApplication.Interfaces
 
         private void pbAdd_MouseHover(object sender, EventArgs e)
         {
-            pbAdd.Size = new Size(65, 65);
-            pbAdd.Location = new Point(649, 151);
+            pbAdd.Size = pbSize + (new Size(10, 10));
+            pbAdd.Location = new Point(componentLocations[0].X, componentLocations[0].Y - 10);
         }
 
         private void pbAdd_MouseLeave(object sender, EventArgs e)
         {
-            pbAdd.Size = new Size(55, 55);
-            pbAdd.Location = new Point(649, 161);
+            pbAdd.Size = pbSize;
+            pbAdd.Location = componentLocations[0];
         }
 
         private void pbSave_MouseHover(object sender, EventArgs e)
         {
-            pbSave.Size = new Size(65, 65);
-            pbSave.Location = new Point(743, 151);
+            pbSave.Size = pbSize + (new Size(10, 10));
+            pbSave.Location = new Point(componentLocations[1].X, componentLocations[1].Y - 10);
         }
 
         private void pbSave_MouseLeave(object sender, EventArgs e)
         {
-            pbSave.Size = new Size(55, 55);
-            pbSave.Location = new Point(743, 161);
+            pbSave.Size = pbSize;
+            pbSave.Location = componentLocations[1];
         }
 
         private void pbRefresh_MouseHover(object sender, EventArgs e)
         {
-            pbRefresh.Size = new Size(65, 65);
-            pbRefresh.Location = new Point(936, 151);
+            pbRefresh.Size = pbSize + (new Size(10, 10));
+            pbRefresh.Location = new Point(componentLocations[3].X, componentLocations[3].Y - 10);
         }
 
         private void pbRefresh_MouseLeave(object sender, EventArgs e)
         {
-            pbRefresh.Size = new Size(55, 55);
-            pbRefresh.Location = new Point(936, 161);
+            pbRefresh.Size = pbSize;
+            pbRefresh.Location = componentLocations[3];
         }
 
         private void pbDelete_MouseHover(object sender, EventArgs e)
         {
-            pbDelete.Size = new Size(65, 65);
-            pbDelete.Location = new Point(841, 151);
+            pbDelete.Size = pbSize + (new Size(10, 10));
+            pbDelete.Location = new Point(componentLocations[2].X, componentLocations[2].Y - 10);
         }
 
         private void pbDelete_MouseLeave(object sender, EventArgs e)
         {
-            pbDelete.Size = new Size(55, 55);
-            pbDelete.Location = new Point(841, 161);
+            pbDelete.Size = pbSize;
+            pbDelete.Location = componentLocations[2];
         }
     }
 }
