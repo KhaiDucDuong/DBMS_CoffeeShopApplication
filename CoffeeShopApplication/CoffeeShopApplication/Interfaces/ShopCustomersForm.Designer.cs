@@ -1,7 +1,9 @@
 ﻿namespace CoffeeShopApplication.Interfaces
 {
-    partial class ShopCustomersForm
+    public partial class ShopCustomersForm : Form
     {
+        private Point[] componentLocations;
+        private Size pbSize;
         /// <summary>
         /// Required designer variable.
         /// </summary>
