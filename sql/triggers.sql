@@ -69,10 +69,10 @@ GO
 
 /*Trigger 3 Cập nhật điểm của khách hàng khi xuất bill*/
 
-IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_Customer_UpdateRewardPoint' AND [type] = 'TR')
-	DROP TRIGGER [dbo].[tr_Customer_UpdateRewardPoint];
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_Customer_UpdateRewardPoint_onBillInsert' AND [type] = 'TR')
+	DROP TRIGGER [dbo].tr_Customer_UpdateRewardPoint_onBillInsert;
 GO
-CREATE TRIGGER tr_Customer_UpdateRewardPoint
+CREATE TRIGGER tr_Customer_UpdateRewardPoint_onBillInsert
 ON OrderBill
 AFTER INSERT
 AS
@@ -94,10 +94,10 @@ END;
 
 GO
 /*Trigger 4 Cập nhật điểm của khách khi họ sử dụng điểm để thanh toán */
-IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_Customer_UseRewardPoint' AND [type] = 'TR')
-	DROP TRIGGER [dbo].[tr_Customer_UseRewardPoint];
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_Customer_UpdateRewardPoint_onBillUpdate' AND [type] = 'TR')
+	DROP TRIGGER [dbo].tr_Customer_UpdateRewardPoint_onBillUpdate;
 GO
-CREATE TRIGGER tr_Customer_UseRewardPoint
+CREATE TRIGGER tr_Customer_UpdateRewardPoint_onBillUpdate
 ON OrderBill
 AFTER UPDATE
 AS
