@@ -1,38 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\",
+  "WorkspaceRootPath": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\classes\\year 3\\sem 2\\dbms\\project\\dbms_coffeeshop_sql_codes\\coffeeshopapplication\\coffeeshopapplication\\interfaces\\addproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\addproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\coffeeshopapplication\\interfaces\\shopinventoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\shopinventoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\coffeeshopapplication\\interfaces\\shopproductsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\shopproductsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\coffeeshopapplication\\interfaces\\shopcustomersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\shopcustomersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\classes\\year 3\\sem 2\\dbms\\project\\dbms_coffeeshop_sql_codes\\coffeeshopapplication\\coffeeshopapplication\\interfaces\\shopproductsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\shopproductsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\hk2-2023-2024\\dbms\\final2\\dbms_coffeeshopapplication\\coffeeshopapplication\\coffeeshopapplication\\bl\\inventorybl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\bl\\inventorybl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\coffeeshopapplication\\uc\\header.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\uc\\header.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\hk2-2023-2024\\dbms\\final2\\dbms_coffeeshopapplication\\coffeeshopapplication\\coffeeshopapplication\\interfaces\\shopinventoryform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\shopinventoryform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\coffeeshopapplication\\interfaces\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\hk2-2023-2024\\dbms\\final2\\dbms_coffeeshopapplication\\coffeeshopapplication\\coffeeshopapplication\\interfaces\\shopinventoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\shopinventoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\classes\\year 3\\sem 2\\dbms\\project\\dbms_coffeeshop_sql_codes\\coffeeshopapplication\\coffeeshopapplication\\uc\\header.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\uc\\header.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\coffeeshopapplication\\interfaces\\shopcustomersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\shopcustomersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\coffeeshopapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\coffeeshopapplication\\interfaces\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\hk2-2023-2024\\dbms\\final2\\dbms_coffeeshopapplication\\coffeeshopapplication\\coffeeshopapplication\\interfaces\\shopcustomersform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\shopcustomersform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,107 +37,104 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 192,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddProduct.cs [Design]",
-              "DocumentMoniker": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\AddProduct.cs",
-              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\AddProduct.cs",
-              "ToolTip": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\AddProduct.cs [Design]",
-              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\AddProduct.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "ShopCustomersForm.cs [Design]",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopCustomersForm.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\ShopCustomersForm.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopCustomersForm.cs [Design]",
+              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\ShopCustomersForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T05:06:53.921Z",
+              "WhenOpened": "2024-04-15T09:49:48.262Z",
+              "IsPinned": true,
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Header.cs",
-              "DocumentMoniker": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\UC\\Header.cs",
-              "RelativeDocumentMoniker": "CoffeeShopApplication\\UC\\Header.cs",
-              "ToolTip": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\UC\\Header.cs",
-              "RelativeToolTip": "CoffeeShopApplication\\UC\\Header.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAADgv2EAAAAAAAAA",
+              "DocumentIndex": 6,
+              "Title": "ShopCustomersForm.Designer.cs",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopCustomersForm.Designer.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\ShopCustomersForm.Designer.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopCustomersForm.Designer.cs",
+              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\ShopCustomersForm.Designer.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAYwE4AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T04:34:20.257Z",
+              "WhenOpened": "2024-04-15T10:13:45.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ShopCustomersForm.cs",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopCustomersForm.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\ShopCustomersForm.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopCustomersForm.cs",
+              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\ShopCustomersForm.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAowJ4AAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T10:13:25.551Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 208,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InventoryBL.cs",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\BL\\InventoryBL.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\BL\\InventoryBL.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\BL\\InventoryBL.cs",
+              "RelativeToolTip": "CoffeeShopApplication\\BL\\InventoryBL.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAxwD8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T01:57:44.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShopInventoryForm.Designer.cs",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopInventoryForm.Designer.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\ShopInventoryForm.Designer.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopInventoryForm.Designer.cs",
+              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\ShopInventoryForm.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEYBAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T16:15:51.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShopInventoryForm.cs",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopInventoryForm.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\ShopInventoryForm.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopInventoryForm.cs*",
+              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\ShopInventoryForm.cs*",
+              "ViewState": "AQIAAFkAAAAAAAAAAAArwGYAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T16:42:39.011Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "HomeForm.cs [Design]",
-              "DocumentMoniker": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\HomeForm.cs",
-              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\HomeForm.cs",
-              "ToolTip": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\HomeForm.cs [Design]",
-              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\HomeForm.cs [Design]",
+              "Title": "ShopInventoryForm.cs [Design]",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopInventoryForm.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\ShopInventoryForm.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopInventoryForm.cs [Design]*",
+              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\ShopInventoryForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T04:15:07.852Z",
+              "WhenOpened": "2024-04-16T01:53:14.791Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ShopProductsForm.cs [Design]",
-              "DocumentMoniker": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopProductsForm.cs",
-              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\ShopProductsForm.cs",
-              "ToolTip": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopProductsForm.cs [Design]",
-              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\ShopProductsForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T04:15:01.773Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Header.cs [Design]",
-              "DocumentMoniker": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\UC\\Header.cs",
-              "RelativeDocumentMoniker": "CoffeeShopApplication\\UC\\Header.cs",
-              "ToolTip": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\UC\\Header.cs [Design]",
-              "RelativeToolTip": "CoffeeShopApplication\\UC\\Header.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T04:14:37.367Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ShopProductsForm.cs",
-              "DocumentMoniker": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopProductsForm.cs",
-              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\ShopProductsForm.cs",
-              "ToolTip": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopProductsForm.cs",
-              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\ShopProductsForm.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAADgvyMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T05:49:51.528Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Program.cs",
-              "RelativeDocumentMoniker": "CoffeeShopApplication\\Program.cs",
-              "ToolTip": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Program.cs",
-              "RelativeToolTip": "CoffeeShopApplication\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T05:49:53.49Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "HomeForm.cs",
-              "DocumentMoniker": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\HomeForm.cs",
-              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\HomeForm.cs",
-              "ToolTip": "D:\\Classes\\year 3\\sem 2\\dbms\\project\\DBMS_CoffeeShop_SQL_Codes\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\HomeForm.cs",
-              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\HomeForm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T05:49:53.492Z",
-              "EditorCaption": ""
             }
           ]
         }
