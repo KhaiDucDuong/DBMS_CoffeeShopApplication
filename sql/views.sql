@@ -33,13 +33,16 @@ DROP VIEW GetWorkingEmployeesView;
 GO
 CREATE VIEW GetWorkingEmployeesView AS
 SELECT * FROM Employee WHERE isWorking = 1;
+/*Xem chi tiết thông tin kho và nhân viên trong việc kiểm tra kho*/
+GO
+x	
 /*Câu 4 - Xem chi tiết số lượng hàng trong một đợt kiểm tra kho*/
 GO
 IF EXISTS(SELECT 1 FROM sys.views WHERE name='GetInventoryCheckDetailsView' AND type='v')
 DROP VIEW GetInventoryCheckDetailsView;
 GO
 CREATE VIEW GetInventoryCheckDetailsView AS
-SELECT icd.checkId, icd.ingredientId, i.ingredientName, icd.quantity
+SELECT icd.checkId,icd.ingredientId, i.ingredientName, icd.quantity
 FROM InventoryCheckDetails icd
 JOIN Ingredient i ON icd.ingredientId = i.ingredientId;
 /* Câu 5 - Xem các bill bán hàng trong ngày hôm nay */
