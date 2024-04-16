@@ -39,14 +39,14 @@ namespace CoffeeShopApplication.BL
             }
         }
 
-        public static bool addAccount(string employeeId, string passwords, string userName, string role, string updateType)
+        public static bool updateAccount(string employeeId, string passwords, string userName, string role, string updateType)
         {
-            if (employeeId == "" || passwords == "" || userName == "" || role == "" || updateType == "")
+            if (employeeId == "" || passwords == "" || userName == "" || role == "")
                 return false;
 
             try
             {
-                String str = "AddAccountProc";
+                String str = "UpdateAccountProc";
                 SqlParameter EmployeeIdParam = new SqlParameter("@EmployeeId", employeeId);
                 SqlParameter PasswordsParam = new SqlParameter("@Passwords", passwords);
                 SqlParameter UserNameParam = new SqlParameter("@UserName", userName);

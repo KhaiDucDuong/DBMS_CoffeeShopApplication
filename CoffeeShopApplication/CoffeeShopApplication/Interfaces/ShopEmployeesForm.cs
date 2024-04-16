@@ -69,14 +69,28 @@ namespace CoffeeShopApplication.Interfaces
             address = tbAddress.Text;
             email = tbEmail.Text;
             isDeleted = cbDeleted.Text;
-            if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, isDeleted == "Yes"))
+            if (isDeleted != "yes")
             {
-                MessageBox.Show("Updated a row successfully!", "Action result");
-                DataSet employeetDataSet = IngredientBL.getAllIngredients();
-                dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+                if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, false, "update"))
+                {
+                    MessageBox.Show("Updated a row successfully!", "Action result");
+                    DataSet employeetDataSet = EmployeeBL.getAllEmployee();
+                    dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+                }
+                else
+                    MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
             }
             else
-                MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
+            {
+                if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, false, "delete"))
+                {
+                    MessageBox.Show("Updated a row successfully!", "Action result");
+                    DataSet employeetDataSet = EmployeeBL.getAllEmployee();
+                    dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+                }
+                else
+                    MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
+            }
         }
 
         private void pbRefresh_Click(object sender, EventArgs e)

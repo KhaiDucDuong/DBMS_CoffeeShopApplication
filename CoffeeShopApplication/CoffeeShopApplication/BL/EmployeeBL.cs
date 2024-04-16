@@ -51,9 +51,9 @@ namespace CoffeeShopApplication.BL
             }
         }
 
-        public static bool updateEmployee(string id, string fullName, string phoneNumber, string address, string email, bool isWorking)
+        public static bool updateEmployee(string id, string fullName, string phoneNumber, string address, string email, bool isWorking, string updateType)
         {
-            if (id == null || fullName == "" || phoneNumber == "" || address == "" || email == "" || isWorking == false)
+            if (id == null || fullName == "" || phoneNumber == "" || address == "" || email == "")
                 return false;
 
             try
@@ -65,7 +65,8 @@ namespace CoffeeShopApplication.BL
                 SqlParameter AddressParam = new SqlParameter("@Address", address);
                 SqlParameter EmailParam = new SqlParameter("@Email", email);
                 SqlParameter IsWorkingParam = new SqlParameter("@IsWorking", isWorking);
-                SqlParameter[] parameters = { FullNameParam, PhoneNumParam, AddressParam, EmailParam, IsWorkingParam };
+                SqlParameter UpdateTypeParam = new SqlParameter("@UpdateType", updateType);
+                SqlParameter[] parameters = { FullNameParam, PhoneNumParam, AddressParam, EmailParam, IsWorkingParam, UpdateTypeParam};
                 bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
                 return commandResult;
             }
