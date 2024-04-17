@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopEmployeesForm));
             pbDelete = new PictureBox();
+            header1 = new UC.Header();
             label3 = new Label();
             tbPhoneNumber = new TextBox();
             cbDeleted = new ComboBox();
@@ -84,6 +85,16 @@
             pbDelete.TabIndex = 39;
             pbDelete.TabStop = false;
             // 
+            // header1
+            // 
+            header1.BackColor = SystemColors.MenuHighlight;
+            header1.ForeColor = SystemColors.Highlight;
+            header1.Location = new Point(0, -2);
+            header1.Margin = new Padding(3, 2, 3, 2);
+            header1.Name = "header1";
+            header1.Size = new Size(1203, 147);
+            header1.TabIndex = 9;
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -98,7 +109,7 @@
             // tbPhoneNumber
             // 
             tbPhoneNumber.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbPhoneNumber.Location = new Point(130, 249);
+            tbPhoneNumber.Location = new Point(147, 253);
             tbPhoneNumber.Margin = new Padding(4);
             tbPhoneNumber.Multiline = true;
             tbPhoneNumber.Name = "tbPhoneNumber";
@@ -162,7 +173,7 @@
             // 
             tbId.Enabled = false;
             tbId.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbId.Location = new Point(130, 187);
+            tbId.Location = new Point(147, 191);
             tbId.Margin = new Padding(4);
             tbId.Multiline = true;
             tbId.Name = "tbId";
@@ -333,7 +344,7 @@
             // tbEmail
             // 
             tbEmail.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbEmail.Location = new Point(130, 321);
+            tbEmail.Location = new Point(147, 325);
             tbEmail.Margin = new Padding(4);
             tbEmail.Multiline = true;
             tbEmail.Name = "tbEmail";
@@ -388,10 +399,10 @@
             cbWorking.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbWorking.FormattingEnabled = true;
             cbWorking.Items.AddRange(new object[] { "Yes", "No" });
-            cbWorking.Location = new Point(680, 321);
+            cbWorking.Location = new Point(701, 321);
             cbWorking.Margin = new Padding(4);
             cbWorking.Name = "cbWorking";
-            cbWorking.Size = new Size(167, 49);
+            cbWorking.Size = new Size(146, 49);
             cbWorking.TabIndex = 46;
             // 
             // label7
@@ -410,6 +421,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 992);
+            Controls.Add(header1);
             Controls.Add(cbWorking);
             Controls.Add(label8);
             Controls.Add(tbAddress);
