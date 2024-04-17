@@ -81,11 +81,13 @@ DROP PROCEDURE UpdateInventoryProc
 GO
 CREATE PROCEDURE UpdateInventoryProc
     @inventoryId UNIQUEIDENTIFIER,
-    @name NVARCHAR(255)
+    @name NVARCHAR(255),
+	@isDeleted BIT
 AS
 BEGIN
     UPDATE Inventory
-    SET name = @name
+    SET name = @name,
+		isDeleted = @isDeleted
     WHERE inventoryId = @inventoryId;
 END;
 /* Procedure Delete vào bảng Inventory */
