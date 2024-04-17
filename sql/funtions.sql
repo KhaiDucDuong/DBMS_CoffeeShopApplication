@@ -121,7 +121,23 @@ RETURN
     FROM InventoryCheck
     WHERE CAST(checkDate AS DATE) = CAST(@checkDate AS DATE)
 );
+--6.1. Function findInventoryCheckByDateFromView
+IF OBJECT_ID(N'FindInventoryCheckByDateFromViewFunction', 'FN') IS NOT NULL
+    DROP FUNCTION FindInventoryCheckByDateFromViewFunction
+GO
 
+CREATE FUNCTION FindInventoryCheckByDateFromViewFunction
+(
+    @checkDate DATE
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT checkId, [check date], [inventory name], [employee name]
+    FROM getInventoryCheckView
+    WHERE CAST([check date] AS DATE) = CAST(@checkDate AS DATE)
+);
 -- 7. Function findIngredientByName
 IF OBJECT_ID(N'FindIngredientByNameFunction', 'FN') IS NOT NULL
     DROP FUNCTION FindIngredientByNameFunction

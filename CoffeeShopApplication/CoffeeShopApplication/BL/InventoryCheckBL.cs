@@ -15,24 +15,43 @@ namespace CoffeeShopApplication.BL
 {
     public class InventoryCheckBL
     {
+        
         public static DataSet getAllInventoryCheck()
         {
             String str = "Select * from InventoryCheck";
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, null);
             return ds;
         }
+        public static DataSet getAllInventoryCheckFromView()
+        {
+            string query = "SELECT ic.checkId, ic.checkDate AS [check date], i.name AS [inventory name], em.fullName AS [employee name] " +
+                  "FROM dbo.InventoryCheck AS ic " +
+                  "INNER JOIN dbo.Inventory AS i ON i.inventoryId = ic.inventoryId " +
+                  "INNER JOIN dbo.Employee AS em ON em.employeeId = ic.employeeId";
+            DataSet ds = DBConnection.getInstance().ExecuteQuery(query, CommandType.Text, null);
+            return ds;
+        }
         public static DataSet findInventoryCheckByDate(string date)
         {
             try
-            {
-                DateTime checkDate;
-                if (!DateTime.TryParse(date, out checkDate))
-                {
-                    // Xử lý trường hợp ngày tháng không hợp lệ
-                    Debug.WriteLine("Invalid date format.");
-                    return null;
-                }
+            { 
                 string str = "SELECT * FROM dbo.FindInventoryCheckByDateFunction(@checkDate)";
+                SqlParameter checkDateParam = new SqlParameter("@checkDate", date);
+                SqlParameter[] parameters = { checkDateParam };
+                DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error occurred while finding inventory check by date: " + ex.Message);
+                return null;
+            }
+        }
+        public static DataSet findInventoryCheckByDateFromView(string date)
+        {
+            try
+            {
+                string str = "SELECT * FROM dbo.FindInventoryCheckByDateFromViewFunction(@checkDate)";
                 SqlParameter checkDateParam = new SqlParameter("@checkDate", date);
                 SqlParameter[] parameters = { checkDateParam };
                 DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
@@ -48,19 +67,12 @@ namespace CoffeeShopApplication.BL
         {
             try
             {
-                DateTime checkDate;
-                if (!DateTime.TryParse(date, out checkDate))
-                {
-                    // Xử lý trường hợp ngày tháng không hợp lệ
-                    Debug.WriteLine("Invalid date format.");
-                    return false;
-                }
                 string procedureName = "InsertInventoryCheckProc";
                 SqlParameter[] parameters =
                 {
                     new SqlParameter("@employeeId", employeeId),
                     new SqlParameter("@inventoryId", inventoryId),
-                    new SqlParameter("@checkDate", checkDate)
+                    new SqlParameter("@checkDate", date)
                 };
                 bool success = DBConnection.getInstance().ExecuteNonQuery(procedureName, CommandType.StoredProcedure, parameters);
                 return success;
@@ -76,20 +88,13 @@ namespace CoffeeShopApplication.BL
         {
             try
             {
-                DateTime checkDate;
-                if (!DateTime.TryParse(date, out checkDate))
-                {
-                    // Xử lý trường hợp ngày tháng không hợp lệ
-                    Debug.WriteLine("Invalid date format.");
-                    return false;
-                }
                 string procedureName = "UpdateInventoryCheckProc";
                 SqlParameter[] parameters =
                 {
                     new SqlParameter("@checkId", checkId),
                     new SqlParameter("@employeeId", employeeId),
                     new SqlParameter("@inventoryId", inventoryId),
-                    new SqlParameter("@checkDate", checkDate)
+                    new SqlParameter("@checkDate", date)
                 };
                 bool success = DBConnection.getInstance().ExecuteNonQuery(procedureName, CommandType.StoredProcedure, parameters);
                 return success;
