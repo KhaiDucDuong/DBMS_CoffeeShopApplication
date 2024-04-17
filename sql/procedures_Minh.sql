@@ -83,12 +83,12 @@ CREATE PROCEDURE AddOrderBillProc
 	@CustomerId UNIQUEIDENTIFIER,
      	@EmployeeId UNIQUEIDENTIFIER,
 	 @RewardPointsUsed DECIMAL(10, 2),
-    	@TotalBill DECIMAL(10, 2),
-    	@UpdateType VARCHAR(20)
+    	@InitialBill DECIMAL(10, 2),
+	@FinalBill DECIMAL(10,2)
 AS
 BEGIN
-	INSERT INTO OrderBill (billId, customerId, employeeId, rewardPointsUsed, totalBill, createdAt, isDeleted)
-		VALUES (@BillId, @CustomerId, @EmployeeId, @RewardPointsUsed, @TotalBill, GETDATE(), 0);
+	INSERT INTO OrderBill (billId, customerId, employeeId, rewardPointsUsed, intialBill, finalBill, createdAt, isDeleted)
+		VALUES (@BillId, @CustomerId, @EmployeeId, @RewardPointsUsed, @InitialBill, @FinalBill, GETDATE(), 0);
 END;
 GO
 
