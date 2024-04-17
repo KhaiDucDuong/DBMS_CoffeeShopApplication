@@ -55,7 +55,8 @@ namespace CoffeeShopApplication.BL
                 SqlParameter[] parameters =
                 {
                     new SqlParameter("@inventoryId", inventoryId),
-                    new SqlParameter("@name", inventoryName)
+                    new SqlParameter("@name", inventoryName),
+                    new SqlParameter("@isDeleted",isDeleted.ToString())
                 };
                 bool success = DBConnection.getInstance().ExecuteNonQuery(procedureName, CommandType.StoredProcedure, parameters);
                 return success;
