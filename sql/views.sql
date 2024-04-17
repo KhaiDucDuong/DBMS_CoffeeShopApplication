@@ -35,14 +35,21 @@ CREATE VIEW GetWorkingEmployeesView AS
 SELECT * FROM Employee WHERE isWorking = 1;
 /*Xem chi tiết thông tin kho và nhân viên trong việc kiểm tra kho*/
 GO
-x	
+IF EXISTS(SELECT 1 FROM sys.views WHERE name='GetInventoryCheckView' AND type='v')
+DROP VIEW GetInventoryCheckView;
+GO
+CREATE VIEW GetInventoryCheckView AS
+SELECT ic.checkId, i.name as 'inventory name',em.fullName as 'employee name', ic.checkDate as 'check date'
+FROM InventoryCheck ic
+JOIN Inventory i ON ic.inventoryId = i.inventoryId 
+JOIN Employee em ON ic.employeeId = em.employeeId
 /*Câu 4 - Xem chi tiết số lượng hàng trong một đợt kiểm tra kho*/
 GO
 IF EXISTS(SELECT 1 FROM sys.views WHERE name='GetInventoryCheckDetailsView' AND type='v')
 DROP VIEW GetInventoryCheckDetailsView;
 GO
 CREATE VIEW GetInventoryCheckDetailsView AS
-SELECT icd.checkId,icd.ingredientId, i.ingredientName, icd.quantity
+SELECT icd.checkId, i.ingredientName, icd.quantity
 FROM InventoryCheckDetails icd
 JOIN Ingredient i ON icd.ingredientId = i.ingredientId;
 /* Câu 5 - Xem các bill bán hàng trong ngày hôm nay */

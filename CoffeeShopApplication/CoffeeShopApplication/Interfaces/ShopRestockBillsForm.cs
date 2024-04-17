@@ -42,7 +42,7 @@ namespace CoffeeShopApplication.Interfaces
                 restockBillDetailsForm = new ShopRestockBillDetailsForm(tbId.Text, dtpRestockBill.Value.ToString());
                 restockBillDetailsForm.Show();
             }
-        }
+        } 
 
         private void pbAdd_Click(object sender, EventArgs e)
         {

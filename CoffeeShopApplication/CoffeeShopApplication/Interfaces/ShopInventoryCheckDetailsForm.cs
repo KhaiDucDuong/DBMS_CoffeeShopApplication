@@ -3,37 +3,33 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace CoffeeShopApplication.Interfaces
 {
-    public partial class ShopRestockBillDetailsForm : Form
+    public partial class ShopInventoryCheckDetailsForm : Form
     {
-        private String restockBillId;
-        private String restockBillDate;
+        public String checkId;
         private DataSet ingredientDataSet;
         private Point[] componentLocations;
         private Size pbSize;
-        public ShopRestockBillDetailsForm(string restockBillId, string date)
+        public ShopInventoryCheckDetailsForm(string checkId)
         {
             InitializeComponent();
-            this.restockBillId = restockBillId;
-            this.restockBillDate = date;
+            this.checkId = checkId;
             componentLocations = new Point[4];
         }
 
-        private void ShopRestockBillDetailsForm_Load(object sender, EventArgs e)
+        private void ShopInventoryCheckDetailsForm_Load(object sender, EventArgs e)
         {
-            tbId.Text = restockBillId;
-            dtpRestockBill.Value = DateTime.Parse(restockBillDate);
-            DataSet restockBillDetailsDataSet = RestockBillDetailsBL.findRestockBillDetailsById(restockBillId);
-            dgvRestockBillDetails.DataSource = restockBillDetailsDataSet.Tables[0].DefaultView;
+            tbCheckId.Text = checkId;
+            DataSet inventoryCheckDetailsDataSet = InventoryCheckDetailsBL.findInventoryCheckDetailsById(checkId);
+            dgvInventoryCheckDetails.DataSource = inventoryCheckDetailsDataSet.Tables[0].DefaultView;
             ingredientDataSet = IngredientBL.getAllIngredients();
             cbIngredient.DataSource = ingredientDataSet.Tables[0];
             cbIngredient.DisplayMember = "ingredientName";
@@ -45,32 +41,47 @@ namespace CoffeeShopApplication.Interfaces
             pbSize = pbAdd.Size;
         }
 
+
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            String ingredientId, quantity, price;
+            String ingredientId,quantity;
+
             if (cbIngredient.SelectedValue == null)
             {
                 MessageBox.Show("Please input all the fields first!");
                 return;
             }
-
             ingredientId = cbIngredient.SelectedValue.ToString();
             quantity = tbQuantity.Text;
-            price = tbPrice.Text;
-            if (RestockBillDetailsBL.addRestockBillDetails(ingredientId, restockBillId, quantity, price))
+            if (InventoryCheckDetailsBL.addInventoryCheckDetails(ingredientId,checkId,quantity))
             {
                 MessageBox.Show("Added a new row successfully!", "Action result");
-                DataSet restockBillDetailsDataSet = RestockBillDetailsBL.findRestockBillDetailsById(restockBillId);
-                dgvRestockBillDetails.DataSource = restockBillDetailsDataSet.Tables[0].DefaultView;
+                DataSet inventoryCheckDetailsDataSet = InventoryCheckDetailsBL.findInventoryCheckDetailsById(checkId);
+                dgvInventoryCheckDetails.DataSource = inventoryCheckDetailsDataSet.Tables[0].DefaultView;
             }
             else
                 MessageBox.Show("Failed to add a row! Check your input data!", "Action result");
         }
 
-        private void pbRefresh_Click(object sender, EventArgs e)
+        private void pbSave_Click(object sender, EventArgs e)
         {
-            DataSet restockBillDetailsDataSet = RestockBillDetailsBL.findRestockBillDetailsById(restockBillId);
-            dgvRestockBillDetails.DataSource = restockBillDetailsDataSet.Tables[0].DefaultView;
+            String ingredientId, quantity;
+
+            if (cbIngredient.SelectedValue == null)
+            {
+                MessageBox.Show("Please input all the fields first!");
+                return;
+            }
+            ingredientId = cbIngredient.SelectedValue.ToString();
+            quantity = tbQuantity.Text;
+            if (InventoryCheckDetailsBL.updateInventoryCheckDetails(ingredientId, checkId, quantity))
+            {
+                MessageBox.Show("Update a new row successfully!", "Action result");
+                DataSet inventoryCheckDetailsDataSet = InventoryCheckDetailsBL.findInventoryCheckDetailsById(checkId);
+                dgvInventoryCheckDetails.DataSource = inventoryCheckDetailsDataSet.Tables[0].DefaultView;
+            }
+            else
+                MessageBox.Show("Failed to add a row! Check your input data!", "Action result");
         }
 
         private void pbDelete_Click(object sender, EventArgs e)
@@ -82,55 +93,38 @@ namespace CoffeeShopApplication.Interfaces
                 return;
             }
             ingredientId = cbIngredient.SelectedValue.ToString();
-
-            if (MessageBox.Show("Are you sure you want to delete ingredient " + cbIngredient.Text + " from the restock bill?", "Delete Confirmation",
+            if (MessageBox.Show("Are you sure you want to delete ingredient " + cbIngredient.Text + " from the inventory check?", "Delete Confirmation",
             MessageBoxButtons.YesNo, MessageBoxIcon.Question,
             MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
             {
-                if (RestockBillDetailsBL.deleteRestockBillDetails(ingredientId, restockBillId))
+                if (InventoryCheckDetailsBL.deleteInventoryCheckDetails(ingredientId, checkId))
                 {
                     MessageBox.Show("Deleted a row successfully!", "Action result");
-                    DataSet restockBillDetailsDataSet = RestockBillDetailsBL.findRestockBillDetailsById(restockBillId);
-                    dgvRestockBillDetails.DataSource = restockBillDetailsDataSet.Tables[0].DefaultView;
+                    DataSet inventoryCheckDetailsDataSet = InventoryCheckDetailsBL.findInventoryCheckDetailsById(checkId);
+                    dgvInventoryCheckDetails.DataSource = inventoryCheckDetailsDataSet.Tables[0].DefaultView;
                 }
                 else
                     MessageBox.Show("Failed to delete a row! Check your input data!", "Action result");
             }
         }
 
-        private void dgvRestockBillDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void pbRefresh_Click(object sender, EventArgs e)
+        {
+            DataSet inventoryCheckDetailsDataSet = InventoryCheckDetailsBL.findInventoryCheckDetailsById(checkId);
+            dgvInventoryCheckDetails.DataSource = inventoryCheckDetailsDataSet.Tables[0].DefaultView;
+        }
+
+        private void dgvInventoryCheckDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = this.dgvRestockBillDetails.Rows[e.RowIndex];
-                tbQuantity.Text = row.Cells[3].Value.ToString();
-                tbPrice.Text = row.Cells[4].Value.ToString();
-                cbIngredient.SelectedIndex = cbIngredient.FindStringExact(row.Cells[2].Value.ToString());
+                DataGridViewRow row = this.dgvInventoryCheckDetails.Rows[e.RowIndex];
+                tbCheckId.Text = row.Cells[0].Value.ToString();
+                cbIngredient.SelectedIndex = cbIngredient.FindStringExact(row.Cells[1].Value.ToString());
+                tbQuantity.Text = row.Cells[2].Value.ToString();
             }
+
         }
-
-        private void pbSave_Click(object sender, EventArgs e)
-        {
-            String ingredientId, quantity, price;
-            if (cbIngredient.SelectedValue == null)
-            {
-                MessageBox.Show("Please input all the fields first!");
-                return;
-            }
-
-            ingredientId = cbIngredient.SelectedValue.ToString();
-            quantity = tbQuantity.Text;
-            price = tbPrice.Text;
-            if (RestockBillDetailsBL.updateRestockBill(ingredientId, restockBillId, quantity, price))
-            {
-                MessageBox.Show("Updated a row successfully!", "Action result");
-                DataSet restockBillDetailsDataSet = RestockBillDetailsBL.findRestockBillDetailsById(restockBillId);
-                dgvRestockBillDetails.DataSource = restockBillDetailsDataSet.Tables[0].DefaultView;
-            }
-            else
-                MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
-        }
-
         private void pbAdd_MouseHover(object sender, EventArgs e)
         {
             pbAdd.Size = pbSize + (new Size(10, 10));
@@ -179,9 +173,5 @@ namespace CoffeeShopApplication.Interfaces
             pbDelete.Location = componentLocations[2];
         }
 
-        private void cbIngredient_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

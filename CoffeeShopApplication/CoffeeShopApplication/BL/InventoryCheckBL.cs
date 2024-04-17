@@ -15,37 +15,11 @@ namespace CoffeeShopApplication.BL
 {
     public class InventoryCheckBL
     {
-        
-        public static DataSet getAllInventoryCheck()
-        {
-            String str = "Select * from InventoryCheck";
-            DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, null);
-            return ds;
-        }
         public static DataSet getAllInventoryCheckFromView()
         {
-            string query = "SELECT ic.checkId, ic.checkDate AS [check date], i.name AS [inventory name], em.fullName AS [employee name] " +
-                  "FROM dbo.InventoryCheck AS ic " +
-                  "INNER JOIN dbo.Inventory AS i ON i.inventoryId = ic.inventoryId " +
-                  "INNER JOIN dbo.Employee AS em ON em.employeeId = ic.employeeId";
+            string query = "SELECT * FROM GetInventoryCheckView";
             DataSet ds = DBConnection.getInstance().ExecuteQuery(query, CommandType.Text, null);
             return ds;
-        }
-        public static DataSet findInventoryCheckByDate(string date)
-        {
-            try
-            { 
-                string str = "SELECT * FROM dbo.FindInventoryCheckByDateFunction(@checkDate)";
-                SqlParameter checkDateParam = new SqlParameter("@checkDate", date);
-                SqlParameter[] parameters = { checkDateParam };
-                DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
-                return ds;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Error occurred while finding inventory check by date: " + ex.Message);
-                return null;
-            }
         }
         public static DataSet findInventoryCheckByDateFromView(string date)
         {

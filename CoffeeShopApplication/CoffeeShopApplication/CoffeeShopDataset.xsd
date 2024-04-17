@@ -909,25 +909,6 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GetInventoryCheckDetailsViewTableAdapter" GeneratorDataComponentClassName="GetInventoryCheckDetailsViewTableAdapter" Name="GetInventoryCheckDetailsView" UserDataComponentName="GetInventoryCheckDetailsViewTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="CoffeeShopConnectionString1" DbObjectName="CoffeeShop.dbo.GetInventoryCheckDetailsView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT checkId, ingredientId, ingredientName, quantity FROM dbo.GetInventoryCheckDetailsView</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="checkId" DataSetColumn="checkId" />
-              <Mapping SourceColumn="ingredientId" DataSetColumn="ingredientId" />
-              <Mapping SourceColumn="ingredientName" DataSetColumn="ingredientName" />
-              <Mapping SourceColumn="quantity" DataSetColumn="quantity" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GetInventoryCheckViewTableAdapter" GeneratorDataComponentClassName="GetInventoryCheckViewTableAdapter" Name="GetInventoryCheckView" UserDataComponentName="GetInventoryCheckViewTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="CoffeeShopConnectionString1" DbObjectName="CoffeeShop.dbo.GetInventoryCheckView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -944,6 +925,24 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
               <Mapping SourceColumn="check date" DataSetColumn="check date" />
               <Mapping SourceColumn="inventory name" DataSetColumn="inventory name" />
               <Mapping SourceColumn="employee name" DataSetColumn="employee name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GetInventoryCheckDetailsViewTableAdapter" GeneratorDataComponentClassName="GetInventoryCheckDetailsViewTableAdapter" Name="GetInventoryCheckDetailsView" UserDataComponentName="GetInventoryCheckDetailsViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CoffeeShopConnectionString1" DbObjectName="CoffeeShop.dbo.GetInventoryCheckDetailsView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT checkId, ingredientName, quantity FROM dbo.GetInventoryCheckDetailsView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="checkId" DataSetColumn="checkId" />
+              <Mapping SourceColumn="ingredientName" DataSetColumn="ingredientName" />
+              <Mapping SourceColumn="quantity" DataSetColumn="quantity" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1199,41 +1198,40 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GetInventoryCheckDetailsView" msprop:Generator_RowClassName="GetInventoryCheckDetailsViewRow" msprop:Generator_RowEvHandlerName="GetInventoryCheckDetailsViewRowChangeEventHandler" msprop:Generator_RowDeletedName="GetInventoryCheckDetailsViewRowDeleted" msprop:Generator_RowDeletingName="GetInventoryCheckDetailsViewRowDeleting" msprop:Generator_RowEvArgName="GetInventoryCheckDetailsViewRowChangeEvent" msprop:Generator_TablePropName="GetInventoryCheckDetailsView" msprop:Generator_RowChangedName="GetInventoryCheckDetailsViewRowChanged" msprop:Generator_UserTableName="GetInventoryCheckDetailsView" msprop:Generator_RowChangingName="GetInventoryCheckDetailsViewRowChanging" msprop:Generator_TableClassName="GetInventoryCheckDetailsViewDataTable" msprop:Generator_TableVarName="tableGetInventoryCheckDetailsView">
+        <xs:element name="GetInventoryCheckView" msprop:Generator_RowClassName="GetInventoryCheckViewRow" msprop:Generator_RowEvHandlerName="GetInventoryCheckViewRowChangeEventHandler" msprop:Generator_RowDeletedName="GetInventoryCheckViewRowDeleted" msprop:Generator_RowDeletingName="GetInventoryCheckViewRowDeleting" msprop:Generator_RowEvArgName="GetInventoryCheckViewRowChangeEvent" msprop:Generator_TablePropName="GetInventoryCheckView" msprop:Generator_RowChangedName="GetInventoryCheckViewRowChanged" msprop:Generator_UserTableName="GetInventoryCheckView" msprop:Generator_RowChangingName="GetInventoryCheckViewRowChanging" msprop:Generator_TableClassName="GetInventoryCheckViewDataTable" msprop:Generator_TableVarName="tableGetInventoryCheckView">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="checkId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="checkId" msprop:Generator_ColumnPropNameInTable="checkIdColumn" msprop:Generator_ColumnPropNameInRow="checkId" msprop:Generator_ColumnVarNameInTable="columncheckId" type="xs:string" />
-              <xs:element name="ingredientId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="ingredientId" msprop:Generator_ColumnPropNameInTable="ingredientIdColumn" msprop:Generator_ColumnPropNameInRow="ingredientId" msprop:Generator_ColumnVarNameInTable="columningredientId" type="xs:string" />
-              <xs:element name="ingredientName" msprop:Generator_UserColumnName="ingredientName" msprop:Generator_ColumnPropNameInTable="ingredientNameColumn" msprop:Generator_ColumnPropNameInRow="ingredientName" msprop:Generator_ColumnVarNameInTable="columningredientName" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="quantity" msprop:Generator_UserColumnName="quantity" msprop:Generator_ColumnPropNameInTable="quantityColumn" msprop:Generator_ColumnPropNameInRow="quantity" msprop:Generator_ColumnVarNameInTable="columnquantity" type="xs:int" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="GetInventoryCheckView" msprop:Generator_RowEvHandlerName="GetInventoryCheckViewRowChangeEventHandler" msprop:Generator_RowDeletedName="GetInventoryCheckViewRowDeleted" msprop:Generator_RowDeletingName="GetInventoryCheckViewRowDeleting" msprop:Generator_RowEvArgName="GetInventoryCheckViewRowChangeEvent" msprop:Generator_TablePropName="GetInventoryCheckView" msprop:Generator_RowChangedName="GetInventoryCheckViewRowChanged" msprop:Generator_RowChangingName="GetInventoryCheckViewRowChanging" msprop:Generator_TableClassName="GetInventoryCheckViewDataTable" msprop:Generator_RowClassName="GetInventoryCheckViewRow" msprop:Generator_TableVarName="tableGetInventoryCheckView" msprop:Generator_UserTableName="GetInventoryCheckView">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="checkId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="checkId" msprop:Generator_ColumnPropNameInTable="checkIdColumn" msprop:Generator_ColumnVarNameInTable="columncheckId" msprop:Generator_UserColumnName="checkId" type="xs:string" />
-              <xs:element name="check_x0020_date" msprop:Generator_ColumnPropNameInRow="check_date" msprop:Generator_ColumnPropNameInTable="check_dateColumn" msprop:Generator_ColumnVarNameInTable="columncheck_date" msprop:Generator_UserColumnName="check date" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="inventory_x0020_name" msprop:Generator_ColumnPropNameInRow="inventory_name" msprop:Generator_ColumnPropNameInTable="inventory_nameColumn" msprop:Generator_ColumnVarNameInTable="columninventory_name" msprop:Generator_UserColumnName="inventory name" minOccurs="0">
+              <xs:element name="check_x0020_date" msprop:Generator_UserColumnName="check date" msprop:Generator_ColumnPropNameInTable="check_dateColumn" msprop:Generator_ColumnPropNameInRow="check_date" msprop:Generator_ColumnVarNameInTable="columncheck_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="inventory_x0020_name" msprop:Generator_UserColumnName="inventory name" msprop:Generator_ColumnPropNameInTable="inventory_nameColumn" msprop:Generator_ColumnPropNameInRow="inventory_name" msprop:Generator_ColumnVarNameInTable="columninventory_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="employee_x0020_name" msprop:Generator_ColumnPropNameInRow="employee_name" msprop:Generator_ColumnPropNameInTable="employee_nameColumn" msprop:Generator_ColumnVarNameInTable="columnemployee_name" msprop:Generator_UserColumnName="employee name" minOccurs="0">
+              <xs:element name="employee_x0020_name" msprop:Generator_UserColumnName="employee name" msprop:Generator_ColumnPropNameInTable="employee_nameColumn" msprop:Generator_ColumnPropNameInRow="employee_name" msprop:Generator_ColumnVarNameInTable="columnemployee_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetInventoryCheckDetailsView" msprop:Generator_RowEvHandlerName="GetInventoryCheckDetailsViewRowChangeEventHandler" msprop:Generator_RowDeletedName="GetInventoryCheckDetailsViewRowDeleted" msprop:Generator_RowDeletingName="GetInventoryCheckDetailsViewRowDeleting" msprop:Generator_RowEvArgName="GetInventoryCheckDetailsViewRowChangeEvent" msprop:Generator_TablePropName="GetInventoryCheckDetailsView" msprop:Generator_RowChangedName="GetInventoryCheckDetailsViewRowChanged" msprop:Generator_RowChangingName="GetInventoryCheckDetailsViewRowChanging" msprop:Generator_TableClassName="GetInventoryCheckDetailsViewDataTable" msprop:Generator_RowClassName="GetInventoryCheckDetailsViewRow" msprop:Generator_TableVarName="tableGetInventoryCheckDetailsView" msprop:Generator_UserTableName="GetInventoryCheckDetailsView">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="checkId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="checkId" msprop:Generator_ColumnPropNameInTable="checkIdColumn" msprop:Generator_ColumnVarNameInTable="columncheckId" msprop:Generator_UserColumnName="checkId" type="xs:string" />
+              <xs:element name="ingredientName" msprop:Generator_ColumnPropNameInRow="ingredientName" msprop:Generator_ColumnPropNameInTable="ingredientNameColumn" msprop:Generator_ColumnVarNameInTable="columningredientName" msprop:Generator_UserColumnName="ingredientName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantity" msprop:Generator_ColumnPropNameInRow="quantity" msprop:Generator_ColumnPropNameInTable="quantityColumn" msprop:Generator_ColumnVarNameInTable="columnquantity" msprop:Generator_UserColumnName="quantity" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1294,11 +1292,6 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
       <xs:selector xpath=".//mstns:GetRestockBillView" />
       <xs:field xpath="mstns:restockBillId" />
     </xs:unique>
-    <xs:unique name="GetInventoryCheckDetailsView_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:GetInventoryCheckDetailsView" />
-      <xs:field xpath="mstns:checkId" />
-      <xs:field xpath="mstns:ingredientId" />
-    </xs:unique>
     <xs:unique name="GetInventoryCheckView_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:GetInventoryCheckView" />
       <xs:field xpath="mstns:checkId" />
@@ -1306,17 +1299,17 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Account__employe__4F7CD00D" msdata:parent="Employee" msdata:child="Account" msdata:parentkey="employeeId" msdata:childkey="employeeId" msprop:Generator_UserParentTable="Employee" msprop:Generator_UserChildTable="Account" msprop:Generator_RelationVarName="relationFK__Account__employe__4F7CD00D" msprop:Generator_ChildPropName="GetAccountRows" msprop:Generator_ParentPropName="EmployeeRow" msprop:Generator_UserRelationName="FK__Account__employe__4F7CD00D" />
-      <msdata:Relationship name="FK__RestockBi__ingre__6FE99F9F" msdata:parent="Ingredient" msdata:child="RestockBillDetails" msdata:parentkey="ingredientId" msdata:childkey="ingredientId" msprop:Generator_UserParentTable="Ingredient" msprop:Generator_UserChildTable="RestockBillDetails" msprop:Generator_RelationVarName="relationFK__RestockBi__ingre__6FE99F9F" msprop:Generator_ChildPropName="GetRestockBillDetailsRows" msprop:Generator_ParentPropName="IngredientRow" msprop:Generator_UserRelationName="FK__RestockBi__ingre__6FE99F9F" />
-      <msdata:Relationship name="FK__RestockBi__resto__70DDC3D8" msdata:parent="RestockBill" msdata:child="RestockBillDetails" msdata:parentkey="restockBillId" msdata:childkey="restockBillId" msprop:Generator_UserParentTable="RestockBill" msprop:Generator_UserChildTable="RestockBillDetails" msprop:Generator_RelationVarName="relationFK__RestockBi__resto__70DDC3D8" msprop:Generator_ChildPropName="GetRestockBillDetailsRows" msprop:Generator_ParentPropName="RestockBillRow" msprop:Generator_UserRelationName="FK__RestockBi__resto__70DDC3D8" />
-      <msdata:Relationship name="FK__Inventory__emplo__68487DD7" msdata:parent="Employee" msdata:child="InventoryCheck" msdata:parentkey="employeeId" msdata:childkey="employeeId" msprop:Generator_UserParentTable="Employee" msprop:Generator_UserChildTable="InventoryCheck" msprop:Generator_RelationVarName="relationFK__Inventory__emplo__68487DD7" msprop:Generator_ChildPropName="GetInventoryCheckRows" msprop:Generator_UserRelationName="FK__Inventory__emplo__68487DD7" msprop:Generator_ParentPropName="EmployeeRow" />
-      <msdata:Relationship name="FK__Inventory__inven__693CA210" msdata:parent="Inventory" msdata:child="InventoryCheck" msdata:parentkey="inventoryId" msdata:childkey="inventoryId" msprop:Generator_UserParentTable="Inventory" msprop:Generator_UserChildTable="InventoryCheck" msprop:Generator_RelationVarName="relationFK__Inventory__inven__693CA210" msprop:Generator_ChildPropName="GetInventoryCheckRows" msprop:Generator_UserRelationName="FK__Inventory__inven__693CA210" msprop:Generator_ParentPropName="InventoryRow" />
-      <msdata:Relationship name="FK__Inventory__check__6C190EBB" msdata:parent="InventoryCheck" msdata:child="InventoryCheckDetails" msdata:parentkey="checkId" msdata:childkey="checkId" msprop:Generator_UserParentTable="InventoryCheck" msprop:Generator_UserChildTable="InventoryCheckDetails" msprop:Generator_RelationVarName="relationFK__Inventory__check__6C190EBB" msprop:Generator_ChildPropName="GetInventoryCheckDetailsRows" msprop:Generator_UserRelationName="FK__Inventory__check__6C190EBB" msprop:Generator_ParentPropName="InventoryCheckRow" />
-      <msdata:Relationship name="FK__Inventory__ingre__6D0D32F4" msdata:parent="Ingredient" msdata:child="InventoryCheckDetails" msdata:parentkey="ingredientId" msdata:childkey="ingredientId" msprop:Generator_UserParentTable="Ingredient" msprop:Generator_UserChildTable="InventoryCheckDetails" msprop:Generator_RelationVarName="relationFK__Inventory__ingre__6D0D32F4" msprop:Generator_ChildPropName="GetInventoryCheckDetailsRows" msprop:Generator_UserRelationName="FK__Inventory__ingre__6D0D32F4" msprop:Generator_ParentPropName="IngredientRow" />
-      <msdata:Relationship name="FK__OrderBill__custo__5AEE82B9" msdata:parent="Customer" msdata:child="OrderBill" msdata:parentkey="customerId" msdata:childkey="customerId" msprop:Generator_UserParentTable="Customer" msprop:Generator_UserChildTable="OrderBill" msprop:Generator_RelationVarName="relationFK__OrderBill__custo__5AEE82B9" msprop:Generator_ChildPropName="GetOrderBillRows" msprop:Generator_UserRelationName="FK__OrderBill__custo__5AEE82B9" msprop:Generator_ParentPropName="CustomerRow" />
-      <msdata:Relationship name="FK__OrderBill__emplo__59FA5E80" msdata:parent="Employee" msdata:child="OrderBill" msdata:parentkey="employeeId" msdata:childkey="employeeId" msprop:Generator_UserParentTable="Employee" msprop:Generator_UserChildTable="OrderBill" msprop:Generator_RelationVarName="relationFK__OrderBill__emplo__59FA5E80" msprop:Generator_ChildPropName="GetOrderBillRows" msprop:Generator_UserRelationName="FK__OrderBill__emplo__59FA5E80" msprop:Generator_ParentPropName="EmployeeRow" />
-      <msdata:Relationship name="FK__OrderBill__billI__628FA481" msdata:parent="OrderBill" msdata:child="OrderBillDetails" msdata:parentkey="billId" msdata:childkey="billId" msprop:Generator_UserParentTable="OrderBill" msprop:Generator_UserChildTable="OrderBillDetails" msprop:Generator_RelationVarName="relationFK__OrderBill__billI__628FA481" msprop:Generator_ChildPropName="GetOrderBillDetailsRows" msprop:Generator_UserRelationName="FK__OrderBill__billI__628FA481" msprop:Generator_ParentPropName="OrderBillRow" />
-      <msdata:Relationship name="FK__OrderBill__produ__6383C8BA" msdata:parent="Product" msdata:child="OrderBillDetails" msdata:parentkey="productId" msdata:childkey="productId" msprop:Generator_UserParentTable="Product" msprop:Generator_UserChildTable="OrderBillDetails" msprop:Generator_RelationVarName="relationFK__OrderBill__produ__6383C8BA" msprop:Generator_ChildPropName="GetOrderBillDetailsRows" msprop:Generator_ParentPropName="ProductRow" msprop:Generator_UserRelationName="FK__OrderBill__produ__6383C8BA" />
+      <msdata:Relationship name="FK__Account__employe__4F7CD00D" msdata:parent="Employee" msdata:child="Account" msdata:parentkey="employeeId" msdata:childkey="employeeId" msprop:Generator_UserParentTable="Employee" msprop:Generator_UserChildTable="Account" msprop:Generator_RelationVarName="relationFK__Account__employe__4F7CD00D" msprop:Generator_ChildPropName="GetAccountRows" msprop:Generator_UserRelationName="FK__Account__employe__4F7CD00D" msprop:Generator_ParentPropName="EmployeeRow" />
+      <msdata:Relationship name="FK__RestockBi__ingre__6FE99F9F" msdata:parent="Ingredient" msdata:child="RestockBillDetails" msdata:parentkey="ingredientId" msdata:childkey="ingredientId" msprop:Generator_UserParentTable="Ingredient" msprop:Generator_UserChildTable="RestockBillDetails" msprop:Generator_RelationVarName="relationFK__RestockBi__ingre__6FE99F9F" msprop:Generator_ChildPropName="GetRestockBillDetailsRows" msprop:Generator_UserRelationName="FK__RestockBi__ingre__6FE99F9F" msprop:Generator_ParentPropName="IngredientRow" />
+      <msdata:Relationship name="FK__RestockBi__resto__70DDC3D8" msdata:parent="RestockBill" msdata:child="RestockBillDetails" msdata:parentkey="restockBillId" msdata:childkey="restockBillId" msprop:Generator_UserParentTable="RestockBill" msprop:Generator_UserChildTable="RestockBillDetails" msprop:Generator_RelationVarName="relationFK__RestockBi__resto__70DDC3D8" msprop:Generator_ChildPropName="GetRestockBillDetailsRows" msprop:Generator_UserRelationName="FK__RestockBi__resto__70DDC3D8" msprop:Generator_ParentPropName="RestockBillRow" />
+      <msdata:Relationship name="FK__Inventory__emplo__68487DD7" msdata:parent="Employee" msdata:child="InventoryCheck" msdata:parentkey="employeeId" msdata:childkey="employeeId" msprop:Generator_UserParentTable="Employee" msprop:Generator_UserChildTable="InventoryCheck" msprop:Generator_RelationVarName="relationFK__Inventory__emplo__68487DD7" msprop:Generator_ChildPropName="GetInventoryCheckRows" msprop:Generator_ParentPropName="EmployeeRow" msprop:Generator_UserRelationName="FK__Inventory__emplo__68487DD7" />
+      <msdata:Relationship name="FK__Inventory__inven__693CA210" msdata:parent="Inventory" msdata:child="InventoryCheck" msdata:parentkey="inventoryId" msdata:childkey="inventoryId" msprop:Generator_UserParentTable="Inventory" msprop:Generator_UserChildTable="InventoryCheck" msprop:Generator_RelationVarName="relationFK__Inventory__inven__693CA210" msprop:Generator_ChildPropName="GetInventoryCheckRows" msprop:Generator_ParentPropName="InventoryRow" msprop:Generator_UserRelationName="FK__Inventory__inven__693CA210" />
+      <msdata:Relationship name="FK__Inventory__check__6C190EBB" msdata:parent="InventoryCheck" msdata:child="InventoryCheckDetails" msdata:parentkey="checkId" msdata:childkey="checkId" msprop:Generator_UserParentTable="InventoryCheck" msprop:Generator_UserChildTable="InventoryCheckDetails" msprop:Generator_RelationVarName="relationFK__Inventory__check__6C190EBB" msprop:Generator_ChildPropName="GetInventoryCheckDetailsRows" msprop:Generator_ParentPropName="InventoryCheckRow" msprop:Generator_UserRelationName="FK__Inventory__check__6C190EBB" />
+      <msdata:Relationship name="FK__Inventory__ingre__6D0D32F4" msdata:parent="Ingredient" msdata:child="InventoryCheckDetails" msdata:parentkey="ingredientId" msdata:childkey="ingredientId" msprop:Generator_UserParentTable="Ingredient" msprop:Generator_UserChildTable="InventoryCheckDetails" msprop:Generator_RelationVarName="relationFK__Inventory__ingre__6D0D32F4" msprop:Generator_ChildPropName="GetInventoryCheckDetailsRows" msprop:Generator_ParentPropName="IngredientRow" msprop:Generator_UserRelationName="FK__Inventory__ingre__6D0D32F4" />
+      <msdata:Relationship name="FK__OrderBill__custo__5AEE82B9" msdata:parent="Customer" msdata:child="OrderBill" msdata:parentkey="customerId" msdata:childkey="customerId" msprop:Generator_UserParentTable="Customer" msprop:Generator_UserChildTable="OrderBill" msprop:Generator_RelationVarName="relationFK__OrderBill__custo__5AEE82B9" msprop:Generator_ChildPropName="GetOrderBillRows" msprop:Generator_ParentPropName="CustomerRow" msprop:Generator_UserRelationName="FK__OrderBill__custo__5AEE82B9" />
+      <msdata:Relationship name="FK__OrderBill__emplo__59FA5E80" msdata:parent="Employee" msdata:child="OrderBill" msdata:parentkey="employeeId" msdata:childkey="employeeId" msprop:Generator_UserParentTable="Employee" msprop:Generator_UserChildTable="OrderBill" msprop:Generator_RelationVarName="relationFK__OrderBill__emplo__59FA5E80" msprop:Generator_ChildPropName="GetOrderBillRows" msprop:Generator_ParentPropName="EmployeeRow" msprop:Generator_UserRelationName="FK__OrderBill__emplo__59FA5E80" />
+      <msdata:Relationship name="FK__OrderBill__billI__628FA481" msdata:parent="OrderBill" msdata:child="OrderBillDetails" msdata:parentkey="billId" msdata:childkey="billId" msprop:Generator_UserParentTable="OrderBill" msprop:Generator_UserChildTable="OrderBillDetails" msprop:Generator_RelationVarName="relationFK__OrderBill__billI__628FA481" msprop:Generator_ChildPropName="GetOrderBillDetailsRows" msprop:Generator_ParentPropName="OrderBillRow" msprop:Generator_UserRelationName="FK__OrderBill__billI__628FA481" />
+      <msdata:Relationship name="FK__OrderBill__produ__6383C8BA" msdata:parent="Product" msdata:child="OrderBillDetails" msdata:parentkey="productId" msdata:childkey="productId" msprop:Generator_UserParentTable="Product" msprop:Generator_UserChildTable="OrderBillDetails" msprop:Generator_RelationVarName="relationFK__OrderBill__produ__6383C8BA" msprop:Generator_ChildPropName="GetOrderBillDetailsRows" msprop:Generator_UserRelationName="FK__OrderBill__produ__6383C8BA" msprop:Generator_ParentPropName="ProductRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

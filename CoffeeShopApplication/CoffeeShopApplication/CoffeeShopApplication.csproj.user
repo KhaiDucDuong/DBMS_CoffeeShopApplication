@@ -5,10 +5,19 @@
     <Compile Update="Interfaces\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Interfaces\ShopCustomersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Interfaces\ShopEmployeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Interfaces\ShopIngredientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Interfaces\ShopInventoryCheckDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Interfaces\ShopInventoryCheckForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Interfaces\ShopInventoryForm.cs">
