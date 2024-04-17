@@ -1,5 +1,8 @@
 --PROCEDURES
 --@UpdateType là dùng để định chức năng của Procedures
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'AddEmployeeProc')
+DROP PROCEDURE AddEmployeeProc
+GO
 CREATE PROCEDURE AddEmployeeProc
     @FullName NVARCHAR(100),
     @PhoneNumber VARCHAR(15),
@@ -13,6 +16,9 @@ BEGIN
 END;
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'UpdateEmployeeProc')
+DROP PROCEDURE UpdateEmployeeProc
+GO
 CREATE PROCEDURE UpdateEmployeeProc
     @EmployeeId UNIQUEIDENTIFIER,
     @FullName NVARCHAR(100),
@@ -42,6 +48,9 @@ BEGIN
 END;
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'AddAccountProc')
+DROP PROCEDURE AddAccountProc
+GO
 CREATE PROCEDURE AddAccountProc
 	@EmployeeId UNIQUEIDENTIFIER,
 	@Passwords VarChar(255),
@@ -49,11 +58,14 @@ CREATE PROCEDURE AddAccountProc
 	@Role VarChar(20)
 AS
 BEGIN
-	INSERT INTO Account(accountId, username, password, updatedAt, createdAt, role, isDeleted) 
-		VALUES (@AccountId, @UserName, @Passwords, GETDATE(), GETDATE(), @Role, 0);
+	INSERT INTO Account(username, password, updatedAt, createdAt, role, isDeleted) 
+		VALUES (@UserName, @Passwords, GETDATE(), GETDATE(), @Role, 0);
 END;
 GO
 	
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'UpdateAccountProc')
+DROP PROCEDURE UpdateAccountProc
+GO
 CREATE PROCEDURE UpdateAccountProc
 	@AccountId UNIQUEIDENTIFIER,
 	@EmployeeId UNIQUEIDENTIFIER,
@@ -79,19 +91,24 @@ BEGIN
 END;
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'AddOrderBillProc')
+DROP PROCEDURE AddOrderBillProc
+GO
 CREATE PROCEDURE AddOrderBillProc
 	@CustomerId UNIQUEIDENTIFIER,
      	@EmployeeId UNIQUEIDENTIFIER,
 	 @RewardPointsUsed DECIMAL(10, 2),
-    	@InitialBill DECIMAL(10, 2),
 	@FinalBill DECIMAL(10,2)
 AS
 BEGIN
-	INSERT INTO OrderBill (billId, customerId, employeeId, rewardPointsUsed, intialBill, finalBill, createdAt, isDeleted)
-		VALUES (@BillId, @CustomerId, @EmployeeId, @RewardPointsUsed, @InitialBill, @FinalBill, GETDATE(), 0);
+	INSERT INTO OrderBill (customerId, employeeId, rewardPointsUsed, finalBill, createdAt, isDeleted)
+		VALUES (@CustomerId, @EmployeeId, @RewardPointsUsed, @FinalBill, GETDATE(), 0);
 END;
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'UpdateOrderBillProc')
+DROP PROCEDURE UpdateOrderBillProc
+GO
 CREATE PROCEDURE UpdateOrderBillProc
     @CustomerId UNIQUEIDENTIFIER,
     @EmployeeId UNIQUEIDENTIFIER,
@@ -106,8 +123,7 @@ BEGIN
 	UPDATE OrderBill
 	SET customerId = @CustomerId, 
 		employeeId = @EmployeeId, 
-		rewardPointsUsed = @RewardPointsUsed, 
-		totalBill = @TotalBill
+		rewardPointsUsed = @RewardPointsUsed
 	Where billId = @BillId;
 	END;
 	ELSE
@@ -119,6 +135,9 @@ BEGIN
 END;
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'AddOrderBillDetailsProc')
+DROP PROCEDURE AddOrderBillDetailsProc
+GO
 CREATE PROCEDURE AddOrderBillDetailsProc
     @ProductId UNIQUEIDENTIFIER,
     @Quantity INT
@@ -129,6 +148,9 @@ BEGIN
 END;
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'UpdateOrderBillDetialsProc')
+DROP PROCEDURE UpdateOrderBillDetialsProc
+GO
 CREATE PROCEDURE UpdateOrderBillDetialsProc
 	@BillId UNIQUEIDENTIFIER,
 	@ProductId UNIQUEIDENTIFIER,

@@ -92,7 +92,7 @@
             header1.Location = new Point(0, -2);
             header1.Margin = new Padding(3, 2, 3, 2);
             header1.Name = "header1";
-            header1.Size = new Size(1203, 147);
+            header1.Size = new Size(1355, 157);
             header1.TabIndex = 9;
             // 
             // label3
@@ -121,7 +121,7 @@
             cbDeleted.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbDeleted.FormattingEnabled = true;
             cbDeleted.Items.AddRange(new object[] { "Yes", "No" });
-            cbDeleted.Location = new Point(1001, 321);
+            cbDeleted.Location = new Point(1125, 331);
             cbDeleted.Margin = new Padding(4);
             cbDeleted.Name = "cbDeleted";
             cbDeleted.Size = new Size(187, 49);
@@ -131,7 +131,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(962, 335);
+            label5.Location = new Point(1086, 345);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(0, 41);
@@ -141,7 +141,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(546, 191);
+            label2.Location = new Point(673, 201);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(147, 41);
@@ -162,7 +162,7 @@
             // tbName
             // 
             tbName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbName.Location = new Point(701, 187);
+            tbName.Location = new Point(845, 191);
             tbName.Margin = new Padding(4);
             tbName.Multiline = true;
             tbName.Name = "tbName";
@@ -233,7 +233,7 @@
             // 
             tbSearch.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold);
             tbSearch.ForeColor = SystemColors.ScrollBar;
-            tbSearch.Location = new Point(15, 413);
+            tbSearch.Location = new Point(15, 425);
             tbSearch.Margin = new Padding(4, 3, 4, 3);
             tbSearch.Name = "tbSearch";
             tbSearch.Size = new Size(705, 65);
@@ -365,7 +365,7 @@
             // tbAddress
             // 
             tbAddress.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbAddress.Location = new Point(701, 249);
+            tbAddress.Location = new Point(845, 253);
             tbAddress.Margin = new Padding(4);
             tbAddress.Multiline = true;
             tbAddress.Name = "tbAddress";
@@ -376,7 +376,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(546, 252);
+            label6.Location = new Point(673, 262);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(131, 41);
@@ -387,7 +387,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(549, 324);
+            label8.Location = new Point(673, 334);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(140, 41);
@@ -399,7 +399,7 @@
             cbWorking.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbWorking.FormattingEnabled = true;
             cbWorking.Items.AddRange(new object[] { "Yes", "No" });
-            cbWorking.Location = new Point(701, 321);
+            cbWorking.Location = new Point(825, 331);
             cbWorking.Margin = new Padding(4);
             cbWorking.Name = "cbWorking";
             cbWorking.Size = new Size(146, 49);
@@ -409,7 +409,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(874, 324);
+            label7.Location = new Point(998, 334);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(128, 41);
@@ -420,7 +420,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 992);
+            ClientSize = new Size(1350, 1042);
             Controls.Add(header1);
             Controls.Add(cbWorking);
             Controls.Add(label8);

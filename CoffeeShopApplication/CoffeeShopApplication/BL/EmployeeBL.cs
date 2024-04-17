@@ -44,6 +44,9 @@ namespace CoffeeShopApplication.BL
 
             try
             {
+                if (isWorking == "Yes")
+                    isWorking = "true";
+                else isWorking = "false";
                 String str = "AddEmployeeProc";
                 SqlParameter FullNameParam = new SqlParameter("@FullName", fullName);
                 SqlParameter PhoneNumParam = new SqlParameter("@PhoneNumber", phoneNumber);
@@ -75,7 +78,7 @@ namespace CoffeeShopApplication.BL
                 SqlParameter EmailParam = new SqlParameter("@Email", email);
                 SqlParameter IsWorkingParam = new SqlParameter("@IsWorking", isWorking);
                 SqlParameter UpdateTypeParam = new SqlParameter("@UpdateType", updateType);
-                SqlParameter[] parameters = { FullNameParam, PhoneNumParam, AddressParam, EmailParam, IsWorkingParam, UpdateTypeParam};
+                SqlParameter[] parameters = { EmployeeIdParam, FullNameParam, PhoneNumParam, AddressParam, EmailParam, IsWorkingParam, UpdateTypeParam};
                 bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
                 return commandResult;
             }

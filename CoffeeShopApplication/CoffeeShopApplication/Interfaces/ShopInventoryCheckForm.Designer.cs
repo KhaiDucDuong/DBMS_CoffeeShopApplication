@@ -52,6 +52,7 @@
             inventoryNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             employeeNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             getInventoryCheckViewBindingSource = new BindingSource(components);
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)pbDelete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
@@ -253,7 +254,7 @@
             // 
             dtpSearch.CalendarFont = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpSearch.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpSearch.Location = new Point(176, 478);
+            dtpSearch.Location = new Point(177, 479);
             dtpSearch.MinimumSize = new Size(314, 42);
             dtpSearch.Name = "dtpSearch";
             dtpSearch.Size = new Size(412, 47);
@@ -315,6 +316,18 @@
             getInventoryCheckViewBindingSource.DataMember = "GetInventoryCheckView";
             getInventoryCheckViewBindingSource.DataSource = typeof(CoffeeShopDataset);
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(29, 484);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(111, 41);
+            label4.TabIndex = 44;
+            label4.Text = "Search";
+            label4.Click += label3_Click;
+            // 
             // ShopInventoryCheckForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -331,6 +344,7 @@
             Controls.Add(cbEmployee);
             Controls.Add(label2);
             Controls.Add(cbInventory);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(dtpCheckDate);
             Controls.Add(lbDate);
@@ -377,5 +391,6 @@
         private DataGridViewTextBoxColumn inventoryNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn employeeNameDataGridViewTextBoxColumn;
         private BindingSource getInventoryCheckViewBindingSource;
+        private Label label4;
     }
 }
