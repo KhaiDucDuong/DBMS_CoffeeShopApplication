@@ -45,12 +45,13 @@ namespace CoffeeShopApplication.Interfaces
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            String fullName, phoneNumber, address, email;
+            String fullName, phoneNumber, address, email, isWorking;
             fullName = tbName.Text;
             phoneNumber = tbPhoneNumber.Text;
             address = tbAddress.Text;
+            isWorking = cbWorking.Text;
             email = tbEmail.Text;
-            if (EmployeeBL.addEmployee(fullName, phoneNumber, address, email, true))
+            if (EmployeeBL.addEmployee(fullName, phoneNumber, address, email, isWorking))
             {
                 MessageBox.Show("Added a new row successfully!", "Action result");
                 DataSet employeetDataSet = IngredientBL.getAllIngredients();
@@ -62,16 +63,17 @@ namespace CoffeeShopApplication.Interfaces
 
         private void pbSave_Click(object sender, EventArgs e)
         {
-            String id, fullName, phoneNumber, address, email, isDeleted;
+            String id, fullName, phoneNumber, address, email, isDeleted, isWorking;
             id = tbId.Text;
             fullName = tbName.Text;
             phoneNumber = tbPhoneNumber.Text;
             address = tbAddress.Text;
             email = tbEmail.Text;
+            isWorking= cbWorking.Text;
             isDeleted = cbDeleted.Text;
             if (isDeleted != "yes")
             {
-                if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, false, "update"))
+                if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, isWorking, "update"))
                 {
                     MessageBox.Show("Updated a row successfully!", "Action result");
                     DataSet employeetDataSet = EmployeeBL.getAllEmployee();
@@ -82,7 +84,7 @@ namespace CoffeeShopApplication.Interfaces
             }
             else
             {
-                if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, false, "delete"))
+                if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, isWorking, "delete"))
                 {
                     MessageBox.Show("Updated a row successfully!", "Action result");
                     DataSet employeetDataSet = EmployeeBL.getAllEmployee();
@@ -122,11 +124,6 @@ namespace CoffeeShopApplication.Interfaces
                         break;
                 }
             }
-        }
-
-        private void pbDelete_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
