@@ -38,19 +38,20 @@ namespace CoffeeShopApplication.Interfaces
         {
             if (tbSearch.Text.Length > 0)
             {
-                DataSet employeetDataSet = CustomerBL.findCustomerByPhoneNumber(tbSearch.Text);
+                DataSet employeetDataSet = EmployeeBL.findEmployeeByPhoneNumber(tbSearch.Text);
                 dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
             }
         }
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            String fullName, phoneNumber, address, email;
+            String fullName, phoneNumber, address, email, isWorking;
             fullName = tbName.Text;
             phoneNumber = tbPhoneNumber.Text;
             address = tbAddress.Text;
+            isWorking = cbWorking.Text;
             email = tbEmail.Text;
-            if (EmployeeBL.addEmployee(fullName, phoneNumber, address, email, true))
+            if (EmployeeBL.addEmployee(fullName, phoneNumber, address, email, isWorking))
             {
                 MessageBox.Show("Added a new row successfully!", "Action result");
                 DataSet employeetDataSet = IngredientBL.getAllIngredients();
@@ -62,21 +63,36 @@ namespace CoffeeShopApplication.Interfaces
 
         private void pbSave_Click(object sender, EventArgs e)
         {
-            String id, fullName, phoneNumber, address, email, isDeleted;
+            String id, fullName, phoneNumber, address, email, isDeleted, isWorking;
             id = tbId.Text;
             fullName = tbName.Text;
             phoneNumber = tbPhoneNumber.Text;
             address = tbAddress.Text;
             email = tbEmail.Text;
+            isWorking= cbWorking.Text;
             isDeleted = cbDeleted.Text;
-            if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, isDeleted == "Yes"))
+            if (isDeleted != "yes")
             {
-                MessageBox.Show("Updated a row successfully!", "Action result");
-                DataSet employeetDataSet = IngredientBL.getAllIngredients();
-                dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+                if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, isWorking, "update"))
+                {
+                    MessageBox.Show("Updated a row successfully!", "Action result");
+                    DataSet employeetDataSet = EmployeeBL.getAllEmployee();
+                    dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+                }
+                else
+                    MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
             }
             else
-                MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
+            {
+                if (EmployeeBL.updateEmployee(id, fullName, phoneNumber, address, email, isWorking, "delete"))
+                {
+                    MessageBox.Show("Updated a row successfully!", "Action result");
+                    DataSet employeetDataSet = EmployeeBL.getAllEmployee();
+                    dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+                }
+                else
+                    MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
+            }
         }
 
         private void pbRefresh_Click(object sender, EventArgs e)

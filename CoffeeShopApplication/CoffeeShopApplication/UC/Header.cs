@@ -134,7 +134,7 @@ namespace CoffeeShopApplication.UC
 
         private void pbInventoryCheck_Click(object sender, EventArgs e)
         {
-            if (topLevelForm != "ShopInventoryCheckForm")
+            /*if (topLevelForm != "ShopInventoryCheckForm")
             {
                 ShopInventoryCheckForm newForm = new ShopInventoryCheckForm();
                 newForm.Show();
@@ -142,7 +142,7 @@ namespace CoffeeShopApplication.UC
                     ((Form)this.TopLevelControl).Hide();
                 else
                     ((Form)this.TopLevelControl).Close();
-            }
+            }*/
         }
 
         private void pbInventory_Click(object sender, EventArgs e)

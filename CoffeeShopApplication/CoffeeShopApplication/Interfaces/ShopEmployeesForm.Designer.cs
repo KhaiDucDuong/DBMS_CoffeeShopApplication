@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopEmployeesForm));
             pbDelete = new PictureBox();
+            header1 = new UC.Header();
             label3 = new Label();
             tbPhoneNumber = new TextBox();
             cbDeleted = new ComboBox();
@@ -60,6 +61,9 @@
             label4 = new Label();
             tbAddress = new TextBox();
             label6 = new Label();
+            label8 = new Label();
+            cbWorking = new ComboBox();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)pbDelete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
@@ -81,6 +85,16 @@
             pbDelete.TabIndex = 39;
             pbDelete.TabStop = false;
             // 
+            // header1
+            // 
+            header1.BackColor = SystemColors.MenuHighlight;
+            header1.ForeColor = SystemColors.Highlight;
+            header1.Location = new Point(0, -2);
+            header1.Margin = new Padding(3, 2, 3, 2);
+            header1.Name = "header1";
+            header1.Size = new Size(1203, 147);
+            header1.TabIndex = 9;
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -88,14 +102,14 @@
             label3.Location = new Point(30, 265);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(224, 41);
+            label3.Size = new Size(106, 41);
             label3.TabIndex = 38;
-            label3.Text = "Phone number";
+            label3.Text = "Phone";
             // 
             // tbPhoneNumber
             // 
             tbPhoneNumber.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbPhoneNumber.Location = new Point(292, 261);
+            tbPhoneNumber.Location = new Point(147, 253);
             tbPhoneNumber.Margin = new Padding(4);
             tbPhoneNumber.Multiline = true;
             tbPhoneNumber.Name = "tbPhoneNumber";
@@ -107,7 +121,7 @@
             cbDeleted.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbDeleted.FormattingEnabled = true;
             cbDeleted.Items.AddRange(new object[] { "Yes", "No" });
-            cbDeleted.Location = new Point(1126, 332);
+            cbDeleted.Location = new Point(1001, 321);
             cbDeleted.Margin = new Padding(4);
             cbDeleted.Name = "cbDeleted";
             cbDeleted.Size = new Size(187, 49);
@@ -120,15 +134,14 @@
             label5.Location = new Point(962, 335);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(128, 41);
+            label5.Size = new Size(0, 41);
             label5.TabIndex = 37;
-            label5.Text = "Deleted";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(755, 201);
+            label2.Location = new Point(546, 191);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(147, 41);
@@ -149,18 +162,18 @@
             // tbName
             // 
             tbName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbName.Location = new Point(910, 196);
+            tbName.Location = new Point(701, 187);
             tbName.Margin = new Padding(4);
             tbName.Multiline = true;
             tbName.Name = "tbName";
-            tbName.Size = new Size(403, 56);
+            tbName.Size = new Size(467, 54);
             tbName.TabIndex = 26;
             // 
             // tbId
             // 
             tbId.Enabled = false;
             tbId.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbId.Location = new Point(151, 196);
+            tbId.Location = new Point(147, 191);
             tbId.Margin = new Padding(4);
             tbId.Multiline = true;
             tbId.Name = "tbId";
@@ -177,6 +190,7 @@
             pbRefresh.SizeMode = PictureBoxSizeMode.StretchImage;
             pbRefresh.TabIndex = 31;
             pbRefresh.TabStop = false;
+            pbRefresh.Click += pbRefresh_Click;
             // 
             // pbSave
             // 
@@ -188,6 +202,7 @@
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSave.TabIndex = 32;
             pbSave.TabStop = false;
+            pbSave.Click += pbSave_Click;
             // 
             // pbAdd
             // 
@@ -329,7 +344,7 @@
             // tbEmail
             // 
             tbEmail.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbEmail.Location = new Point(292, 332);
+            tbEmail.Location = new Point(147, 325);
             tbEmail.Margin = new Padding(4);
             tbEmail.Multiline = true;
             tbEmail.Name = "tbEmail";
@@ -350,29 +365,65 @@
             // tbAddress
             // 
             tbAddress.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbAddress.Location = new Point(910, 261);
+            tbAddress.Location = new Point(701, 249);
             tbAddress.Margin = new Padding(4);
             tbAddress.Multiline = true;
             tbAddress.Name = "tbAddress";
-            tbAddress.Size = new Size(403, 56);
+            tbAddress.Size = new Size(467, 54);
             tbAddress.TabIndex = 42;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(755, 265);
+            label6.Location = new Point(546, 252);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(131, 41);
             label6.TabIndex = 43;
             label6.Text = "Address";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(549, 324);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(140, 41);
+            label8.TabIndex = 45;
+            label8.Text = "Working";
+            // 
+            // cbWorking
+            // 
+            cbWorking.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbWorking.FormattingEnabled = true;
+            cbWorking.Items.AddRange(new object[] { "Yes", "No" });
+            cbWorking.Location = new Point(701, 321);
+            cbWorking.Margin = new Padding(4);
+            cbWorking.Name = "cbWorking";
+            cbWorking.Size = new Size(146, 49);
+            cbWorking.TabIndex = 46;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(874, 324);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(128, 41);
+            label7.TabIndex = 47;
+            label7.Text = "Deleted";
+            // 
             // ShopEmployeesForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1350, 1042);
+            ClientSize = new Size(1200, 992);
+            Controls.Add(header1);
+            Controls.Add(cbWorking);
+            Controls.Add(label8);
             Controls.Add(tbAddress);
             Controls.Add(label4);
             Controls.Add(tbEmail);
@@ -392,6 +443,7 @@
             Controls.Add(dgvEmployee);
             Controls.Add(label2);
             Controls.Add(label6);
+            Controls.Add(label7);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "ShopEmployeesForm";
@@ -442,5 +494,8 @@
         private Label label4;
         private TextBox tbAddress;
         private Label label6;
+        private Label label8;
+        private ComboBox cbWorking;
+        private Label label7;
     }
 }
