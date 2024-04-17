@@ -38,7 +38,7 @@ namespace CoffeeShopApplication.Interfaces
         {
             if (tbSearch.Text.Length > 0)
             {
-                DataSet employeetDataSet = CustomerBL.findCustomerByPhoneNumber(tbSearch.Text);
+                DataSet employeetDataSet = EmployeeBL.findEmployeeByPhoneNumber(tbSearch.Text);
                 dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
             }
         }
