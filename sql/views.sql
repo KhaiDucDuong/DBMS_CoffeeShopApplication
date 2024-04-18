@@ -61,3 +61,12 @@ CREATE VIEW GetTodayOrderBillsView AS
 SELECT *
 FROM OrderBill
 WHERE FORMAT(createdAt, 'dd-MM-yyyy') BETWEEN FORMAT(GETDATE(), 'dd-MM-yyyy') AND FORMAT(GETDATE() + 1, 'dd-MM-yyyy');
+
+GO
+if exists(select 1 from sys.views where name='ListItemView' and type='v')
+drop view ListItemView;
+GO
+create view ListItemView
+as
+Select p.productName, p.productId
+From Product p
