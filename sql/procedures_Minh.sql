@@ -158,8 +158,7 @@ CREATE PROCEDURE UpdateOrderBillDetialsProc
 AS
 BEGIN
 	UPDATE OrderBillDetails
-	SET productId = @ProductId,
-	quantity = @quantity
-	WHERE billId = @BillId
+	set quantity = @quantity
+	WHERE billId = @BillId and productId = @ProductId
 END;
 GO
