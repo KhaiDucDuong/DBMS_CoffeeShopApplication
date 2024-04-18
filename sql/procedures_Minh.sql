@@ -1,3 +1,5 @@
+USE CoffeeShop
+GO
 --PROCEDURES
 --@UpdateType là dùng để định chức năng của Procedures
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'AddEmployeeProc')
@@ -96,13 +98,12 @@ DROP PROCEDURE AddOrderBillProc
 GO
 CREATE PROCEDURE AddOrderBillProc
 	@CustomerId UNIQUEIDENTIFIER,
-     	@EmployeeId UNIQUEIDENTIFIER,
-	 @RewardPointsUsed DECIMAL(10, 2),
-	@FinalBill DECIMAL(10,2)
+    @EmployeeId UNIQUEIDENTIFIER,
+	@RewardPointsUsed DECIMAL(10, 2)
 AS
 BEGIN
-	INSERT INTO OrderBill (customerId, employeeId, rewardPointsUsed, finalBill, createdAt, isDeleted)
-		VALUES (@CustomerId, @EmployeeId, @RewardPointsUsed, @FinalBill, GETDATE(), 0);
+	INSERT INTO OrderBill (customerId, employeeId, rewardPointsUsed, createdAt, isDeleted)
+		VALUES (@CustomerId, @EmployeeId, @RewardPointsUsed, GETDATE(), 0);
 END;
 GO
 
@@ -114,7 +115,6 @@ CREATE PROCEDURE UpdateOrderBillProc
     @EmployeeId UNIQUEIDENTIFIER,
     @BillId UNIQUEIDENTIFIER,
     @RewardPointsUsed DECIMAL(10, 2),
-    @TotalBill DECIMAL(10, 2),
     @UpdateType VARCHAR(20)
 AS
 BEGIN
