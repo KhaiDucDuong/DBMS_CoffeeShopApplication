@@ -166,8 +166,8 @@ BEGIN
 	END;
 	ELSE
 	BEGIN
-		UPDATE OrderBill
-		DELETE FROM OrderBill WHERE billId = @BillId and productId = @ProductId
+		DELETE FROM OrderBillDetails WHERE billId = @BillId and productId = @ProductId 
 	END;
 END;
 GO
+
