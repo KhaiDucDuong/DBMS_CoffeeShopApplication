@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopOrderBillForm));
             tbEmployeeId = new TextBox();
             label4 = new Label();
+            header1 = new UC.Header();
             tbFinalBill = new TextBox();
             pbDelete = new PictureBox();
             label3 = new Label();
@@ -241,6 +242,8 @@
             dgvOrderBill.RowHeadersWidth = 51;
             dgvOrderBill.Size = new Size(1172, 472);
             dgvOrderBill.TabIndex = 53;
+            dgvOrderBill.CellClick += dgvOrderBill_CellContentClick;
+            dgvOrderBill.CellContentDoubleClick += dgvOrderBill_CellContentDoubleClick;
             // 
             // billIdDataGridViewTextBoxColumn
             // 
@@ -322,6 +325,16 @@
             label2.TabIndex = 58;
             label2.Text = "Customer Id";
             // 
+            // header1
+            // 
+            header1.BackColor = SystemColors.MenuHighlight;
+            header1.ForeColor = SystemColors.Highlight;
+            header1.Location = new Point(0, -3);
+            header1.Margin = new Padding(4, 3, 4, 3);
+            header1.Name = "header1";
+            header1.Size = new Size(1200, 151);
+            header1.TabIndex = 9;
+            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -398,6 +411,7 @@
             Controls.Add(pbSave);
             Controls.Add(pbAdd);
             Controls.Add(pbSearch);
+            Controls.Add(header1);
             Controls.Add(tbSearch);
             Controls.Add(dgvOrderBill);
             Controls.Add(label2);
@@ -418,6 +432,7 @@
         }
 
         #endregion
+        private UC.Header header1;
         private TextBox tbEmployeeId;
         private Label label4;
         private TextBox tbFinalBill;

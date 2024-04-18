@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopAccountForm));
             label4 = new Label();
             tbEmployeeId = new TextBox();
+            header1 = new UC.Header();
             pbDelete = new PictureBox();
             label3 = new Label();
             tbAccountId = new TextBox();
@@ -87,6 +88,16 @@
             tbEmployeeId.Name = "tbEmployeeId";
             tbEmployeeId.Size = new Size(410, 54);
             tbEmployeeId.TabIndex = 59;
+            // 
+            // header1
+            // 
+            header1.BackColor = SystemColors.MenuHighlight;
+            header1.ForeColor = SystemColors.Highlight;
+            header1.Location = new Point(0, -3);
+            header1.Margin = new Padding(4, 3, 4, 3);
+            header1.Name = "header1";
+            header1.Size = new Size(1200, 151);
+            header1.TabIndex = 9;
             // 
             // pbDelete
             // 
@@ -370,6 +381,7 @@
             Controls.Add(tbPassword);
             Controls.Add(pbRefresh);
             Controls.Add(pbSave);
+            Controls.Add(header1);
             Controls.Add(pbAdd);
             Controls.Add(pbSearch);
             Controls.Add(tbSearch);
@@ -391,7 +403,7 @@
         }
 
         #endregion
-
+        private UC.Header header1;
         private Label label4;
         private TextBox tbEmployeeId;
         private PictureBox pbDelete;

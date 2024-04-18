@@ -20,6 +20,13 @@ namespace CoffeeShopApplication.BL
             return ds;
         }
 
+        public static DataSet getListProducts()
+        {
+            String str = "Select * from ListProcductView";
+            DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, null);
+            return ds;
+        }
+
         public static DataSet findProductsByName(String productName)
         {
             String str = "SELECT * FROM dbo.FindProductByNameFunction(@productName)";

@@ -65,8 +65,8 @@ namespace CoffeeShopApplication
 
         private void pbSave_Click(object sender, EventArgs e)
         {
-            String billId ,rewardPointUsed, customerId, employeeId, initialBill, finalBill, isDeleted;
-            billId =  tbBillId.Text;
+            String billId, rewardPointUsed, customerId, employeeId, initialBill, finalBill, isDeleted;
+            billId = tbBillId.Text;
             customerId = tbCustomerId.Text;
             employeeId = tbEmployeeId.Text;
             initialBill = tbInitialBill.Text;
@@ -126,6 +126,13 @@ namespace CoffeeShopApplication
                         break;
                 }
             }
+        }
+
+        private void dgvOrderBill_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvOrderBill_CellContentClick (sender, e);
+            ShopOrderBillDetailForm newForm = new ShopOrderBillDetailForm(tbBillId.Text);
+            newForm.Show();
         }
     }
 }

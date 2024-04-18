@@ -64,6 +64,11 @@ namespace CoffeeShopApplication.UC
                 pbInventory.BackColor = Color.White;
                 pbInventory.BorderStyle = BorderStyle.FixedSingle;
             }
+            else if (topLevelForm == "ShopOrderBillForm")
+            {
+                pbOrder.BackColor = Color.White;
+                pbOrder.BorderStyle = BorderStyle.FixedSingle;
+            }
         }
 
         private void pbAppIcon_Click(object sender, EventArgs e)
@@ -116,7 +121,15 @@ namespace CoffeeShopApplication.UC
 
         private void pbOrder_Click(object sender, EventArgs e)
         {
-
+            if (topLevelForm != "ShopOrderBillsForm")
+            {
+                ShopOrderBillForm newForm = new ShopOrderBillForm();
+                newForm.Show();
+                if (topLevelForm == "HomeForm")
+                    ((Form)this.TopLevelControl).Hide();
+                else
+                    ((Form)this.TopLevelControl).Close();
+            }
         }
 
         private void pbRestockOrder_Click(object sender, EventArgs e)
