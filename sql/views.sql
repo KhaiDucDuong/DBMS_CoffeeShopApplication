@@ -68,5 +68,8 @@ drop view ListProductView;
 GO
 create view ListProductView
 as
-Select p.productName, p.productId
+Select p.productName + ' (' + p.productSize + ')' as 'productName', p.productId
 From Product p
+
+select * from ListProductView
+WHERE productName like '%' + 'Sinh' + '%'

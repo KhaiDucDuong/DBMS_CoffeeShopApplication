@@ -27,7 +27,7 @@ namespace CoffeeShopApplication.BL
             {
                 string str = "AddOrderBillDetailsProc";
                 SqlParameter BillIdParam = new SqlParameter("@BillId", billId);
-                SqlParameter ProcductIdParam = new SqlParameter("@ProducId", productId);
+                SqlParameter ProcductIdParam = new SqlParameter("@ProductId", productId);
                 SqlParameter QuantityParam = new SqlParameter("@Quantity", quantity);
                 SqlParameter[] parameters = { BillIdParam, ProcductIdParam, QuantityParam};
                 bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);

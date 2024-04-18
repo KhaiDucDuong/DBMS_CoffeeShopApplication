@@ -947,12 +947,12 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ListItemViewTableAdapter" GeneratorDataComponentClassName="ListItemViewTableAdapter" Name="ListItemView" UserDataComponentName="ListItemViewTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ListProductViewTableAdapter" GeneratorDataComponentClassName="ListProductViewTableAdapter" Name="ListProductView" UserDataComponentName="ListProductViewTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CoffeeShopConnectionString2" DbObjectName="CoffeeShop.dbo.ListItemView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CoffeeShopConnectionString" DbObjectName="CoffeeShop.dbo.ListProductView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT productName, productId FROM dbo.ListItemView</CommandText>
+                    <CommandText>SELECT productName, productId FROM dbo.ListProductView</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -1238,28 +1238,28 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GetInventoryCheckDetailsView" msprop:Generator_RowClassName="GetInventoryCheckDetailsViewRow" msprop:Generator_RowEvHandlerName="GetInventoryCheckDetailsViewRowChangeEventHandler" msprop:Generator_RowDeletedName="GetInventoryCheckDetailsViewRowDeleted" msprop:Generator_RowDeletingName="GetInventoryCheckDetailsViewRowDeleting" msprop:Generator_RowEvArgName="GetInventoryCheckDetailsViewRowChangeEvent" msprop:Generator_TablePropName="GetInventoryCheckDetailsView" msprop:Generator_RowChangedName="GetInventoryCheckDetailsViewRowChanged" msprop:Generator_UserTableName="GetInventoryCheckDetailsView" msprop:Generator_RowChangingName="GetInventoryCheckDetailsViewRowChanging" msprop:Generator_TableClassName="GetInventoryCheckDetailsViewDataTable" msprop:Generator_TableVarName="tableGetInventoryCheckDetailsView">
+        <xs:element name="GetInventoryCheckDetailsView" msprop:Generator_RowEvHandlerName="GetInventoryCheckDetailsViewRowChangeEventHandler" msprop:Generator_RowDeletedName="GetInventoryCheckDetailsViewRowDeleted" msprop:Generator_RowDeletingName="GetInventoryCheckDetailsViewRowDeleting" msprop:Generator_RowEvArgName="GetInventoryCheckDetailsViewRowChangeEvent" msprop:Generator_TablePropName="GetInventoryCheckDetailsView" msprop:Generator_RowChangedName="GetInventoryCheckDetailsViewRowChanged" msprop:Generator_UserTableName="GetInventoryCheckDetailsView" msprop:Generator_RowChangingName="GetInventoryCheckDetailsViewRowChanging" msprop:Generator_RowClassName="GetInventoryCheckDetailsViewRow" msprop:Generator_TableClassName="GetInventoryCheckDetailsViewDataTable" msprop:Generator_TableVarName="tableGetInventoryCheckDetailsView">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="checkId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="checkId" msprop:Generator_ColumnPropNameInTable="checkIdColumn" msprop:Generator_ColumnPropNameInRow="checkId" msprop:Generator_ColumnVarNameInTable="columncheckId" type="xs:string" />
-              <xs:element name="ingredientName" msprop:Generator_UserColumnName="ingredientName" msprop:Generator_ColumnPropNameInTable="ingredientNameColumn" msprop:Generator_ColumnPropNameInRow="ingredientName" msprop:Generator_ColumnVarNameInTable="columningredientName" minOccurs="0">
+              <xs:element name="checkId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInTable="checkIdColumn" msprop:Generator_ColumnPropNameInRow="checkId" msprop:Generator_UserColumnName="checkId" msprop:Generator_ColumnVarNameInTable="columncheckId" type="xs:string" />
+              <xs:element name="ingredientName" msprop:Generator_ColumnPropNameInTable="ingredientNameColumn" msprop:Generator_ColumnPropNameInRow="ingredientName" msprop:Generator_UserColumnName="ingredientName" msprop:Generator_ColumnVarNameInTable="columningredientName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="quantity" msprop:Generator_UserColumnName="quantity" msprop:Generator_ColumnPropNameInTable="quantityColumn" msprop:Generator_ColumnPropNameInRow="quantity" msprop:Generator_ColumnVarNameInTable="columnquantity" type="xs:int" minOccurs="0" />
+              <xs:element name="quantity" msprop:Generator_ColumnPropNameInTable="quantityColumn" msprop:Generator_ColumnPropNameInRow="quantity" msprop:Generator_UserColumnName="quantity" msprop:Generator_ColumnVarNameInTable="columnquantity" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ListItemView" msprop:Generator_RowEvHandlerName="ListItemViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ListItemViewRowDeleted" msprop:Generator_RowDeletingName="ListItemViewRowDeleting" msprop:Generator_RowEvArgName="ListItemViewRowChangeEvent" msprop:Generator_TablePropName="ListItemView" msprop:Generator_RowChangedName="ListItemViewRowChanged" msprop:Generator_RowChangingName="ListItemViewRowChanging" msprop:Generator_TableClassName="ListItemViewDataTable" msprop:Generator_RowClassName="ListItemViewRow" msprop:Generator_TableVarName="tableListItemView" msprop:Generator_UserTableName="ListItemView">
+        <xs:element name="ListProductView" msprop:Generator_RowEvHandlerName="ListProductViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ListProductViewRowDeleted" msprop:Generator_RowDeletingName="ListProductViewRowDeleting" msprop:Generator_RowEvArgName="ListProductViewRowChangeEvent" msprop:Generator_TablePropName="ListProductView" msprop:Generator_RowChangedName="ListProductViewRowChanged" msprop:Generator_RowChangingName="ListProductViewRowChanging" msprop:Generator_TableClassName="ListProductViewDataTable" msprop:Generator_RowClassName="ListProductViewRow" msprop:Generator_TableVarName="tableListProductView" msprop:Generator_UserTableName="ListProductView">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="productName" msprop:Generator_ColumnPropNameInRow="productName" msprop:Generator_ColumnPropNameInTable="productNameColumn" msprop:Generator_ColumnVarNameInTable="columnproductName" msprop:Generator_UserColumnName="productName" minOccurs="0">
+              <xs:element name="productName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="productName" msprop:Generator_ColumnPropNameInTable="productNameColumn" msprop:Generator_ColumnVarNameInTable="columnproductName" msprop:Generator_UserColumnName="productName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="153" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1328,8 +1328,8 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
       <xs:selector xpath=".//mstns:GetInventoryCheckView" />
       <xs:field xpath="mstns:checkId" />
     </xs:unique>
-    <xs:unique name="ListItemView_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ListItemView" />
+    <xs:unique name="ListProductView_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ListProductView" />
       <xs:field xpath="mstns:productId" />
     </xs:unique>
   </xs:element>

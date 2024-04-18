@@ -141,13 +141,14 @@ GO
 CREATE PROCEDURE AddOrderBillDetailsProc
 	@BillId UNIQUEIDENTIFIER,
    	@ProductId UNIQUEIDENTIFIER,
-    	@Quantity INT
+    @Quantity INT
 AS
 BEGIN
 	INSERT INTO OrderBillDetails (billId, productId, quantity)
 	VALUES (@BillId, @ProductId, @Quantity);
 END;
 
+GO
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'UpdateOrderBillDetialsProc')
 DROP PROCEDURE UpdateOrderBillDetialsProc
 GO

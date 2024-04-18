@@ -36,6 +36,15 @@ namespace CoffeeShopApplication.BL
             return ds;
         }
 
+        public static DataSet findProductsViewByName(String productName)
+        {
+            String str = "SELECT * FROM dbo.FindProducViewtByNameFunction(@productName)";
+            SqlParameter productNameParam = new SqlParameter("@productName", productName);
+            SqlParameter[] parameters = { productNameParam };
+            DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
+            return ds;
+        }
+
         public static bool updateProduct(String productId, String productName, String productSize, String productPrice, bool isDeleted)
         {
             if (productId == "" || productName == "" || productSize == "" || productPrice == "")

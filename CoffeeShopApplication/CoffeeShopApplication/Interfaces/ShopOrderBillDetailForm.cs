@@ -39,7 +39,7 @@ namespace CoffeeShopApplication
         {
             if (tbSearch.Text.Length > 0)
             {
-                DataSet ProductDataSet = ProductBL.findProductsByName(tbSearch.Text);
+                DataSet ProductDataSet = ProductBL.findProductsViewByName(tbSearch.Text);
                 dgvProduct.DataSource = ProductDataSet.Tables[0].DefaultView;
             }
         }

@@ -86,6 +86,26 @@ RETURN
     WHERE productName LIKE '%' + @productName + '%' AND isDeleted = 0
 );
 
+-- Function findListProductByName
+IF OBJECT_ID(N'FindProducViewtByNameFunction', 'FN') IS NOT NULL
+    DROP FUNCTION FindProducViewtByNameFunction
+GO
+
+CREATE FUNCTION FindProducViewtByNameFunction
+(
+    @productName NVARCHAR(100)
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT productName, productId
+    FROM ListProductView
+    WHERE productName LIKE '%' + @productName + '%'
+);
+
+GO
+
 -- 5. Function findInventoryByName
 IF OBJECT_ID(N'FindInventoryByNameFunction', 'FN') IS NOT NULL
     DROP FUNCTION FindInventoryByNameFunction

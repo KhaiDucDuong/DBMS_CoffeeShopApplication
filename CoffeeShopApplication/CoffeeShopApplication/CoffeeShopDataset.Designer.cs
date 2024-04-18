@@ -54,7 +54,7 @@ namespace CoffeeShopApplication {
         
         private GetInventoryCheckDetailsViewDataTable tableGetInventoryCheckDetailsView;
         
-        private ListItemViewDataTable tableListItemView;
+        private ListProductViewDataTable tableListProductView;
         
         private global::System.Data.DataRelation relationFK__Account__employe__4F7CD00D;
         
@@ -151,8 +151,8 @@ namespace CoffeeShopApplication {
                 if ((ds.Tables["GetInventoryCheckDetailsView"] != null)) {
                     base.Tables.Add(new GetInventoryCheckDetailsViewDataTable(ds.Tables["GetInventoryCheckDetailsView"]));
                 }
-                if ((ds.Tables["ListItemView"] != null)) {
-                    base.Tables.Add(new ListItemViewDataTable(ds.Tables["ListItemView"]));
+                if ((ds.Tables["ListProductView"] != null)) {
+                    base.Tables.Add(new ListProductViewDataTable(ds.Tables["ListProductView"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -326,9 +326,9 @@ namespace CoffeeShopApplication {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ListItemViewDataTable ListItemView {
+        public ListProductViewDataTable ListProductView {
             get {
-                return this.tableListItemView;
+                return this.tableListProductView;
             }
         }
         
@@ -444,8 +444,8 @@ namespace CoffeeShopApplication {
                 if ((ds.Tables["GetInventoryCheckDetailsView"] != null)) {
                     base.Tables.Add(new GetInventoryCheckDetailsViewDataTable(ds.Tables["GetInventoryCheckDetailsView"]));
                 }
-                if ((ds.Tables["ListItemView"] != null)) {
-                    base.Tables.Add(new ListItemViewDataTable(ds.Tables["ListItemView"]));
+                if ((ds.Tables["ListProductView"] != null)) {
+                    base.Tables.Add(new ListProductViewDataTable(ds.Tables["ListProductView"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -570,10 +570,10 @@ namespace CoffeeShopApplication {
                     this.tableGetInventoryCheckDetailsView.InitVars();
                 }
             }
-            this.tableListItemView = ((ListItemViewDataTable)(base.Tables["ListItemView"]));
+            this.tableListProductView = ((ListProductViewDataTable)(base.Tables["ListProductView"]));
             if ((initTable == true)) {
-                if ((this.tableListItemView != null)) {
-                    this.tableListItemView.InitVars();
+                if ((this.tableListProductView != null)) {
+                    this.tableListProductView.InitVars();
                 }
             }
             this.relationFK__Account__employe__4F7CD00D = this.Relations["FK__Account__employe__4F7CD00D"];
@@ -627,8 +627,8 @@ namespace CoffeeShopApplication {
             base.Tables.Add(this.tableGetInventoryCheckView);
             this.tableGetInventoryCheckDetailsView = new GetInventoryCheckDetailsViewDataTable();
             base.Tables.Add(this.tableGetInventoryCheckDetailsView);
-            this.tableListItemView = new ListItemViewDataTable();
-            base.Tables.Add(this.tableListItemView);
+            this.tableListProductView = new ListProductViewDataTable();
+            base.Tables.Add(this.tableListProductView);
             this.relationFK__Account__employe__4F7CD00D = new global::System.Data.DataRelation("FK__Account__employe__4F7CD00D", new global::System.Data.DataColumn[] {
                         this.tableEmployee.employeeIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableAccount.employeeIdColumn}, false);
@@ -767,7 +767,7 @@ namespace CoffeeShopApplication {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeListItemView() {
+        private bool ShouldSerializeListProductView() {
             return false;
         }
         
@@ -872,7 +872,7 @@ namespace CoffeeShopApplication {
         public delegate void GetInventoryCheckDetailsViewRowChangeEventHandler(object sender, GetInventoryCheckDetailsViewRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void ListItemViewRowChangeEventHandler(object sender, ListItemViewRowChangeEvent e);
+        public delegate void ListProductViewRowChangeEventHandler(object sender, ListProductViewRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5665,7 +5665,7 @@ namespace CoffeeShopApplication {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ListItemViewDataTable : global::System.Data.TypedTableBase<ListItemViewRow> {
+        public partial class ListProductViewDataTable : global::System.Data.TypedTableBase<ListProductViewRow> {
             
             private global::System.Data.DataColumn columnproductName;
             
@@ -5673,8 +5673,8 @@ namespace CoffeeShopApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ListItemViewDataTable() {
-                this.TableName = "ListItemView";
+            public ListProductViewDataTable() {
+                this.TableName = "ListProductView";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -5682,7 +5682,7 @@ namespace CoffeeShopApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ListItemViewDataTable(global::System.Data.DataTable table) {
+            internal ListProductViewDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -5699,7 +5699,7 @@ namespace CoffeeShopApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected ListItemViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ListProductViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -5731,53 +5731,53 @@ namespace CoffeeShopApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ListItemViewRow this[int index] {
+            public ListProductViewRow this[int index] {
                 get {
-                    return ((ListItemViewRow)(this.Rows[index]));
+                    return ((ListProductViewRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ListItemViewRowChangeEventHandler ListItemViewRowChanging;
+            public event ListProductViewRowChangeEventHandler ListProductViewRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ListItemViewRowChangeEventHandler ListItemViewRowChanged;
+            public event ListProductViewRowChangeEventHandler ListProductViewRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ListItemViewRowChangeEventHandler ListItemViewRowDeleting;
+            public event ListProductViewRowChangeEventHandler ListProductViewRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ListItemViewRowChangeEventHandler ListItemViewRowDeleted;
+            public event ListProductViewRowChangeEventHandler ListProductViewRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddListItemViewRow(ListItemViewRow row) {
+            public void AddListProductViewRow(ListProductViewRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ListItemViewRow AddListItemViewRow(string productName, System.Guid productId) {
-                ListItemViewRow rowListItemViewRow = ((ListItemViewRow)(this.NewRow()));
+            public ListProductViewRow AddListProductViewRow(string productName, System.Guid productId) {
+                ListProductViewRow rowListProductViewRow = ((ListProductViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         productName,
                         productId};
-                rowListItemViewRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowListItemViewRow);
-                return rowListItemViewRow;
+                rowListProductViewRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowListProductViewRow);
+                return rowListProductViewRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ListItemViewRow FindByproductId(System.Guid productId) {
-                return ((ListItemViewRow)(this.Rows.Find(new object[] {
+            public ListProductViewRow FindByproductId(System.Guid productId) {
+                return ((ListProductViewRow)(this.Rows.Find(new object[] {
                             productId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ListItemViewDataTable cln = ((ListItemViewDataTable)(base.Clone()));
+                ListProductViewDataTable cln = ((ListProductViewDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -5785,7 +5785,7 @@ namespace CoffeeShopApplication {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ListItemViewDataTable();
+                return new ListProductViewDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5804,35 +5804,36 @@ namespace CoffeeShopApplication {
                 base.Columns.Add(this.columnproductId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnproductId}, true));
-                this.columnproductName.MaxLength = 100;
+                this.columnproductName.ReadOnly = true;
+                this.columnproductName.MaxLength = 153;
                 this.columnproductId.AllowDBNull = false;
                 this.columnproductId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ListItemViewRow NewListItemViewRow() {
-                return ((ListItemViewRow)(this.NewRow()));
+            public ListProductViewRow NewListProductViewRow() {
+                return ((ListProductViewRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ListItemViewRow(builder);
+                return new ListProductViewRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ListItemViewRow);
+                return typeof(ListProductViewRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ListItemViewRowChanged != null)) {
-                    this.ListItemViewRowChanged(this, new ListItemViewRowChangeEvent(((ListItemViewRow)(e.Row)), e.Action));
+                if ((this.ListProductViewRowChanged != null)) {
+                    this.ListProductViewRowChanged(this, new ListProductViewRowChangeEvent(((ListProductViewRow)(e.Row)), e.Action));
                 }
             }
             
@@ -5840,8 +5841,8 @@ namespace CoffeeShopApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ListItemViewRowChanging != null)) {
-                    this.ListItemViewRowChanging(this, new ListItemViewRowChangeEvent(((ListItemViewRow)(e.Row)), e.Action));
+                if ((this.ListProductViewRowChanging != null)) {
+                    this.ListProductViewRowChanging(this, new ListProductViewRowChangeEvent(((ListProductViewRow)(e.Row)), e.Action));
                 }
             }
             
@@ -5849,8 +5850,8 @@ namespace CoffeeShopApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ListItemViewRowDeleted != null)) {
-                    this.ListItemViewRowDeleted(this, new ListItemViewRowChangeEvent(((ListItemViewRow)(e.Row)), e.Action));
+                if ((this.ListProductViewRowDeleted != null)) {
+                    this.ListProductViewRowDeleted(this, new ListProductViewRowChangeEvent(((ListProductViewRow)(e.Row)), e.Action));
                 }
             }
             
@@ -5858,14 +5859,14 @@ namespace CoffeeShopApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ListItemViewRowDeleting != null)) {
-                    this.ListItemViewRowDeleting(this, new ListItemViewRowChangeEvent(((ListItemViewRow)(e.Row)), e.Action));
+                if ((this.ListProductViewRowDeleting != null)) {
+                    this.ListProductViewRowDeleting(this, new ListProductViewRowChangeEvent(((ListProductViewRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveListItemViewRow(ListItemViewRow row) {
+            public void RemoveListProductViewRow(ListProductViewRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -5892,7 +5893,7 @@ namespace CoffeeShopApplication {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ListItemViewDataTable";
+                attribute2.FixedValue = "ListProductViewDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -8256,15 +8257,15 @@ namespace CoffeeShopApplication {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ListItemViewRow : global::System.Data.DataRow {
+        public partial class ListProductViewRow : global::System.Data.DataRow {
             
-            private ListItemViewDataTable tableListItemView;
+            private ListProductViewDataTable tableListProductView;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ListItemViewRow(global::System.Data.DataRowBuilder rb) : 
+            internal ListProductViewRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableListItemView = ((ListItemViewDataTable)(this.Table));
+                this.tableListProductView = ((ListProductViewDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8272,14 +8273,14 @@ namespace CoffeeShopApplication {
             public string productName {
                 get {
                     try {
-                        return ((string)(this[this.tableListItemView.productNameColumn]));
+                        return ((string)(this[this.tableListProductView.productNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'productName\' in table \'ListItemView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'productName\' in table \'ListProductView\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableListItemView.productNameColumn] = value;
+                    this[this.tableListProductView.productNameColumn] = value;
                 }
             }
             
@@ -8287,23 +8288,23 @@ namespace CoffeeShopApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.Guid productId {
                 get {
-                    return ((global::System.Guid)(this[this.tableListItemView.productIdColumn]));
+                    return ((global::System.Guid)(this[this.tableListProductView.productIdColumn]));
                 }
                 set {
-                    this[this.tableListItemView.productIdColumn] = value;
+                    this[this.tableListProductView.productIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsproductNameNull() {
-                return this.IsNull(this.tableListItemView.productNameColumn);
+                return this.IsNull(this.tableListProductView.productNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetproductNameNull() {
-                this[this.tableListItemView.productNameColumn] = global::System.Convert.DBNull;
+                this[this.tableListProductView.productNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8821,22 +8822,22 @@ namespace CoffeeShopApplication {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class ListItemViewRowChangeEvent : global::System.EventArgs {
+        public class ListProductViewRowChangeEvent : global::System.EventArgs {
             
-            private ListItemViewRow eventRow;
+            private ListProductViewRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ListItemViewRowChangeEvent(ListItemViewRow row, global::System.Data.DataRowAction action) {
+            public ListProductViewRowChangeEvent(ListProductViewRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ListItemViewRow Row {
+            public ListProductViewRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -14724,7 +14725,7 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ListItemViewTableAdapter : global::System.ComponentModel.Component {
+    public partial class ListProductViewTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -14738,7 +14739,7 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public ListItemViewTableAdapter() {
+        public ListProductViewTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -14835,7 +14836,7 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ListItemView";
+            tableMapping.DataSetTable = "ListProductView";
             tableMapping.ColumnMappings.Add("productName", "productName");
             tableMapping.ColumnMappings.Add("productId", "productId");
             this._adapter.TableMappings.Add(tableMapping);
@@ -14845,8 +14846,8 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-6MFKK2A;Initial Catalog=CoffeeShop;User ID=sa;Password=123;Tr" +
-                "ustServerCertificate=True";
+            this._connection.ConnectionString = "Data Source=localhost;Initial Catalog=CoffeeShop;Integrated Security=True;Encrypt" +
+                "=True;TrustServerCertificate=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14855,7 +14856,7 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT productName, productId FROM dbo.ListItemView";
+            this._commandCollection[0].CommandText = "SELECT productName, productId FROM dbo.ListProductView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14863,7 +14864,7 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CoffeeShopDataset.ListItemViewDataTable dataTable) {
+        public virtual int Fill(CoffeeShopDataset.ListProductViewDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -14876,9 +14877,9 @@ SELECT restockBillId, date, supplierName, totalBill FROM RestockBill WHERE (rest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CoffeeShopDataset.ListItemViewDataTable GetData() {
+        public virtual CoffeeShopDataset.ListProductViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CoffeeShopDataset.ListItemViewDataTable dataTable = new CoffeeShopDataset.ListItemViewDataTable();
+            CoffeeShopDataset.ListProductViewDataTable dataTable = new CoffeeShopDataset.ListProductViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

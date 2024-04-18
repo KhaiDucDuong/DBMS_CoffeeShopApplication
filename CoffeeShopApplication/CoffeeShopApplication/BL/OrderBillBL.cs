@@ -39,9 +39,7 @@ namespace CoffeeShopApplication.BL
                 SqlParameter CustomerIdParam = new SqlParameter("@CustomerId", CustomerId);
                 SqlParameter EmployeeIdParam = new SqlParameter("@EmployeeId", EmployeeId);
                 SqlParameter RewardPointUserParam = new SqlParameter("@RewardPointsUsed", RewardPointsUsed);
-                SqlParameter IntialBillParam = new SqlParameter("@InitailBill", initialBill);
-                SqlParameter FinalBillParam = new SqlParameter("@FinalBill", finalBill);
-                SqlParameter[] parameters = { CustomerIdParam, EmployeeIdParam, RewardPointUserParam, IntialBillParam, FinalBillParam };
+                SqlParameter[] parameters = { CustomerIdParam, EmployeeIdParam, RewardPointUserParam };
                 bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
                 return commandResult;
             }

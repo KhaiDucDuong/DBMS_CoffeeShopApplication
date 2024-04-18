@@ -50,11 +50,10 @@
             quantityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             orderBillDetailsBindingSource = new BindingSource(components);
             dgvProduct = new DataGridView();
-            productNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productIdDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            listItemViewBindingSource = new BindingSource(components);
-            listItemViewBindingSource1 = new BindingSource(components);
             pbRefreshProduct = new PictureBox();
+            listProductViewBindingSource = new BindingSource(components);
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            productIdDataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pbDelete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
@@ -63,19 +62,18 @@
             ((System.ComponentModel.ISupportInitialize)dgvOrderBillDetail).BeginInit();
             ((System.ComponentModel.ISupportInitialize)orderBillDetailsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProduct).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)listItemViewBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)listItemViewBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefreshProduct).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)listProductViewBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(507, 191);
+            label5.Location = new Point(444, 143);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(220, 41);
+            label5.Size = new Size(179, 32);
             label5.TabIndex = 89;
             label5.Text = "Product Name";
             // 
@@ -83,30 +81,40 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(29, 324);
+            label4.Location = new Point(25, 243);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(142, 41);
+            label4.Size = new Size(113, 32);
             label4.TabIndex = 85;
             label4.Text = "Quantity";
             // 
             // tbQuantity
             // 
             tbQuantity.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbQuantity.Location = new Point(203, 321);
-            tbQuantity.Margin = new Padding(4);
+            tbQuantity.Location = new Point(178, 241);
+            tbQuantity.Margin = new Padding(4, 3, 4, 3);
             tbQuantity.Multiline = true;
             tbQuantity.Name = "tbQuantity";
-            tbQuantity.Size = new Size(243, 54);
+            tbQuantity.Size = new Size(213, 42);
             tbQuantity.TabIndex = 84;
+            // 
+            // header1
+            // 
+            header1.BackColor = SystemColors.MenuHighlight;
+            header1.ForeColor = SystemColors.Highlight;
+            header1.Location = new Point(0, -2);
+            header1.Margin = new Padding(4, 2, 4, 2);
+            header1.Name = "header1";
+            header1.Size = new Size(1050, 113);
+            header1.TabIndex = 9;
             // 
             // pbDelete
             // 
             pbDelete.Image = (Image)resources.GetObject("pbDelete.Image");
-            pbDelete.Location = new Point(268, 404);
-            pbDelete.Margin = new Padding(4);
+            pbDelete.Location = new Point(234, 303);
+            pbDelete.Margin = new Padding(4, 3, 4, 3);
             pbDelete.Name = "pbDelete";
-            pbDelete.Size = new Size(63, 73);
+            pbDelete.Size = new Size(55, 55);
             pbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
             pbDelete.TabIndex = 83;
             pbDelete.TabStop = false;
@@ -116,10 +124,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(29, 252);
+            label3.Location = new Point(25, 189);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(166, 41);
+            label3.Size = new Size(135, 32);
             label3.TabIndex = 82;
             label3.Text = "Product Id";
             // 
@@ -127,21 +135,21 @@
             // 
             tbProductId.Enabled = false;
             tbProductId.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbProductId.Location = new Point(203, 249);
-            tbProductId.Margin = new Padding(4);
+            tbProductId.Location = new Point(178, 187);
+            tbProductId.Margin = new Padding(4, 3, 4, 3);
             tbProductId.Multiline = true;
             tbProductId.Name = "tbProductId";
-            tbProductId.Size = new Size(243, 54);
+            tbProductId.Size = new Size(213, 42);
             tbProductId.TabIndex = 73;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(29, 191);
+            label1.Location = new Point(25, 143);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(101, 41);
+            label1.Size = new Size(80, 32);
             label1.TabIndex = 81;
             label1.Text = "Bill Id";
             // 
@@ -149,20 +157,20 @@
             // 
             tbBillId.Enabled = false;
             tbBillId.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbBillId.Location = new Point(203, 178);
-            tbBillId.Margin = new Padding(4);
+            tbBillId.Location = new Point(178, 134);
+            tbBillId.Margin = new Padding(4, 3, 4, 3);
             tbBillId.Multiline = true;
             tbBillId.Name = "tbBillId";
-            tbBillId.Size = new Size(243, 54);
+            tbBillId.Size = new Size(213, 42);
             tbBillId.TabIndex = 71;
             // 
             // pbRefresh
             // 
             pbRefresh.Image = (Image)resources.GetObject("pbRefresh.Image");
-            pbRefresh.Location = new Point(383, 404);
-            pbRefresh.Margin = new Padding(4);
+            pbRefresh.Location = new Point(335, 303);
+            pbRefresh.Margin = new Padding(4, 3, 4, 3);
             pbRefresh.Name = "pbRefresh";
-            pbRefresh.Size = new Size(63, 73);
+            pbRefresh.Size = new Size(55, 55);
             pbRefresh.SizeMode = PictureBoxSizeMode.StretchImage;
             pbRefresh.TabIndex = 76;
             pbRefresh.TabStop = false;
@@ -171,10 +179,10 @@
             // pbSave
             // 
             pbSave.Image = (Image)resources.GetObject("pbSave.Image");
-            pbSave.Location = new Point(151, 404);
-            pbSave.Margin = new Padding(4);
+            pbSave.Location = new Point(132, 303);
+            pbSave.Margin = new Padding(4, 3, 4, 3);
             pbSave.Name = "pbSave";
-            pbSave.Size = new Size(63, 73);
+            pbSave.Size = new Size(55, 55);
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSave.TabIndex = 77;
             pbSave.TabStop = false;
@@ -184,10 +192,10 @@
             // 
             pbAdd.Image = (Image)resources.GetObject("pbAdd.Image");
             pbAdd.InitialImage = (Image)resources.GetObject("pbAdd.InitialImage");
-            pbAdd.Location = new Point(43, 404);
-            pbAdd.Margin = new Padding(4);
+            pbAdd.Location = new Point(38, 303);
+            pbAdd.Margin = new Padding(4, 3, 4, 3);
             pbAdd.Name = "pbAdd";
-            pbAdd.Size = new Size(63, 73);
+            pbAdd.Size = new Size(55, 55);
             pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAdd.TabIndex = 78;
             pbAdd.TabStop = false;
@@ -196,10 +204,10 @@
             // pbSearch
             // 
             pbSearch.Image = Properties.Resources.search1;
-            pbSearch.Location = new Point(1036, 179);
-            pbSearch.Margin = new Padding(4);
+            pbSearch.Location = new Point(906, 134);
+            pbSearch.Margin = new Padding(4, 3, 4, 3);
             pbSearch.Name = "pbSearch";
-            pbSearch.Size = new Size(63, 73);
+            pbSearch.Size = new Size(55, 55);
             pbSearch.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSearch.TabIndex = 79;
             pbSearch.TabStop = false;
@@ -209,11 +217,11 @@
             // 
             tbSearch.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold);
             tbSearch.ForeColor = SystemColors.ScrollBar;
-            tbSearch.Location = new Point(735, 178);
-            tbSearch.Margin = new Padding(4, 3, 4, 3);
+            tbSearch.Location = new Point(643, 134);
+            tbSearch.Margin = new Padding(4, 2, 4, 2);
             tbSearch.Name = "tbSearch";
             tbSearch.PlaceholderText = "Search";
-            tbSearch.Size = new Size(293, 65);
+            tbSearch.Size = new Size(257, 53);
             tbSearch.TabIndex = 74;
             // 
             // dgvOrderBillDetail
@@ -225,13 +233,13 @@
             dgvOrderBillDetail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvOrderBillDetail.Columns.AddRange(new DataGridViewColumn[] { billIdDataGridViewTextBoxColumn, productIdDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn });
             dgvOrderBillDetail.DataSource = orderBillDetailsBindingSource;
-            dgvOrderBillDetail.Location = new Point(15, 507);
-            dgvOrderBillDetail.Margin = new Padding(4);
+            dgvOrderBillDetail.Location = new Point(13, 380);
+            dgvOrderBillDetail.Margin = new Padding(4, 3, 4, 3);
             dgvOrderBillDetail.MultiSelect = false;
             dgvOrderBillDetail.Name = "dgvOrderBillDetail";
             dgvOrderBillDetail.ReadOnly = true;
             dgvOrderBillDetail.RowHeadersWidth = 51;
-            dgvOrderBillDetail.Size = new Size(1172, 472);
+            dgvOrderBillDetail.Size = new Size(1026, 354);
             dgvOrderBillDetail.TabIndex = 75;
             // 
             // billIdDataGridViewTextBoxColumn
@@ -270,72 +278,54 @@
             dgvProduct.AutoGenerateColumns = false;
             dgvProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProduct.Columns.AddRange(new DataGridViewColumn[] { productNameDataGridViewTextBoxColumn, productIdDataGridViewTextBoxColumn1 });
-            dgvProduct.DataSource = listItemViewBindingSource;
-            dgvProduct.Location = new Point(517, 260);
-            dgvProduct.Margin = new Padding(4);
+            dgvProduct.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, productIdDataGridViewTextBoxColumn2 });
+            dgvProduct.DataSource = listProductViewBindingSource;
+            dgvProduct.Location = new Point(452, 195);
+            dgvProduct.Margin = new Padding(4, 3, 4, 3);
             dgvProduct.MultiSelect = false;
             dgvProduct.Name = "dgvProduct";
             dgvProduct.ReadOnly = true;
             dgvProduct.RowHeadersWidth = 51;
-            dgvProduct.Size = new Size(653, 217);
+            dgvProduct.Size = new Size(571, 163);
             dgvProduct.TabIndex = 90;
             dgvProduct.CellClick += dgvProduct_CellClick;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            productNameDataGridViewTextBoxColumn.DataPropertyName = "productName";
-            productNameDataGridViewTextBoxColumn.HeaderText = "productName";
-            productNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // header1
-            // 
-            header1.BackColor = SystemColors.MenuHighlight;
-            header1.ForeColor = SystemColors.Highlight;
-            header1.Location = new Point(0, -3);
-            header1.Margin = new Padding(4, 3, 4, 3);
-            header1.Name = "header1";
-            header1.Size = new Size(1200, 151);
-            header1.TabIndex = 9;
-            // 
-            // label6
-            // productIdDataGridViewTextBoxColumn1
-            // 
-            productIdDataGridViewTextBoxColumn1.DataPropertyName = "productId";
-            productIdDataGridViewTextBoxColumn1.HeaderText = "productId";
-            productIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            productIdDataGridViewTextBoxColumn1.Name = "productIdDataGridViewTextBoxColumn1";
-            productIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // listItemViewBindingSource
-            // 
-            listItemViewBindingSource.DataMember = "ListItemView";
-            listItemViewBindingSource.DataSource = typeof(CoffeeShopDataset);
-            // 
-            // listItemViewBindingSource1
-            // 
-            listItemViewBindingSource1.DataMember = "ListItemView";
-            listItemViewBindingSource1.DataSource = typeof(CoffeeShopDataset);
             // 
             // pbRefreshProduct
             // 
             pbRefreshProduct.Image = (Image)resources.GetObject("pbRefreshProduct.Image");
-            pbRefreshProduct.Location = new Point(1107, 178);
-            pbRefreshProduct.Margin = new Padding(4);
+            pbRefreshProduct.Location = new Point(969, 134);
+            pbRefreshProduct.Margin = new Padding(4, 3, 4, 3);
             pbRefreshProduct.Name = "pbRefreshProduct";
-            pbRefreshProduct.Size = new Size(63, 73);
+            pbRefreshProduct.Size = new Size(55, 55);
             pbRefreshProduct.SizeMode = PictureBoxSizeMode.StretchImage;
             pbRefreshProduct.TabIndex = 91;
             pbRefreshProduct.TabStop = false;
             pbRefreshProduct.Click += pbRefreshProduct_Click;
             // 
+            // listProductViewBindingSource
+            // 
+            listProductViewBindingSource.DataMember = "ListProductView";
+            listProductViewBindingSource.DataSource = typeof(CoffeeShopDataset);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "productName";
+            dataGridViewTextBoxColumn1.HeaderText = "productName";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // productIdDataGridViewTextBoxColumn2
+            // 
+            productIdDataGridViewTextBoxColumn2.DataPropertyName = "productId";
+            productIdDataGridViewTextBoxColumn2.HeaderText = "productId";
+            productIdDataGridViewTextBoxColumn2.Name = "productIdDataGridViewTextBoxColumn2";
+            productIdDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
             // ShopOrderBillDetailForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 992);
+            ClientSize = new Size(1050, 744);
             Controls.Add(pbRefreshProduct);
             Controls.Add(dgvProduct);
             Controls.Add(label5);
@@ -353,6 +343,7 @@
             Controls.Add(pbSearch);
             Controls.Add(tbSearch);
             Controls.Add(dgvOrderBillDetail);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ShopOrderBillDetailForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "OrderBillDetail";
@@ -365,9 +356,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvOrderBillDetail).EndInit();
             ((System.ComponentModel.ISupportInitialize)orderBillDetailsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProduct).EndInit();
-            ((System.ComponentModel.ISupportInitialize)listItemViewBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)listItemViewBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbRefreshProduct).EndInit();
+            ((System.ComponentModel.ISupportInitialize)listProductViewBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -397,12 +387,13 @@
         private DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private BindingSource orderBillDetailsBindingSource;
         private DataGridView dgvProduct;
-        private BindingSource listItemViewBindingSource;
         private DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn1;
-        private BindingSource listItemViewBindingSource1;
         private Label label2;
         private Label label6;
         private PictureBox pbRefreshProduct;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn2;
+        private BindingSource listProductViewBindingSource;
     }
 }
