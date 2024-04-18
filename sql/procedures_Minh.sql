@@ -154,11 +154,20 @@ GO
 CREATE PROCEDURE UpdateOrderBillDetialsProc
 	@BillId UNIQUEIDENTIFIER,
 	@ProductId UNIQUEIDENTIFIER,
-	@Quantity INT
+	@Quantity INT,
+	@UpdateType VARCHAR(20)
 AS
 BEGIN
-	UPDATE OrderBillDetails
-	set quantity = @quantity
-	WHERE billId = @BillId and productId = @ProductId
+	IF @UpdateType = 'update'
+	BEGIN
+		UPDATE OrderBillDetails
+		set quantity = @quantity
+		WHERE billId = @BillId and productId = @ProductId
+	END;
+	ELSE
+	BEGIN
+		UPDATE OrderBill
+		DELETE FROM OrderBill WHERE billId = @BillId and productId = @ProductId
+	END;
 END;
 GO
