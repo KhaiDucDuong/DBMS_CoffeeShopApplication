@@ -75,12 +75,12 @@ GO
 
 CREATE FUNCTION findCustomerByNameFunction
 ( 
-    @CustomerNane VARCHAR(15)
+    @CustomerName VARCHAR(15)
 )
 RETURNS TABLE
 AS
 RETURN (
-    SELECT * FROM Customer WHERE customerName LIKE '%' + @CustomerNane + '%'
+    SELECT * FROM Customer WHERE customerName LIKE '%' + @CustomerName + '%'
 );
 GO
 
