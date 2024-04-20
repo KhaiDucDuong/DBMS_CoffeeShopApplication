@@ -68,6 +68,22 @@ RETURN (
 );
 GO
 
+--new Customer Function
+IF OBJECT_ID(N'findCustomerByNameFunction', 'FN') IS NOT NULL
+DROP FUNCTION findCustomerByNameFunction
+GO
+
+CREATE FUNCTION findCustomerByNameFunction
+( 
+    @CustomerName VARCHAR(15)
+)
+RETURNS TABLE
+AS
+RETURN (
+    SELECT * FROM Customer WHERE customerName LIKE '%' + @CustomerName + '%'
+);
+GO
+
 -- 4. Function findProductByName
 IF OBJECT_ID(N'FindProductByNameFunction', 'FN') IS NOT NULL
     DROP FUNCTION FindProductByNameFunction
