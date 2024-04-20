@@ -1,4 +1,5 @@
 ﻿using CoffeeShopApplication.BL;
+using CoffeeShopApplication.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -40,8 +42,17 @@ namespace CoffeeShopApplication
         {
             if (tbSearch.Text.Length > 0)
             {
-                DataSet orderBillDataSet = OrderBillBL.findOrderBillById(tbSearch.Text);
-                dgvOrderBill.DataSource = orderBillDataSet.Tables[0].DefaultView;
+                DataSet customerDataSet;
+                bool includesPhone = Regex.IsMatch(tbSearch.Text, "[0-9]{7,}");
+                if (includesPhone)
+                {
+                    customerDataSet = CustomerBL.findCustomerByPhoneNumber(tbSearch.Text);
+                }
+                else
+                {
+                    customerDataSet = CustomerBL.findCustomerByName(tbSearch.Text);
+                }
+                dgvCustomer.DataSource = customerDataSet.Tables[0].DefaultView;
             }
         }
 
@@ -99,8 +110,8 @@ namespace CoffeeShopApplication
 
         private void pbRefresh_Click(object sender, EventArgs e)
         {
-            DataSet orderBillDataSet = OrderBillBL.getAllOrderBill();
-            dgvOrderBill.DataSource = orderBillDataSet.Tables[0].DefaultView;
+            DataSet customerDataSet = CustomerBL.getAllCustomers();
+            dgvCustomer.DataSource = customerDataSet.Tables[0].DefaultView;
         }
 
         private void dgvOrderBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -130,9 +141,24 @@ namespace CoffeeShopApplication
 
         private void dgvOrderBill_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            dgvOrderBill_CellContentClick (sender, e);
+            dgvOrderBill_CellContentClick(sender, e);
             ShopOrderBillDetailForm newForm = new ShopOrderBillDetailForm(tbBillId.Text);
             newForm.Show();
+        }
+
+        private void dgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvCustomer.Rows[e.RowIndex];
+                tbCustomerId.Text = row.Cells[0].Value.ToString();
+            }
+        }
+
+        private void pbRefreshOrderBill_Click(object sender, EventArgs e)
+        {
+            DataSet orderBillDataSet = OrderBillBL.getAllOrderBill();
+            dgvOrderBill.DataSource = orderBillDataSet.Tables[0].DefaultView;
         }
     }
 }

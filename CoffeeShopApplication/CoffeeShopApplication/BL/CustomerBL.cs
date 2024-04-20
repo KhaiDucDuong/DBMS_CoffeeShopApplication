@@ -27,6 +27,14 @@ namespace CoffeeShopApplication.BL
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str,CommandType.Text,parameters);
             return ds;
         }
+        public static DataSet findCustomerByName(String customerName)
+        {
+            String str = "SELECT * FROM dbo.findCustomerByNameFunction(@CustomerName)";
+            SqlParameter customerNameParam = new SqlParameter("@CustomerName", customerName);
+            SqlParameter[] parameters = { customerNameParam };
+            DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
+            return ds;
+        }
 
         public static bool addCustomer(String customerName, String phoneNumber)
         {
