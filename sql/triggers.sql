@@ -281,3 +281,28 @@ BEGIN
 	WHERE restockBillId = @restockBillId
 END;
 GO
+
+--Authorization Trigger
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_AccountAuthorizaton' AND [type] = 'TR')
+	DROP TRIGGER [dbo].tr_AccountAuthorizaton;
+GO
+CREATE TRIGGER tr_AccountAuthorizaton
+ON Account
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    DECLARE @UserName VARCHAR(255), @Password VARCHAR(255), @Role VARCHAR(20);
+    SELECT @UserName = username, @Password = password, @Role = role FROM inserted;
+    EXEC('CREATE LOGIN [' + @UserName + '] WITH PASSWORD = ''' + @Password + '''');
+    EXEC('CREATE USER [' + @UserName + '] FOR LOGIN [' + @UserName + ']');
+	IF @Role = 'employee'
+	BEGIN
+		EXEC('ALTER ROLE employee ADD MEMBER [' + @UserName + ']');
+	END;
+	ELSE IF @Role = 'manager'
+	BEGIN
+		EXEC('ALTER ROLE manager ADD MEMBER [' + @UserName + ']');
+	END;
+END;
+GO
