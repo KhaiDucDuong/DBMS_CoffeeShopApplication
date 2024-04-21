@@ -284,12 +284,12 @@ GO
 
 --Authorization Trigger
 GO
-IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_AccountAuthorizaton' AND [type] = 'TR')
-	DROP TRIGGER [dbo].tr_AccountAuthorizaton;
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_AccountAuthorizaton_onInsert' AND [type] = 'TR')
+	DROP TRIGGER [dbo].tr_AccountAuthorizaton_onInsert;
 GO
-CREATE TRIGGER tr_AccountAuthorizaton
+CREATE TRIGGER tr_AccountAuthorizaton_onInsert
 ON Account
-AFTER INSERT, UPDATE
+AFTER INSERT
 AS
 BEGIN
     DECLARE @UserName VARCHAR(255), @Password VARCHAR(255), @Role VARCHAR(20);
@@ -298,11 +298,38 @@ BEGIN
     EXEC('CREATE USER [' + @UserName + '] FOR LOGIN [' + @UserName + ']');
 	IF @Role = 'employee'
 	BEGIN
+
 		EXEC('ALTER ROLE employee ADD MEMBER [' + @UserName + ']');
 	END;
 	ELSE IF @Role = 'manager'
 	BEGIN
 		EXEC('ALTER ROLE manager ADD MEMBER [' + @UserName + ']');
 	END;
+END;
+GO
+
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_AccountAuthorizaton_onUpdate' AND [type] = 'TR')
+    DROP TRIGGER [dbo].tr_AccountAuthorizaton_onUpdate;
+GO
+CREATE TRIGGER tr_AccountAuthorizaton_onUpdate
+ON Account
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @UserName VARCHAR(255), @Password VARCHAR(255), @Role VARCHAR(20);
+    SELECT @UserName = username, @Password = password, @Role = role FROM inserted;
+    EXEC('ALTER LOGIN [' + @UserName + '] WITH PASSWORD = ''' + @Password + '''');
+    EXEC('ALTER USER [' + @UserName + '] FOR LOGIN [' + @UserName + ']');
+    IF @Role = 'employee'
+    BEGIN
+        EXEC('ALTER ROLE manager DROP MEMBER [' + @UserName + ']');
+        EXEC('ALTER ROLE employee ADD MEMBER [' + @UserName + ']');
+    END;
+    ELSE IF @Role = 'manager'
+    BEGIN
+        EXEC('ALTER ROLE employee DROP MEMBER [' + @UserName + ']');
+        EXEC('ALTER ROLE manager ADD MEMBER [' + @UserName + ']');
+    END;
 END;
 GO
