@@ -30,7 +30,7 @@ namespace CoffeeShopApplication.Interfaces
         private void label3_Click(object sender, EventArgs e)
         {
             tbUserName.Clear();
-            tbUserName.Clear();
+            tbPassword.Clear();
             tbUserName.Focus();
         }
 
