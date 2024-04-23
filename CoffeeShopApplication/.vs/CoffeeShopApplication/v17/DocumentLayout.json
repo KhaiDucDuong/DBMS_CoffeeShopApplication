@@ -1,12 +1,86 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\C code\\DBMS_CoffeeShopApplication-main\\DBMS_CoffeeShopApplication-main\\CoffeeShopApplication\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\hk2-2023-2024\\dbms\\final2\\dbms_coffeeshopapplication\\coffeeshopapplication\\coffeeshopapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\hk2-2023-2024\\dbms\\final2\\dbms_coffeeshopapplication\\coffeeshopapplication\\coffeeshopapplication\\interfaces\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\hk2-2023-2024\\dbms\\final2\\dbms_coffeeshopapplication\\coffeeshopapplication\\coffeeshopapplication\\interfaces\\shopaccountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\shopaccountform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|d:\\hk2-2023-2024\\dbms\\final2\\dbms_coffeeshopapplication\\coffeeshopapplication\\coffeeshopapplication\\interfaces\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C85B7ACB-FE07-4951-95ED-246326EA7C8E}|CoffeeShopApplication\\CoffeeShopApplication.csproj|solutionrelative:coffeeshopapplication\\interfaces\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LogInForm.cs",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\LogInForm.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\LogInForm.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\LogInForm.cs",
+              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\LogInForm.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAowCYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T14:56:48.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShopAccountForm.cs [Design]",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopAccountForm.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\ShopAccountForm.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\ShopAccountForm.cs [Design]",
+              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\ShopAccountForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T14:13:29.931Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LogInForm.cs [Design]",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\LogInForm.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Interfaces\\LogInForm.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Interfaces\\LogInForm.cs [Design]",
+              "RelativeToolTip": "CoffeeShopApplication\\Interfaces\\LogInForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T14:07:22.607Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Program.cs",
+              "RelativeDocumentMoniker": "CoffeeShopApplication\\Program.cs",
+              "ToolTip": "D:\\HK2-2023-2024\\DBMS\\Final2\\DBMS_CoffeeShopApplication\\CoffeeShopApplication\\CoffeeShopApplication\\Program.cs",
+              "RelativeToolTip": "CoffeeShopApplication\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T02:32:36.176Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
