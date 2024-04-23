@@ -182,8 +182,11 @@ namespace CoffeeShopApplication.UC
 
         private void pbOrder_MouseHover(object sender, EventArgs e)
         {
-            pbOrder.BackColor = Color.White;
-            pbOrder.BorderStyle = BorderStyle.FixedSingle;
+            if (topLevelForm != "ShopOrderBillForm")
+            {
+                pbOrder.BackColor = Color.White;
+                pbOrder.BorderStyle = BorderStyle.FixedSingle;
+            }   
         }
 
         private void pbRestockOrder_MouseHover(object sender, EventArgs e)
@@ -224,8 +227,11 @@ namespace CoffeeShopApplication.UC
 
         private void pbOrder_MouseLeave(object sender, EventArgs e)
         {
-            pbOrder.BackColor = Color.Transparent;
-            pbOrder.BorderStyle = BorderStyle.None;
+            if (topLevelForm != "ShopOrderBillForm")
+            {
+                pbOrder.BackColor = Color.Transparent;
+                pbOrder.BorderStyle = BorderStyle.None;
+            }
         }
 
         private void pbRestockOrder_MouseLeave(object sender, EventArgs e)
