@@ -53,9 +53,9 @@
             // 
             pbAppIcon.Cursor = Cursors.Hand;
             pbAppIcon.Image = Properties.Resources.coffeeshopicon;
-            pbAppIcon.Location = new Point(20, 11);
+            pbAppIcon.Location = new Point(22, 12);
             pbAppIcon.Name = "pbAppIcon";
-            pbAppIcon.Size = new Size(115, 125);
+            pbAppIcon.Size = new Size(129, 131);
             pbAppIcon.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAppIcon.TabIndex = 0;
             pbAppIcon.TabStop = false;
@@ -68,9 +68,9 @@
             pbInventory.BackColor = Color.Transparent;
             pbInventory.Cursor = Cursors.Hand;
             pbInventory.Image = (Image)resources.GetObject("pbInventory.Image");
-            pbInventory.Location = new Point(1066, 11);
+            pbInventory.Location = new Point(1199, 12);
             pbInventory.Name = "pbInventory";
-            pbInventory.Size = new Size(115, 125);
+            pbInventory.Size = new Size(129, 131);
             pbInventory.SizeMode = PictureBoxSizeMode.StretchImage;
             pbInventory.TabIndex = 0;
             pbInventory.TabStop = false;
@@ -83,9 +83,9 @@
             pbRestockOrder.BackColor = Color.Transparent;
             pbRestockOrder.Cursor = Cursors.Hand;
             pbRestockOrder.Image = (Image)resources.GetObject("pbRestockOrder.Image");
-            pbRestockOrder.Location = new Point(805, 11);
+            pbRestockOrder.Location = new Point(906, 12);
             pbRestockOrder.Name = "pbRestockOrder";
-            pbRestockOrder.Size = new Size(115, 125);
+            pbRestockOrder.Size = new Size(129, 131);
             pbRestockOrder.SizeMode = PictureBoxSizeMode.StretchImage;
             pbRestockOrder.TabIndex = 0;
             pbRestockOrder.TabStop = false;
@@ -98,9 +98,9 @@
             pbOrder.BackColor = Color.Transparent;
             pbOrder.Cursor = Cursors.Hand;
             pbOrder.Image = (Image)resources.GetObject("pbOrder.Image");
-            pbOrder.Location = new Point(675, 11);
+            pbOrder.Location = new Point(759, 12);
             pbOrder.Name = "pbOrder";
-            pbOrder.Size = new Size(115, 125);
+            pbOrder.Size = new Size(129, 131);
             pbOrder.SizeMode = PictureBoxSizeMode.StretchImage;
             pbOrder.TabIndex = 0;
             pbOrder.TabStop = false;
@@ -113,9 +113,9 @@
             pbEmployee.BackColor = Color.Transparent;
             pbEmployee.Cursor = Cursors.Hand;
             pbEmployee.Image = (Image)resources.GetObject("pbEmployee.Image");
-            pbEmployee.Location = new Point(544, 11);
+            pbEmployee.Location = new Point(612, 12);
             pbEmployee.Name = "pbEmployee";
-            pbEmployee.Size = new Size(115, 125);
+            pbEmployee.Size = new Size(129, 131);
             pbEmployee.SizeMode = PictureBoxSizeMode.StretchImage;
             pbEmployee.TabIndex = 0;
             pbEmployee.TabStop = false;
@@ -128,9 +128,9 @@
             pbProduct.BackColor = Color.Transparent;
             pbProduct.Cursor = Cursors.Hand;
             pbProduct.Image = (Image)resources.GetObject("pbProduct.Image");
-            pbProduct.Location = new Point(413, 11);
+            pbProduct.Location = new Point(465, 12);
             pbProduct.Name = "pbProduct";
-            pbProduct.Size = new Size(115, 125);
+            pbProduct.Size = new Size(129, 131);
             pbProduct.SizeMode = PictureBoxSizeMode.StretchImage;
             pbProduct.TabIndex = 0;
             pbProduct.TabStop = false;
@@ -143,9 +143,9 @@
             pbIngredient.BackColor = Color.Transparent;
             pbIngredient.Cursor = Cursors.Hand;
             pbIngredient.Image = (Image)resources.GetObject("pbIngredient.Image");
-            pbIngredient.Location = new Point(281, 11);
+            pbIngredient.Location = new Point(316, 12);
             pbIngredient.Name = "pbIngredient";
-            pbIngredient.Size = new Size(115, 125);
+            pbIngredient.Size = new Size(129, 131);
             pbIngredient.SizeMode = PictureBoxSizeMode.StretchImage;
             pbIngredient.TabIndex = 0;
             pbIngredient.TabStop = false;
@@ -158,9 +158,9 @@
             pbCustomer.BackColor = Color.Transparent;
             pbCustomer.Cursor = Cursors.Hand;
             pbCustomer.Image = (Image)resources.GetObject("pbCustomer.Image");
-            pbCustomer.Location = new Point(150, 11);
+            pbCustomer.Location = new Point(169, 12);
             pbCustomer.Name = "pbCustomer";
-            pbCustomer.Size = new Size(115, 125);
+            pbCustomer.Size = new Size(129, 131);
             pbCustomer.SizeMode = PictureBoxSizeMode.StretchImage;
             pbCustomer.TabIndex = 0;
             pbCustomer.TabStop = false;
@@ -173,9 +173,9 @@
             pbInventoryCheck.BackColor = Color.Transparent;
             pbInventoryCheck.Cursor = Cursors.Hand;
             pbInventoryCheck.Image = (Image)resources.GetObject("pbInventoryCheck.Image");
-            pbInventoryCheck.Location = new Point(936, 11);
+            pbInventoryCheck.Location = new Point(1053, 12);
             pbInventoryCheck.Name = "pbInventoryCheck";
-            pbInventoryCheck.Size = new Size(115, 125);
+            pbInventoryCheck.Size = new Size(129, 131);
             pbInventoryCheck.SizeMode = PictureBoxSizeMode.StretchImage;
             pbInventoryCheck.TabIndex = 0;
             pbInventoryCheck.TabStop = false;
@@ -185,7 +185,7 @@
             // 
             // Header
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.MenuHighlight;
             Controls.Add(pbCustomer);
@@ -199,7 +199,7 @@
             Controls.Add(pbAppIcon);
             ForeColor = SystemColors.Highlight;
             Name = "Header";
-            Size = new Size(1200, 151);
+            Size = new Size(1350, 159);
             Load += Header_Load;
             ((System.ComponentModel.ISupportInitialize)pbAppIcon).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbInventory).EndInit();

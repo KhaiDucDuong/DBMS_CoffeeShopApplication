@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShopApplication.BL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,7 +37,24 @@ namespace CoffeeShopApplication.Interfaces
 
         private void LogInForm_Load(object sender, EventArgs e)
         {
+            string userId = AccountBL.getAccount(tbUserName.Text, tbPassword.Text);
+            if (userId != "")
+            {
+                HomeForm homeForm = new HomeForm();
+                homeForm.Show();
+                this.Hide();
+            }
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string accountId = AccountBL.getAccount(tbUserName.Text, tbPassword.Text);
+            if (accountId != "")
+            {
+                HomeForm homeForm = new HomeForm();
+                homeForm.Show();
+                this.Hide();
+            }
         }
     }
 }

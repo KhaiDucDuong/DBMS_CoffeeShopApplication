@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +13,18 @@ namespace CoffeeShopApplication.DB
     public class DBConnection
     {
         private static DBConnection _instance;
-        private static SqlConnection conn = new SqlConnection(Properties.Settings.Default.DatabaseConnectionString);
+        private static SqlConnection conn;
+        
+
 
         private DBConnection()
         {
-            conn = new SqlConnection(Properties.Settings.Default.DatabaseConnectionString);
+            conn = new SqlConnection("Server=DESKTOP-GP7OAJH;Database=CoffeeShop;User Id=huy123@gmail.com;Password=0933344455;");
         }
-
+        public string GetConnectionString()
+        {
+            return conn.ConnectionString;
+        }
         public static DBConnection getInstance()
         {
             if (_instance == null)

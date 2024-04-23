@@ -18,27 +18,32 @@ namespace CoffeeShopApplication.BL
             return ds;
         }
 
-        public static string getAccount(string userName, string password) {
-            
-            
+        public static string getAccount(string userName, string password)
+        {
             try
             {
-                string sqlStr = string.Format($"SELECT * FROM Account WHERE username = '{userName}' AND password = '{password}'");
-                SqlDataAdapter sda = new SqlDataAdapter(sqlStr, Properties.Settings.Default.DatabaseConnectionString);
-                DataTable dtable = new DataTable();
-                sda.Fill(dtable);
+                string sqlStr = "SELECT accountId FROM Account WHERE username = @UserName AND password = @Password";
+                SqlParameter userNameParam = new SqlParameter("@UserName", userName);
+                SqlParameter passwordParam = new SqlParameter("@Password", password);
+                SqlParameter[] parameters = { userNameParam, passwordParam };
 
-                if(dtable.Rows.Count > 0)
+                DataSet ds = DBConnection.getInstance().ExecuteQuery(sqlStr, CommandType.Text, parameters);
+
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    return dtable.Rows[0].Field<string>(1);
+                    return ds.Tables[0].Rows[0]["accountId"].ToString();
                 }
-
+                else
+                {
+                    return "";
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("there is no account");
+                // Xử lý lỗi ở đây, ví dụ:
+                Console.WriteLine("Error occurred while getting account: " + ex.Message);
+                return "";
             }
-            return "";
         }
         public static bool addAccount(string employeeId, string passwords, string userName, string role)
         {

@@ -25,6 +25,7 @@ namespace CoffeeShopApplication.BL
             SqlParameter[] parameters = { restockBillIdParam };
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
             return ds;
+
         }
 
         public static bool addRestockBill(String date, string supplierName)
