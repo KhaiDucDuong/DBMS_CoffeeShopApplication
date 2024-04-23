@@ -293,12 +293,11 @@ AFTER INSERT
 AS
 BEGIN
     DECLARE @UserName VARCHAR(255), @Password VARCHAR(255), @Role VARCHAR(20);
-    SELECT @UserName = username, @Password = password, @Role = role FROM inserted;
-    EXEC('CREATE LOGIN [' + @UserName + '] WITH PASSWORD = ''' + @Password + '''');
+    SELECT @UserName = inserted.username, @Password = inserted.password, @Role = inserted.role FROM inserted;
+    EXEC('CREATE LOGIN [' + @UserName + '] WITH PASSWORD = ''' + @Password + ''', DEFAULT_DATABASE=[CoffeeShop], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF');
     EXEC('CREATE USER [' + @UserName + '] FOR LOGIN [' + @UserName + ']');
 	IF @Role = 'employee'
 	BEGIN
-
 		EXEC('ALTER ROLE employee ADD MEMBER [' + @UserName + ']');
 	END;
 	ELSE IF @Role = 'manager'
@@ -314,7 +313,7 @@ IF EXISTS (SELECT * FROM sys.objects WHERE [name] = N'tr_AccountAuthorizaton_onU
 GO
 CREATE TRIGGER tr_AccountAuthorizaton_onUpdate
 ON Account
-AFTER INSERT
+AFTER UPDATE
 AS
 BEGIN
     DECLARE @UserName VARCHAR(255), @Password VARCHAR(255), @Role VARCHAR(20);
