@@ -103,11 +103,11 @@ RETURN
 );
 
 -- Function findListProductByName
-IF OBJECT_ID(N'FindProducViewtByNameFunction', 'FN') IS NOT NULL
-    DROP FUNCTION FindProducViewtByNameFunction
+IF OBJECT_ID(N'FindProductViewByNameFunction', 'FN') IS NOT NULL
+    DROP FUNCTION FindProductViewByNameFunction
 GO
 
-CREATE FUNCTION FindProducViewtByNameFunction
+CREATE FUNCTION FindProductViewByNameFunction
 (
     @productName NVARCHAR(100)
 )
