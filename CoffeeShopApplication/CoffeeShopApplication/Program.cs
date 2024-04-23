@@ -1,3 +1,5 @@
+using CoffeeShopApplication.Interfaces;
+
 namespace CoffeeShopApplication
 {
     internal static class Program
