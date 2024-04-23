@@ -4,7 +4,7 @@ namespace CoffeeShopApplication
 {
     internal static class Program
     {
-        static Form mainForm = new HomeForm();
+        static Form mainForm = new LogInForm();
 
         public static Form MainForm { get => mainForm;}
         /// <summary>

@@ -12,11 +12,23 @@ namespace CoffeeShopApplication.DB
     public class DBConnection
     {
         private static DBConnection _instance;
-        private static SqlConnection conn = new SqlConnection(Properties.Settings.Default.DatabaseConnectionString);
+        private static SqlConnection conn;
+        private static String username, password;
+
+        public static string Username { set => username = value; }
+        public static string Password { set => password = value; }
+
+        public static void resetConnection()
+        {
+            conn = null;
+            username = null;
+            password = null;
+        }
 
         private DBConnection()
         {
-            conn = new SqlConnection(Properties.Settings.Default.DatabaseConnectionString);
+            if(username != null && password != null)
+                conn = new SqlConnection("Server=DESKTOP-J97NUBL;Database=CoffeeShop;User Id=" + username + ";Password=" + password + ";");
         }
 
         public static DBConnection getInstance()
@@ -30,9 +42,13 @@ namespace CoffeeShopApplication.DB
 
         public DataSet ExecuteQuery(string sqlStr, CommandType ct, SqlParameter[] parameters = null)
         {
-            if (conn.State == ConnectionState.Open)
-                conn.Close();
-            conn.Open();
+            try
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                conn.Open();
+            } catch (Exception ex) { MessageBox.Show(ex.ToString(), "Connection Error"); }
+            
             SqlCommand comm = new SqlCommand(sqlStr, conn);
             comm.CommandType = ct;
             if (parameters != null)
@@ -45,9 +61,14 @@ namespace CoffeeShopApplication.DB
 
         public bool ExecuteNonQuery(string sqlStr, CommandType ct, SqlParameter[] parameters = null)
         {
-            if (conn.State == ConnectionState.Open)
-                conn.Close();
-            conn.Open();
+            try
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                conn.Open();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString(), "Connection Error"); }
+
             SqlCommand comm = new SqlCommand(sqlStr, conn);
             comm.CommandType = ct;
             if (parameters != null)
