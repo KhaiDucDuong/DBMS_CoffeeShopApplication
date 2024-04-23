@@ -104,7 +104,7 @@ RETURN
 
 -- Function findListProductByName
 IF OBJECT_ID(N'FindProducViewtByNameFunction', 'FN') IS NOT NULL
-    DROP FUNCTION FindProducViewtByNameFunction
+    DROP FUNCTION FindProductViewByNameFunction
 GO
 
 CREATE FUNCTION FindProducViewtByNameFunction
