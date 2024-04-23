@@ -17,6 +17,29 @@ namespace CoffeeShopApplication.BL
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, null);
             return ds;
         }
+
+        public static string getAccount(string userName, string password) {
+            
+            
+            try
+            {
+                string sqlStr = string.Format($"SELECT * FROM Account WHERE username = '{userName}' AND password = '{password}'");
+                SqlDataAdapter sda = new SqlDataAdapter(sqlStr, Properties.Settings.Default.DatabaseConnectionString);
+                DataTable dtable = new DataTable();
+                sda.Fill(dtable);
+
+                if(dtable.Rows.Count > 0)
+                {
+                    return dtable.Rows[0].Field<string>(1);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("there is no account");
+            }
+            return "";
+        }
         public static bool addAccount(string employeeId, string passwords, string userName, string role)
         {
             if (employeeId == "" || passwords == "" || userName == "" || role == "")
