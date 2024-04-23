@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -14,9 +14,7 @@ namespace CoffeeShopApplication.DB
     {
         private static DBConnection _instance;
         private static SqlConnection conn;
-        
-
-
+    
         private DBConnection()
         {
             conn = new SqlConnection("Server=DESKTOP-GP7OAJH;Database=CoffeeShop;User Id=huy123@gmail.com;Password=0933344455;");
@@ -36,9 +34,13 @@ namespace CoffeeShopApplication.DB
 
         public DataSet ExecuteQuery(string sqlStr, CommandType ct, SqlParameter[] parameters = null)
         {
-            if (conn.State == ConnectionState.Open)
-                conn.Close();
-            conn.Open();
+            try
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                conn.Open();
+            } catch (Exception ex) { MessageBox.Show(ex.ToString(), "Connection Error"); }
+            
             SqlCommand comm = new SqlCommand(sqlStr, conn);
             comm.CommandType = ct;
             if (parameters != null)
@@ -51,9 +53,14 @@ namespace CoffeeShopApplication.DB
 
         public bool ExecuteNonQuery(string sqlStr, CommandType ct, SqlParameter[] parameters = null)
         {
-            if (conn.State == ConnectionState.Open)
-                conn.Close();
-            conn.Open();
+            try
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                conn.Open();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString(), "Connection Error"); }
+
             SqlCommand comm = new SqlCommand(sqlStr, conn);
             comm.CommandType = ct;
             if (parameters != null)

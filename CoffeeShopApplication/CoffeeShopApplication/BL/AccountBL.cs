@@ -20,6 +20,8 @@ namespace CoffeeShopApplication.BL
 
         public static string getAccount(string userName, string password)
         {
+
+
             try
             {
                 string sqlStr = "SELECT accountId FROM Account WHERE username = @UserName AND password = @Password";
@@ -27,15 +29,9 @@ namespace CoffeeShopApplication.BL
                 SqlParameter passwordParam = new SqlParameter("@Password", password);
                 SqlParameter[] parameters = { userNameParam, passwordParam };
 
-                DataSet ds = DBConnection.getInstance().ExecuteQuery(sqlStr, CommandType.Text, parameters);
-
-                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                if (dtable.Rows.Count > 0)
                 {
-                    return ds.Tables[0].Rows[0]["accountId"].ToString();
-                }
-                else
-                {
-                    return "";
+                    return dtable.Rows[0].ItemArray[0].ToString();
                 }
             }
             catch (Exception ex)
@@ -45,6 +41,7 @@ namespace CoffeeShopApplication.BL
                 return "";
             }
         }
+
         public static bool addAccount(string employeeId, string passwords, string userName, string role)
         {
             if (employeeId == "" || passwords == "" || userName == "" || role == "")

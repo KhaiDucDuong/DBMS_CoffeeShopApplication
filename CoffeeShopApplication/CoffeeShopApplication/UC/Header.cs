@@ -75,7 +75,8 @@ namespace CoffeeShopApplication.UC
         {
             if (topLevelForm != "HomeForm")
             {
-                Program.MainForm.Show();
+                HomeForm newForm = new HomeForm();
+                newForm.Show();
                 ((Form)this.TopLevelControl).Close();
             }
         }
@@ -86,10 +87,7 @@ namespace CoffeeShopApplication.UC
             {
                 ShopIngredientsForm newForm = new ShopIngredientsForm();
                 newForm.Show();
-                if (topLevelForm == "HomeForm")
-                    ((Form)this.TopLevelControl).Hide();
-                else
-                    ((Form)this.TopLevelControl).Close();
+                ((Form)this.TopLevelControl).Close();
             }
         }
 
@@ -99,10 +97,7 @@ namespace CoffeeShopApplication.UC
             {
                 ShopProductsForm newForm = new ShopProductsForm();
                 newForm.Show();
-                if (topLevelForm == "HomeForm")
-                    ((Form)this.TopLevelControl).Hide();
-                else
-                    ((Form)this.TopLevelControl).Close();
+                ((Form)this.TopLevelControl).Close();
             }
         }
 
@@ -112,10 +107,7 @@ namespace CoffeeShopApplication.UC
             {
                 ShopEmployeesForm newForm = new ShopEmployeesForm();
                 newForm.Show();
-                if (topLevelForm == "HomeForm")
-                    ((Form)this.TopLevelControl).Hide();
-                else
-                    ((Form)this.TopLevelControl).Close();
+                ((Form)this.TopLevelControl).Close();
             }
         }
 
@@ -125,10 +117,7 @@ namespace CoffeeShopApplication.UC
             {
                 ShopOrderBillForm newForm = new ShopOrderBillForm();
                 newForm.Show();
-                if (topLevelForm == "HomeForm")
-                    ((Form)this.TopLevelControl).Hide();
-                else
-                    ((Form)this.TopLevelControl).Close();
+                ((Form)this.TopLevelControl).Close();
             }
         }
 
@@ -138,10 +127,7 @@ namespace CoffeeShopApplication.UC
             {
                 ShopRestockBillsForm newForm = new ShopRestockBillsForm();
                 newForm.Show();
-                if (topLevelForm == "HomeForm")
-                    ((Form)this.TopLevelControl).Hide();
-                else
-                    ((Form)this.TopLevelControl).Close();
+                ((Form)this.TopLevelControl).Close();
             }
         }
 
@@ -151,10 +137,7 @@ namespace CoffeeShopApplication.UC
             {
                 ShopInventoryCheckForm newForm = new ShopInventoryCheckForm();
                 newForm.Show();
-                if (topLevelForm == "HomeForm")
-                    ((Form)this.TopLevelControl).Hide();
-                else
-                    ((Form)this.TopLevelControl).Close();
+                ((Form)this.TopLevelControl).Close();
             }
         }
 
@@ -164,10 +147,7 @@ namespace CoffeeShopApplication.UC
             {
                 ShopInventoryForm newForm = new ShopInventoryForm();
                 newForm.Show();
-                if (topLevelForm == "HomeForm")
-                    ((Form)this.TopLevelControl).Hide();
-                else
-                    ((Form)this.TopLevelControl).Close();
+                ((Form)this.TopLevelControl).Close();
             }
         }
 
@@ -177,10 +157,7 @@ namespace CoffeeShopApplication.UC
             {
                 ShopCustomersForm newForm = new ShopCustomersForm();
                 newForm.Show();
-                if (topLevelForm == "HomeForm")
-                    ((Form)this.TopLevelControl).Hide();
-                else
-                    ((Form)this.TopLevelControl).Close();
+                ((Form)this.TopLevelControl).Close();
             }
         }
 
@@ -205,8 +182,11 @@ namespace CoffeeShopApplication.UC
 
         private void pbOrder_MouseHover(object sender, EventArgs e)
         {
-            pbOrder.BackColor = Color.White;
-            pbOrder.BorderStyle = BorderStyle.FixedSingle;
+            if (topLevelForm != "ShopOrderBillForm")
+            {
+                pbOrder.BackColor = Color.White;
+                pbOrder.BorderStyle = BorderStyle.FixedSingle;
+            }   
         }
 
         private void pbRestockOrder_MouseHover(object sender, EventArgs e)
@@ -247,8 +227,11 @@ namespace CoffeeShopApplication.UC
 
         private void pbOrder_MouseLeave(object sender, EventArgs e)
         {
-            pbOrder.BackColor = Color.Transparent;
-            pbOrder.BorderStyle = BorderStyle.None;
+            if (topLevelForm != "ShopOrderBillForm")
+            {
+                pbOrder.BackColor = Color.Transparent;
+                pbOrder.BorderStyle = BorderStyle.None;
+            }
         }
 
         private void pbRestockOrder_MouseLeave(object sender, EventArgs e)
