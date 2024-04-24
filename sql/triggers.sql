@@ -320,12 +320,12 @@ BEGIN
     SELECT @UserName = username, @Password = password, @Role = role FROM inserted;
     EXEC('ALTER LOGIN [' + @UserName + '] WITH PASSWORD = ''' + @Password + '''');
     EXEC('ALTER USER [' + @UserName + '] FOR LOGIN [' + @UserName + ']');
-    IF @Role = 'employee'
+    IF @Role = 'Employee'
     BEGIN
         EXEC('ALTER ROLE manager DROP MEMBER [' + @UserName + ']');
         EXEC('ALTER ROLE employee ADD MEMBER [' + @UserName + ']');
     END;
-    ELSE IF @Role = 'manager'
+    ELSE IF @Role = 'Manager'
     BEGIN
         EXEC('ALTER ROLE employee DROP MEMBER [' + @UserName + ']');
         EXEC('ALTER ROLE manager ADD MEMBER [' + @UserName + ']');
