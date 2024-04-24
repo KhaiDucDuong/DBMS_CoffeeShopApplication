@@ -296,13 +296,14 @@ BEGIN
     SELECT @UserName = inserted.username, @Password = inserted.password, @Role = inserted.role FROM inserted;
     EXEC('CREATE LOGIN [' + @UserName + '] WITH PASSWORD = ''' + @Password + ''', DEFAULT_DATABASE=[CoffeeShop], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF');
     EXEC('CREATE USER [' + @UserName + '] FOR LOGIN [' + @UserName + ']');
-	IF @Role = 'employee'
+	IF @Role = 'Employee'
 	BEGIN
 		EXEC('ALTER ROLE employee ADD MEMBER [' + @UserName + ']');
 	END;
-	ELSE IF @Role = 'manager'
+	ELSE IF @Role = 'Manager'
 	BEGIN
 		EXEC('ALTER ROLE manager ADD MEMBER [' + @UserName + ']');
+		EXEC('ALTER SERVER ROLE sysadmin ADD MEMBER [' + @UserName + ']');
 	END;
 END;
 GO
@@ -320,15 +321,16 @@ BEGIN
     SELECT @UserName = username, @Password = password, @Role = role FROM inserted;
     EXEC('ALTER LOGIN [' + @UserName + '] WITH PASSWORD = ''' + @Password + '''');
     EXEC('ALTER USER [' + @UserName + '] FOR LOGIN [' + @UserName + ']');
-    IF @Role = 'employee'
+    IF @Role = 'Employee'
     BEGIN
         EXEC('ALTER ROLE manager DROP MEMBER [' + @UserName + ']');
         EXEC('ALTER ROLE employee ADD MEMBER [' + @UserName + ']');
     END;
-    ELSE IF @Role = 'manager'
+    ELSE IF @Role = 'Manager'
     BEGIN
         EXEC('ALTER ROLE employee DROP MEMBER [' + @UserName + ']');
         EXEC('ALTER ROLE manager ADD MEMBER [' + @UserName + ']');
+		EXEC('ALTER SERVER ROLE sysadmin ADD MEMBER [' + @UserName + ']');
     END;
 END;
 GO

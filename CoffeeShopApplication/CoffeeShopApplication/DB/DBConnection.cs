@@ -41,7 +41,7 @@ namespace CoffeeShopApplication.DB
 
         public static DBConnection getInstance()
         {
-            if (_instance == null)
+            if (_instance == null || conn == null)
             {
                 _instance = new DBConnection();
             }
