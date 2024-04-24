@@ -18,16 +18,14 @@ namespace CoffeeShopApplication.BL
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, null);
             return ds;
         }
-
-        public static DataSet findAccountByUserName(string userName)
+        public static DataSet findAccountByUserName (string username) 
         {
-            String str = "SELECT * FROM dbo.findAccountByUserNameFunction (@userName)";
-            SqlParameter accountUserNameParam = new SqlParameter("@@userName", userName);
+            String str = "SELECT * FROM dbo.findAccountByUserName(@userName)";
+            SqlParameter accountUserNameParam = new SqlParameter("@userName", username);
             SqlParameter[] parameters = { accountUserNameParam };
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
             return ds;
         }
-
         public static string getAccount(string userName, string password)
         {
             try
@@ -72,20 +70,21 @@ namespace CoffeeShopApplication.BL
             }
         }
 
-        public static bool updateAccount(string employeeId, string passwords, string userName, string role, string updateType)
+        public static bool updateAccount(string employeeId,string accountId, string passwords, string userName, string role, string isDeleted)
         {
-            if (employeeId == "" || passwords == "" || userName == "" || role == "")
+            if (employeeId == "" || accountId == "" || passwords == "" || userName == "" || role == "")
                 return false;
 
             try
             {
                 String str = "UpdateAccountProc";
                 SqlParameter EmployeeIdParam = new SqlParameter("@EmployeeId", employeeId);
+                SqlParameter accountIdParam = new SqlParameter("@AccountId", accountId);
                 SqlParameter PasswordsParam = new SqlParameter("@Passwords", passwords);
                 SqlParameter UserNameParam = new SqlParameter("@UserName", userName);
                 SqlParameter RoleParam = new SqlParameter("@Role", role);
-                SqlParameter UpdateTypeParam = new SqlParameter("@UpdateType", updateType);
-                SqlParameter[] parameters = { EmployeeIdParam, PasswordsParam, UserNameParam, RoleParam, UpdateTypeParam };
+                SqlParameter isDeletedParam = new SqlParameter("@IsDeleted", isDeleted);
+                SqlParameter[] parameters = { EmployeeIdParam, accountIdParam, PasswordsParam, UserNameParam, RoleParam, isDeletedParam };
                 bool commandResult = DBConnection.getInstance().ExecuteNonQuery(str, CommandType.StoredProcedure, parameters);
                 return commandResult;
             }

@@ -345,7 +345,7 @@
             // 
             cbRole.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbRole.FormattingEnabled = true;
-            cbRole.Items.AddRange(new object[] { "Yes", "No" });
+            cbRole.Items.AddRange(new object[] { "Employee", "Manager" });
             cbRole.Location = new Point(811, 252);
             cbRole.Margin = new Padding(4);
             cbRole.Name = "cbRole";
