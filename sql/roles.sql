@@ -36,4 +36,3 @@ Grant EXEC on DeleteInventoryCheckDetailsProc to employee;
 go
 
 Grant Exec, Select, Delete, Update, Insert, Delete on database::CoffeeShop to manager WITH GRANT OPTION;
-go
