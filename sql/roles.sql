@@ -41,6 +41,13 @@ Grant select on dbo.FindProductByNameFunction to employee;
 Grant select on dbo.FindProductViewByNameFunction to employee;
 Grant select on dbo.findRestockBillByIdFunction to employee;
 
+GRANT select on GetOrderBillDetailsView  to employee;
+GRANT select on GetRestockBillView   to employee;
+GRANT select on GetInventoryCheckView   to employee;
+GRANT select on GetInventoryCheckDetailsView  to employee;
+GRANT select on ListProductView  to employee;
+
+
 go
 Grant Exec, Select, Delete, Update, Insert, Delete on database::CoffeeShop to manager WITH GRANT OPTION;
 Grant select on dbo.findAccountByUserNameFunction to manager WITH GRANT OPTION;
