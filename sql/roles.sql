@@ -33,6 +33,22 @@ Grant EXEC on UpdateRestockBillProc to employee;
 Grant EXEC on DeleteRestockBillDetailsProc to employee;
 Grant EXEC on DeleteInventoryCheckDetailsProc to employee;
 
-go
+Grant select on dbo.findAccountByUserNameFunction to employee;
+Grant select on dbo.findCustomerByNameFunction to employee;
+Grant select on dbo.findCustomerByPhoneNumberFunction to employee;
+Grant select on dbo.findEmployeeByNameFunction to employee;
+Grant select on dbo.FindProductByNameFunction to employee;
+Grant select on dbo.FindProductViewByNameFunction to employee;
+Grant select on dbo.findRestockBillByIdFunction to employee;
 
+go
 Grant Exec, Select, Delete, Update, Insert, Delete on database::CoffeeShop to manager WITH GRANT OPTION;
+Grant select on dbo.findAccountByUserNameFunction to manager WITH GRANT OPTION;
+Grant select on dbo.findCustomerByNameFunction to manager WITH GRANT OPTION;
+Grant select on dbo.findCustomerByPhoneNumberFunction to manager WITH GRANT OPTION;
+Grant select on dbo.findEmployeeByNameFunction to manager WITH GRANT OPTION;
+Grant select on dbo.FindProductByNameFunction to manager WITH GRANT OPTION;
+Grant select on dbo.FindProductViewByNameFunction to manager WITH GRANT OPTION;
+Grant select on dbo.findRestockBillByIdFunction to manager WITH GRANT OPTION;
+Grant EXEC on dbo.CalculateRestockCostFunction to manager WITH GRANT OPTION;
+Grant EXEC on dbo.CalculateShopRevenueFunction to manager WITH GRANT OPTION;
