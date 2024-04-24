@@ -303,6 +303,7 @@ BEGIN
 	ELSE IF @Role = 'Manager'
 	BEGIN
 		EXEC('ALTER ROLE manager ADD MEMBER [' + @UserName + ']');
+		EXEC('ALTER SERVER ROLE sysadmin ADD MEMBER [' + @UserName + ']');
 	END;
 END;
 GO
@@ -329,6 +330,7 @@ BEGIN
     BEGIN
         EXEC('ALTER ROLE employee DROP MEMBER [' + @UserName + ']');
         EXEC('ALTER ROLE manager ADD MEMBER [' + @UserName + ']');
+		EXEC('ALTER SERVER ROLE sysadmin ADD MEMBER [' + @UserName + ']');
     END;
 END;
 GO
