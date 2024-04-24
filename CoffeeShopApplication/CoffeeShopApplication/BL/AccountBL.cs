@@ -30,7 +30,7 @@ namespace CoffeeShopApplication.BL
 
                 if (dtable.Rows.Count > 0)
                 {
-                    return dtable.Rows[0].ItemArray[0].ToString();
+                    return dtable.Rows[0].ItemArray[1].ToString();
                 }
             }
             catch (Exception ex)
