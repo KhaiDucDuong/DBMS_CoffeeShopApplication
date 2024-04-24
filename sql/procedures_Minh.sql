@@ -82,7 +82,7 @@ BEGIN
 		UPDATE Account
 		SET password = @Passwords,
 			updatedAt = GETDATE(),
-			role = @Role,
+			role = @Role
 		WHERE accountId = @AccountId;
 	END;
 	ELSE
