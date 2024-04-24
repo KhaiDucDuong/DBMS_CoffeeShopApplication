@@ -81,13 +81,17 @@ BEGIN
 	BEGIN
 		UPDATE Account
 		SET password = @Passwords,
-			updatedAt = GETDATE()
+			updatedAt = GETDATE(),
+			role = @Role
 		WHERE accountId = @AccountId;
 	END;
 	ELSE
 	BEGIN
 		UPDATE Account
-		SET isDeleted = 1
+		SET password = @Passwords,
+			updatedAt = GETDATE(),
+			role = @Role
+			isDeleted = 1
 		WHERE accountId = @AccountId;
 	END;
 END;
