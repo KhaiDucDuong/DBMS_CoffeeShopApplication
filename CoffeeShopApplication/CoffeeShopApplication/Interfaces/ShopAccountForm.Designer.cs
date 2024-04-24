@@ -43,7 +43,6 @@
             tbPassword = new TextBox();
             pbRefresh = new PictureBox();
             pbSave = new PictureBox();
-            pbAdd = new PictureBox();
             pbSearch = new PictureBox();
             tbSearch = new TextBox();
             dgvAccount = new DataGridView();
@@ -62,7 +61,6 @@
             ((System.ComponentModel.ISupportInitialize)pbDelete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbAdd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvAccount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
@@ -72,7 +70,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(33, 340);
+            label4.Location = new Point(29, 324);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(195, 41);
@@ -81,12 +79,13 @@
             // 
             // tbEmployeeId
             // 
+            tbEmployeeId.Enabled = false;
             tbEmployeeId.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbEmployeeId.Location = new Point(261, 332);
+            tbEmployeeId.Location = new Point(232, 316);
             tbEmployeeId.Margin = new Padding(4);
             tbEmployeeId.Multiline = true;
             tbEmployeeId.Name = "tbEmployeeId";
-            tbEmployeeId.Size = new Size(461, 56);
+            tbEmployeeId.Size = new Size(410, 54);
             tbEmployeeId.TabIndex = 59;
             // 
             // header1
@@ -96,16 +95,16 @@
             header1.Location = new Point(0, -3);
             header1.Margin = new Padding(4, 3, 4, 3);
             header1.Name = "header1";
-            header1.Size = new Size(1350, 159);
+            header1.Size = new Size(1200, 151);
             header1.TabIndex = 9;
             // 
             // pbDelete
             // 
             pbDelete.Image = (Image)resources.GetObject("pbDelete.Image");
-            pbDelete.Location = new Point(1128, 413);
+            pbDelete.Location = new Point(1003, 393);
             pbDelete.Margin = new Padding(4);
             pbDelete.Name = "pbDelete";
-            pbDelete.Size = new Size(71, 77);
+            pbDelete.Size = new Size(63, 73);
             pbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
             pbDelete.TabIndex = 58;
             pbDelete.TabStop = false;
@@ -114,7 +113,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(33, 265);
+            label3.Location = new Point(29, 252);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(173, 41);
@@ -123,12 +122,13 @@
             // 
             // tbAccountId
             // 
+            tbAccountId.Enabled = false;
             tbAccountId.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbAccountId.Location = new Point(261, 261);
+            tbAccountId.Location = new Point(232, 249);
             tbAccountId.Margin = new Padding(4);
             tbAccountId.Multiline = true;
             tbAccountId.Name = "tbAccountId";
-            tbAccountId.Size = new Size(461, 56);
+            tbAccountId.Size = new Size(410, 54);
             tbAccountId.TabIndex = 46;
             // 
             // cbDeleted
@@ -136,17 +136,17 @@
             cbDeleted.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbDeleted.FormattingEnabled = true;
             cbDeleted.Items.AddRange(new object[] { "Yes", "No" });
-            cbDeleted.Location = new Point(1128, 332);
+            cbDeleted.Location = new Point(1003, 316);
             cbDeleted.Margin = new Padding(4);
             cbDeleted.Name = "cbDeleted";
-            cbDeleted.Size = new Size(187, 49);
+            cbDeleted.Size = new Size(167, 49);
             cbDeleted.TabIndex = 47;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(964, 335);
+            label5.Location = new Point(857, 319);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(128, 41);
@@ -157,7 +157,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(33, 201);
+            label1.Location = new Point(29, 191);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(150, 41);
@@ -167,31 +167,30 @@
             // tbUserName
             // 
             tbUserName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbUserName.Location = new Point(912, 196);
+            tbUserName.Location = new Point(811, 187);
             tbUserName.Margin = new Padding(4);
             tbUserName.Multiline = true;
             tbUserName.Name = "tbUserName";
-            tbUserName.Size = new Size(403, 56);
+            tbUserName.Size = new Size(359, 54);
             tbUserName.TabIndex = 45;
             // 
             // tbPassword
             // 
-            tbPassword.Enabled = false;
             tbPassword.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbPassword.Location = new Point(261, 196);
+            tbPassword.Location = new Point(232, 187);
             tbPassword.Margin = new Padding(4);
             tbPassword.Multiline = true;
             tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(461, 56);
+            tbPassword.Size = new Size(410, 54);
             tbPassword.TabIndex = 44;
             // 
             // pbRefresh
             // 
             pbRefresh.Image = (Image)resources.GetObject("pbRefresh.Image");
-            pbRefresh.Location = new Point(1245, 413);
+            pbRefresh.Location = new Point(1107, 393);
             pbRefresh.Margin = new Padding(4);
             pbRefresh.Name = "pbRefresh";
-            pbRefresh.Size = new Size(71, 77);
+            pbRefresh.Size = new Size(63, 73);
             pbRefresh.SizeMode = PictureBoxSizeMode.StretchImage;
             pbRefresh.TabIndex = 50;
             pbRefresh.TabStop = false;
@@ -200,46 +199,35 @@
             // pbSave
             // 
             pbSave.Image = (Image)resources.GetObject("pbSave.Image");
-            pbSave.Location = new Point(1002, 413);
+            pbSave.Location = new Point(906, 393);
             pbSave.Margin = new Padding(4);
             pbSave.Name = "pbSave";
-            pbSave.Size = new Size(71, 77);
+            pbSave.Size = new Size(63, 73);
             pbSave.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSave.TabIndex = 51;
             pbSave.TabStop = false;
-            // 
-            // pbAdd
-            // 
-            pbAdd.Image = (Image)resources.GetObject("pbAdd.Image");
-            pbAdd.InitialImage = (Image)resources.GetObject("pbAdd.InitialImage");
-            pbAdd.Location = new Point(881, 413);
-            pbAdd.Margin = new Padding(4);
-            pbAdd.Name = "pbAdd";
-            pbAdd.Size = new Size(71, 77);
-            pbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbAdd.TabIndex = 52;
-            pbAdd.TabStop = false;
+            pbSave.Click += pbSave_Click;
             // 
             // pbSearch
             // 
             pbSearch.Image = Properties.Resources.search1;
-            pbSearch.Location = new Point(758, 413);
+            pbSearch.Location = new Point(811, 393);
             pbSearch.Margin = new Padding(4);
             pbSearch.Name = "pbSearch";
-            pbSearch.Size = new Size(71, 77);
+            pbSearch.Size = new Size(63, 73);
             pbSearch.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSearch.TabIndex = 53;
             pbSearch.TabStop = false;
-            pbSearch.Click += pbSave_Click;
+            pbSearch.Click += pbSearch_Click;
             // 
             // tbSearch
             // 
             tbSearch.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold);
             tbSearch.ForeColor = SystemColors.ScrollBar;
-            tbSearch.Location = new Point(17, 413);
+            tbSearch.Location = new Point(15, 401);
             tbSearch.Margin = new Padding(4, 3, 4, 3);
             tbSearch.Name = "tbSearch";
-            tbSearch.Size = new Size(705, 65);
+            tbSearch.Size = new Size(766, 65);
             tbSearch.TabIndex = 48;
             tbSearch.Text = "Search";
             // 
@@ -252,14 +240,15 @@
             dgvAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAccount.Columns.AddRange(new DataGridViewColumn[] { accountIdDataGridViewTextBoxColumn, employeeIdDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, roleDataGridViewTextBoxColumn, createdAtDataGridViewTextBoxColumn, updatedAtDataGridViewTextBoxColumn, isDeletedDataGridViewCheckBoxColumn });
             dgvAccount.DataSource = accountBindingSource;
-            dgvAccount.Location = new Point(17, 532);
+            dgvAccount.Location = new Point(15, 507);
             dgvAccount.Margin = new Padding(4);
             dgvAccount.MultiSelect = false;
             dgvAccount.Name = "dgvAccount";
             dgvAccount.ReadOnly = true;
             dgvAccount.RowHeadersWidth = 51;
-            dgvAccount.Size = new Size(1318, 496);
+            dgvAccount.Size = new Size(1172, 472);
             dgvAccount.TabIndex = 49;
+            dgvAccount.CellContentClick += dgvAccount_CellContentClick;
             // 
             // accountIdDataGridViewTextBoxColumn
             // 
@@ -334,7 +323,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(731, 199);
+            label2.Location = new Point(650, 190);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(164, 41);
@@ -345,7 +334,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(757, 265);
+            label6.Location = new Point(673, 252);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(80, 41);
@@ -357,17 +346,17 @@
             cbRole.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbRole.FormattingEnabled = true;
             cbRole.Items.AddRange(new object[] { "Yes", "No" });
-            cbRole.Location = new Point(903, 265);
+            cbRole.Location = new Point(811, 252);
             cbRole.Margin = new Padding(4);
             cbRole.Name = "cbRole";
-            cbRole.Size = new Size(412, 49);
+            cbRole.Size = new Size(359, 49);
             cbRole.TabIndex = 63;
             // 
             // ShopAccountForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1350, 1042);
+            ClientSize = new Size(1200, 992);
             Controls.Add(cbRole);
             Controls.Add(label4);
             Controls.Add(tbEmployeeId);
@@ -382,7 +371,6 @@
             Controls.Add(pbRefresh);
             Controls.Add(pbSave);
             Controls.Add(header1);
-            Controls.Add(pbAdd);
             Controls.Add(pbSearch);
             Controls.Add(tbSearch);
             Controls.Add(dgvAccount);
@@ -391,10 +379,10 @@
             Name = "ShopAccountForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ShopAccountForm";
+            Load += ShopAccountForm_Load;
             ((System.ComponentModel.ISupportInitialize)pbDelete).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbRefresh).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSave).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbAdd).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbSearch).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvAccount).EndInit();
             ((System.ComponentModel.ISupportInitialize)accountBindingSource).EndInit();
@@ -416,7 +404,6 @@
         private TextBox tbPassword;
         private PictureBox pbRefresh;
         private PictureBox pbSave;
-        private PictureBox pbAdd;
         private PictureBox pbSearch;
         private TextBox tbSearch;
         private DataGridView dgvAccount;

@@ -22,19 +22,6 @@ namespace CoffeeShopApplication
             InitializeComponent();
             componentLocations = new Point[5];
         }
-        private void ShopEmployeesForm_Load(object sender, EventArgs e)
-        {
-            this.ControlBox = false;
-            DataSet accountDataSet = AccountBL.getAllAccount();
-            dgvAccount.DataSource = accountDataSet.Tables[0].DefaultView;
-            componentLocations[0] = pbSearch.Location;
-            componentLocations[1] = pbAdd.Location;
-            componentLocations[2] = pbSave.Location;
-            componentLocations[3] = pbDelete.Location;
-            componentLocations[4] = pbRefresh.Location;
-            pbSize = pbSearch.Size;
-        }
-
         private void pbSave_Click(object sender, EventArgs e)
         {
             String accountId, userName, employeeId, role, password, isDeleted;
@@ -44,7 +31,7 @@ namespace CoffeeShopApplication
             password = tbPassword.Text;
             role = cbRole.Text;
             isDeleted = cbDeleted.Text;
-            if(isDeleted != "yes")
+            if (isDeleted != "yes")
             {
                 if (AccountBL.updateAccount(employeeId, password, userName, role, "update"))
                 {
@@ -54,7 +41,7 @@ namespace CoffeeShopApplication
                 }
                 else
                     MessageBox.Show("Failed to update a row! Check your input data!", "Action result");
-            }   
+            }
             else
             {
                 if (AccountBL.updateAccount(employeeId, password, userName, role, "delete"))
@@ -95,6 +82,27 @@ namespace CoffeeShopApplication
                     default:
                         break;
                 }
+            }
+        }
+
+        private void ShopAccountForm_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+            DataSet accountDataSet = AccountBL.getAllAccount();
+            dgvAccount.DataSource = accountDataSet.Tables[0].DefaultView;
+            componentLocations[0] = pbSearch.Location;
+            componentLocations[2] = pbSave.Location;
+            componentLocations[3] = pbDelete.Location;
+            componentLocations[4] = pbRefresh.Location;
+            pbSize = pbSearch.Size;
+        }
+
+        private void pbSearch_Click(object sender, EventArgs e)
+        {
+            if (tbSearch.Text.Length > 0)
+            {
+                DataSet accountDataSet = AccountBL.findAccountByUserName(tbSearch.Text);
+                dgvAccount.DataSource = accountDataSet.Tables[0].DefaultView;
             }
         }
     }

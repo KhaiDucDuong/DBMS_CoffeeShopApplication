@@ -21,5 +21,12 @@ namespace CoffeeShopApplication
             Program.MainForm.Show();
             this.Close();
         }
+
+        private void pbAccounts_Click(object sender, EventArgs e)
+        {
+            Form newForm = new ShopAccountForm();
+            newForm.Show();
+            this.Hide();
+        }
     }
 }

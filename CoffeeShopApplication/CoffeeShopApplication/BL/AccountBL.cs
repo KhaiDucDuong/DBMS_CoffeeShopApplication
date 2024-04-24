@@ -19,6 +19,15 @@ namespace CoffeeShopApplication.BL
             return ds;
         }
 
+        public static DataSet findAccountByUserName(string userName)
+        {
+            String str = "SELECT * FROM dbo.findAccountByUserNameFunction (@userName)";
+            SqlParameter accountUserNameParam = new SqlParameter("@@userName", userName);
+            SqlParameter[] parameters = { accountUserNameParam };
+            DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
+            return ds;
+        }
+
         public static string getAccount(string userName, string password)
         {
             try
