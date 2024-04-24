@@ -1,3 +1,4 @@
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,15 +15,30 @@ namespace CoffeeShopApplication.DB
     {
         private static DBConnection _instance;
         private static SqlConnection conn;
-    
+        private static string username, password;
+        private const string serverName = "LAPTOP-1PAHHD1P";
+
+        public static string Username { set => username = value; }
+        public static string Password { set => password = value; }
+
+        public static void resetConnection()
+        {
+            conn = null;
+            Username = null;
+            Password = null;
+        }
+
         private DBConnection()
         {
-            conn = new SqlConnection("Server=DESKTOP-GP7OAJH;Database=CoffeeShop;User Id=huy123@gmail.com;Password=0933344455;");
+            if (username != null && password != null)
+                conn = new SqlConnection("Server=" + serverName +  ";Database=CoffeeShop;User Id=" + username + ";Password=" + password + ";");
         }
+
         public string GetConnectionString()
         {
             return conn.ConnectionString;
         }
+
         public static DBConnection getInstance()
         {
             if (_instance == null)
@@ -47,7 +63,11 @@ namespace CoffeeShopApplication.DB
                 comm.Parameters.AddRange(parameters);
             SqlDataAdapter da = new SqlDataAdapter(comm);
             DataSet ds = new DataSet();
-            da.Fill(ds);
+            try
+            {
+                da.Fill(ds);
+
+            } catch (Exception ex) { MessageBox.Show(ex.ToString(), "ERROR MESSAGE"); }
             return ds;
         }
 

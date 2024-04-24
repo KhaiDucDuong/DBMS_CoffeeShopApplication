@@ -5,6 +5,9 @@
     <Compile Update="Interfaces\LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Interfaces\ShopCalculateFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Interfaces\ShopOrderBillDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>

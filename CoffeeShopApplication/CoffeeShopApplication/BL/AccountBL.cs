@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,14 +21,12 @@ namespace CoffeeShopApplication.BL
 
         public static string getAccount(string userName, string password)
         {
-
-
             try
             {
-                string sqlStr = "SELECT accountId FROM Account WHERE username = @UserName AND password = @Password";
-                SqlParameter userNameParam = new SqlParameter("@UserName", userName);
-                SqlParameter passwordParam = new SqlParameter("@Password", password);
-                SqlParameter[] parameters = { userNameParam, passwordParam };
+                string sqlStr = string.Format($"SELECT * FROM Account WHERE username = '{userName}' AND password = '{password}'");
+                DataTable dtable = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(sqlStr, Properties.Settings.Default.DatabaseConnectionString);
+                sda.Fill(dtable);
 
                 if (dtable.Rows.Count > 0)
                 {
@@ -38,8 +37,8 @@ namespace CoffeeShopApplication.BL
             {
                 // Xử lý lỗi ở đây, ví dụ:
                 Console.WriteLine("Error occurred while getting account: " + ex.Message);
-                return "";
             }
+            return "";
         }
 
         public static bool addAccount(string employeeId, string passwords, string userName, string role)

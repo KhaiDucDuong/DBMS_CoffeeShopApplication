@@ -25,7 +25,10 @@ namespace CoffeeShopApplication.Interfaces
         {
             this.ControlBox = false;
             DataSet employeetDataSet = EmployeeBL.getAllEmployee();
-            dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+            if(employeetDataSet.Tables.Count > 0)
+            {
+                dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+            }
             componentLocations[0] = pbSearch.Location;
             componentLocations[1] = pbAdd.Location;
             componentLocations[2] = pbSave.Location;
@@ -98,7 +101,10 @@ namespace CoffeeShopApplication.Interfaces
         private void pbRefresh_Click(object sender, EventArgs e)
         {
             DataSet employeetDataSet = EmployeeBL.getAllEmployee();
-            dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+            if (employeetDataSet.Tables.Count > 0)
+            {
+                dgvEmployee.DataSource = employeetDataSet.Tables[0].DefaultView;
+            }
         }
 
         private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)

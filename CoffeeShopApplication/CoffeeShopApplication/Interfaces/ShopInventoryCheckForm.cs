@@ -28,7 +28,10 @@ namespace CoffeeShopApplication.Interfaces
         {
             dtpCheckDate.Value = DateTime.Parse(dtpCheckDate.Value.ToString());
             DataSet inventoryCheckDataSet = InventoryCheckBL.getAllInventoryCheckFromView();
-            dgvInventoryCheck.DataSource = inventoryCheckDataSet.Tables[0].DefaultView;
+            if (inventoryCheckDataSet.Tables.Count > 0)
+            {
+                dgvInventoryCheck.DataSource = inventoryCheckDataSet.Tables[0].DefaultView;
+            }
             inventoryDataSet = InventoryBL.getAllInventory();
             cbInventory.DataSource = inventoryDataSet.Tables[0];
             cbInventory.DisplayMember = "name";
@@ -197,7 +200,10 @@ namespace CoffeeShopApplication.Interfaces
         private void pbRefresh_Click(object sender, EventArgs e)
         {
             DataSet inventoryCheckDataSet = InventoryCheckBL.getAllInventoryCheckFromView();
-            dgvInventoryCheck.DataSource = inventoryCheckDataSet.Tables[0].DefaultView;
+            if (inventoryCheckDataSet.Tables.Count > 0)
+            {
+                dgvInventoryCheck.DataSource = inventoryCheckDataSet.Tables[0].DefaultView;
+            }
         }
 
         private void dgvInventoryCheck_CellContentClick(object sender, DataGridViewCellEventArgs e)
