@@ -74,7 +74,6 @@ CREATE PROCEDURE UpdateAccountProc
 	@Passwords VarChar(255),
 	@UserName VarChar(255),
 	@Role VarChar(20),
-	@IsDeleted BIT,
 	@UpdateType VarChar(20)
 AS
 BEGIN
@@ -83,7 +82,6 @@ BEGIN
 		UPDATE Account
 		SET password = @Passwords,
 			updatedAt = GETDATE(),
-			isDeleted = @IsDeleted,
 		WHERE accountId = @AccountId;
 	END;
 	ELSE
