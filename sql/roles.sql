@@ -33,6 +33,9 @@ Grant EXEC on UpdateRestockBillProc to employee;
 Grant EXEC on DeleteRestockBillDetailsProc to employee;
 Grant EXEC on DeleteInventoryCheckDetailsProc to employee;
 
+
+Grant EXEC on findEmployeeByNameFunction to employee;
+
 go
 
 Grant Exec, Select, Delete, Update, Insert, Delete on database::CoffeeShop to manager WITH GRANT OPTION;
