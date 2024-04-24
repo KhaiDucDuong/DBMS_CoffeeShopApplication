@@ -83,6 +83,21 @@ RETURN (
     SELECT * FROM Customer WHERE customerName LIKE '%' + @CustomerName + '%'
 );
 GO
+-- Function Find Account By User Name
+IF OBJECT_ID(N'findAccountByUserNameFunction', 'FN') IS NOT NULL
+    DROP FUNCTION findAccountByUserNameFunction
+GO
+
+CREATE FUNCTION findAccountByUserNameFunction 
+( 
+    @userName NVARCHAR(100)
+)
+RETURNS TABLE
+AS
+RETURN (
+    SELECT * FROM Account WHERE username LIKE '%' + @userName + '%' AND isDeleted = 0
+);
+GO
 
 -- 4. Function findProductByName
 IF OBJECT_ID(N'FindProductByNameFunction', 'FN') IS NOT NULL
