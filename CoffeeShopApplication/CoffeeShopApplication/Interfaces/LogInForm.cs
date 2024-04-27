@@ -46,6 +46,7 @@ namespace CoffeeShopApplication.Interfaces
             String accountId = AccountBL.getAccount(tbUserName.Text, tbPassword.Text);
             if (accountId != "")
             {
+                Program.loggedInEmployeeId = accountId;
                 DBConnection.Username = tbUserName.Text;
                 DBConnection.Password = tbPassword.Text;
                 HomeForm homeForm = new HomeForm();

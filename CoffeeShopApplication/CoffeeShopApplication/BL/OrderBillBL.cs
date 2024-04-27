@@ -30,7 +30,7 @@ namespace CoffeeShopApplication.BL
         }
         public static bool addOrderBill(string CustomerId, string EmployeeId, string RewardPointsUsed, string initialBill, string finalBill)
         {
-            if (CustomerId == "" || EmployeeId == "" || RewardPointsUsed == "" || initialBill == "" || finalBill == "")
+            if (CustomerId == "" || EmployeeId == "" || RewardPointsUsed == "")
                 return false;
 
             try

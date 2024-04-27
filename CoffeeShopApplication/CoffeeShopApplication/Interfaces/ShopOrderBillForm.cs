@@ -27,6 +27,7 @@ namespace CoffeeShopApplication
 
         private void ShopOrderBillForm_Load(object sender, EventArgs e)
         {
+            tbEmployeeId.Text = Program.loggedInEmployeeId;
             this.ControlBox = false;
             DataSet orderBillDataSet = OrderBillBL.getAllOrderBill();
             dgvOrderBill.DataSource = orderBillDataSet.Tables[0].DefaultView;

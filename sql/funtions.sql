@@ -1,10 +1,12 @@
 ﻿USE CoffeeShop
 GO
 -- 1. Function findEmployeeByName
-IF OBJECT_ID(N'findEmployeeByNameFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'findEmployeeByNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION findEmployeeByNameFunction
 GO
-
 CREATE FUNCTION findEmployeeByNameFunction 
 ( 
     @employeeName NVARCHAR(100)
@@ -53,7 +55,10 @@ RETURN (
 GO
 
 -- 3. Function findCustomerByPhoneNumber
-IF OBJECT_ID(N'findCustomerByPhoneNumberFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'findCustomerByPhoneNumberFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION findCustomerByPhoneNumberFunction
 GO
 
@@ -69,8 +74,11 @@ RETURN (
 GO
 
 --new Customer Function
-IF OBJECT_ID(N'findCustomerByNameFunction', 'FN') IS NOT NULL
-DROP FUNCTION findCustomerByNameFunction
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'findCustomerByNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
+    DROP FUNCTION findCustomerByNameFunction
 GO
 
 CREATE FUNCTION findCustomerByNameFunction
@@ -84,7 +92,10 @@ RETURN (
 );
 GO
 -- Function Find Account By User Name
-IF OBJECT_ID(N'findAccountByUserNameFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'findAccountByUserNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION findAccountByUserNameFunction
 GO
 
@@ -100,7 +111,10 @@ RETURN (
 GO
 
 -- 4. Function findProductByName
-IF OBJECT_ID(N'FindProductByNameFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'FindProductByNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION FindProductByNameFunction
 GO
 
@@ -116,9 +130,13 @@ RETURN
     FROM Product
     WHERE productName LIKE '%' + @productName + '%' AND isDeleted = 0
 );
+GO
 
 -- Function findListProductByName
-IF OBJECT_ID(N'FindProductViewByNameFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'FindProductViewByNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION FindProductViewByNameFunction
 GO
 
@@ -138,10 +156,12 @@ RETURN
 GO
 
 -- 5. Function findInventoryByName
-IF OBJECT_ID(N'FindInventoryByNameFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'FindInventoryByNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION FindInventoryByNameFunction
 GO
-
 CREATE FUNCTION FindInventoryByNameFunction
 (
     @inventoryName NVARCHAR(100)
@@ -154,9 +174,12 @@ RETURN
     FROM Inventory
     WHERE name LIKE '%' + @inventoryName + '%'
 );
-
+GO
 -- 6. Function findInventoryCheckByDate
-IF OBJECT_ID(N'FindInventoryCheckByDateFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'FindInventoryCheckByDateFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION FindInventoryCheckByDateFunction
 GO
 
@@ -173,7 +196,11 @@ RETURN
     WHERE CAST(checkDate AS DATE) = CAST(@checkDate AS DATE)
 );
 --6.1. Function findInventoryCheckByDateFromView
-IF OBJECT_ID(N'FindInventoryCheckByDateFromViewFunction', 'FN') IS NOT NULL
+GO
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'FindInventoryCheckByDateFromViewFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION FindInventoryCheckByDateFromViewFunction
 GO
 
@@ -189,8 +216,13 @@ RETURN
     FROM getInventoryCheckView
     WHERE CAST([check date] AS DATE) = CAST(@checkDate AS DATE)
 );
+GO
 -- 7. Function findIngredientByName
-IF OBJECT_ID(N'FindIngredientByNameFunction', 'FN') IS NOT NULL
+GO
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'FindIngredientByNameFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION FindIngredientByNameFunction
 GO
 
@@ -204,12 +236,15 @@ RETURN
 (
     SELECT ingredientId, ingredientName, manufacturerName, updatedAt
     FROM Ingredient
-    WHERE isDeleted = 0 AND FREETEXT(ingredientName, @ingredientName)
+    WHERE isDeleted = 0 AND ingredientName LIKE '%' + @ingredientName + '%'
 );
 GO
 
 -- 8. Function CalculateShopRevenueFunction
-IF OBJECT_ID(N'CalculateShopRevenueFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'CalculateShopRevenueFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION CalculateShopRevenueFunction
 GO
 
@@ -229,9 +264,13 @@ BEGIN
 
     RETURN @revenue
 END
+GO
 
 -- 9. Function CalculateRestockCostFunction
-IF OBJECT_ID(N'CalculateRestockCostFunction', 'FN') IS NOT NULL
+IF EXISTS (
+    SELECT * FROM sysobjects WHERE id = object_id(N'CalculateRestockCostFunction') 
+    AND xtype IN (N'FN', N'IF', N'TF')
+)
     DROP FUNCTION CalculateRestockCostFunction
 GO
 

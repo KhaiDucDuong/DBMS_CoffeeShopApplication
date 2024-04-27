@@ -1,10 +1,12 @@
 using CoffeeShopApplication.Interfaces;
+using System.Drawing.Text;
 
 namespace CoffeeShopApplication
 {
     internal static class Program
     {
         static Form mainForm = new LogInForm();
+        static public String loggedInEmployeeId;
 
         public static Form MainForm { get => mainForm;}
         /// <summary>

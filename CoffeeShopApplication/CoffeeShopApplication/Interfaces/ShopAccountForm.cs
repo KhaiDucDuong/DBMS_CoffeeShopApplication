@@ -58,7 +58,11 @@ namespace CoffeeShopApplication
         private void pbRefresh_Click(object sender, EventArgs e)
         {
             DataSet accountDataSet = AccountBL.getAllAccount();
-            dgvAccount.DataSource = accountDataSet.Tables[0].DefaultView;
+            try
+            {
+                dgvAccount.DataSource = accountDataSet.Tables[0].DefaultView;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString(), "ERROR"); }
         }
         private void dgvAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -89,7 +93,10 @@ namespace CoffeeShopApplication
         {
             this.ControlBox = false;
             DataSet accountDataSet = AccountBL.getAllAccount();
-            dgvAccount.DataSource = accountDataSet.Tables[0].DefaultView;
+            try
+            {
+                dgvAccount.DataSource = accountDataSet.Tables[0].DefaultView;
+            } catch(Exception ex) { MessageBox.Show(ex.ToString(), "ERROR"); }
             componentLocations[0] = pbSearch.Location;
             componentLocations[2] = pbSave.Location;
             componentLocations[3] = pbDelete.Location;

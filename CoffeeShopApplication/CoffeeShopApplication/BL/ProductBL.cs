@@ -38,7 +38,7 @@ namespace CoffeeShopApplication.BL
 
         public static DataSet findProductsViewByName(String productName)
         {
-            String str = "SELECT * FROM dbo.FindProducViewtByNameFunction(@productName)";
+            String str = "SELECT * FROM dbo.FindProductViewByNameFunction(@productName)";
             SqlParameter productNameParam = new SqlParameter("@productName", productName);
             SqlParameter[] parameters = { productNameParam };
             DataSet ds = DBConnection.getInstance().ExecuteQuery(str, CommandType.Text, parameters);
